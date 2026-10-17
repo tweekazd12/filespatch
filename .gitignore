@@ -1,0 +1,19 @@
+# Build outputs
+build/
+out*/
+*.dll
+*.exe
+*.obj
+*.o
+*.lib
+*.exp
+*.def
+# ...but keep hand-written sample defs if any are added under docs/
+!docs/**/*.def
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
