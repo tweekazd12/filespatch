@@ -1,0 +1,19 @@
+ncg5 = .rsrc (resource directory) containing an RT_MANIFEST
+
+Resource dir header bytes @0x00..0x40 (nested IMAGE_RESOURCE_DIRECTORY):
+  LANGID 0x0409 (en-US) seen at 0x40; data-entry fields point at the XML blob.
+  Manifest payload starts at file offset 0x60, length 381 bytes.
+
+Extracted manifest -> ncg5_manifest.xml :
+
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level='asInvoker' uiAccess='false' />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>
+

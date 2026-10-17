@@ -1,0 +1,478 @@
+?Flush@FOutputDevice@@UAEXXZ
+public: virtual void __thiscall FOutputDevice::Flush(void)
+??1FOutputDevice@@UAE@XZ
+public: virtual __thiscall FOutputDevice::~FOutputDevice(void)
+?Release@FOutputDevice@@UAEXXZ
+public: virtual void __thiscall FOutputDevice::Release(void)
+?ToggleLog@FOutputDevice@@UAEHW4EName@@@Z
+public: virtual int __thiscall FOutputDevice::ToggleLog(enum EName)
+?IsSuppressed@FOutputDevice@@UBEHW4EName@@@Z
+public: virtual int __thiscall FOutputDevice::IsSuppressed(enum EName) const
+??0FOutputDevice@@QAE@XZ
+public: __thiscall FOutputDevice::FOutputDevice(void)
+?GetThread@FCrashDump@@QBEABUThreadInfo@1@XZ
+public: struct FCrashDump::ThreadInfo const & __thiscall FCrashDump::GetThread(void) const
+?Itself@FCrashDump@@SAAAV1@XZ
+public: static class FCrashDump & __cdecl FCrashDump::Itself(void)
+?winGetSizeUNICODE@@YAHPBD@Z
+int __cdecl winGetSizeUNICODE(char const *)
+?GExec@@3PAVFExec@@A
+class FExec *GExec
+?GIsSlowTask@@3HA
+int GIsSlowTask
+?appLoadFileToArray@@YAHAAV?$TArray@E@@PB_WPAVFFileManager@@@Z
+int __cdecl appLoadFileToArray(class TArray<unsigned char> &, wchar_t const *, class FFileManager *)
+?GL2NPGEPacking@@3HA
+int GL2NPGEPacking
+?appStrncpy@@YAPA_WPA_WPB_WH@Z
+wchar_t * __cdecl appStrncpy(wchar_t *, wchar_t const *, int)
+?GErrorMsg@@3PA_WA
+wchar_t *GErrorMsg
+?GL2ShowCMViewer@@3HA
+int GL2ShowCMViewer
+?GetTransientPackage@UObject@@SAPAVUPackage@@XZ
+public: static class UPackage * __cdecl UObject::GetTransientPackage(void)
+?StaticShutdownAfterError@UObject@@SAXXZ
+public: static void __cdecl UObject::StaticShutdownAfterError(void)
+?StaticConstructObject@UObject@@SAPAV1@PAVUClass@@PAV1@VFName@@K1PAVFOutputDevice@@1@Z
+public: static class UObject * __cdecl UObject::StaticConstructObject(class UClass *, class UObject *, class FName, unsigned long, class UObject *, class FOutputDevice *, class UObject *)
+?StaticLoadClass@UObject@@SAPAVUClass@@PAV2@PAV1@PB_W2KPAVUPackageMap@@@Z
+public: static class UClass * __cdecl UObject::StaticLoadClass(class UClass *, class UObject *, wchar_t const *, wchar_t const *, unsigned long, class UPackageMap *)
+?GL2MinFrameOptionTerrain@@3HA
+int GL2MinFrameOptionTerrain
+?GL2MinFrameOptionTextue@@3HA
+int GL2MinFrameOptionTextue
+?appUnwindMsgf@@YAXPB_WZZ
+void __cdecl appUnwindMsgf(wchar_t const *, ...)
+?GScriptCycles@@3HA
+int GScriptCycles
+?appStrncat@@YAPA_WPA_WPB_WH@Z
+wchar_t * __cdecl appStrncat(wchar_t *, wchar_t const *, int)
+?winToANSI@@YAPADPADPB_WH@Z
+char * __cdecl winToANSI(char *, wchar_t const *, int)
+?ThrowErrorAndTerminate@FCrashDump@@QAEXXZ
+public: void __thiscall FCrashDump::ThrowErrorAndTerminate(void)
+?appClipboardCopy@@YAXPB_W@Z
+void __cdecl appClipboardCopy(wchar_t const *)
+?GPrivateMemory@@3KA
+unsigned long GPrivateMemory
+?appStrcpy@@YAPA_WPA_WPB_W@Z
+wchar_t * __cdecl appStrcpy(wchar_t *, wchar_t const *)
+?GL2MinFrameOptionDeco@@3HA
+int GL2MinFrameOptionDeco
+?appCmdLine@@YAPB_WXZ
+wchar_t const * __cdecl appCmdLine(void)
+?GL2UseLazyMode@@3HA
+int GL2UseLazyMode
+?GFileManager@@3PAVFFileManager@@A
+class FFileManager *GFileManager
+?GIsL2PawnViewer@@3HA
+int GIsL2PawnViewer
+?appTimestamp@@YAPB_WXZ
+wchar_t const * __cdecl appTimestamp(void)
+?GRunningOS@@3W4ERunningOS@@A
+enum ERunningOS GRunningOS
+?GL2ClientOrder@@3HA
+int GL2ClientOrder
+?GWindowManager@@3PAVUSubsystem@@A
+class USubsystem *GWindowManager
+?GL2UseReplayManager@@3HA
+int GL2UseReplayManager
+?ParseParam@@YAHPB_W0@Z
+int __cdecl ParseParam(wchar_t const *, wchar_t const *)
+?GLog@@3PAVFOutputDevice@@A
+class FOutputDevice *GLog
+?GL2IsFirstRun@@3HA
+int GL2IsFirstRun
+?GIsStarted@@3HA
+int GIsStarted
+?GIsGuarded@@3HA
+int GIsGuarded
+?GIsRunning@@3HA
+int GIsRunning
+?GError@@3PAVFOutputDeviceError@@A
+class FOutputDeviceError *GError
+?GLogHook2@@3PAVFOutputDevice@@A
+class FOutputDevice *GLogHook2
+?GPageSize@@3KA
+unsigned long GPageSize
+?GCheckGrpLog@@3PAVFOutputDevice@@A
+class FOutputDevice *GCheckGrpLog
+?appBaseDir@@YAPB_WXZ
+wchar_t const * __cdecl appBaseDir(void)
+?GL2NVPerfHUD@@3HA
+int GL2NVPerfHUD
+?GSecondsPerCycleQPF@@3NA
+double GSecondsPerCycleQPF
+?GL2OriginPawnCR@@3MA
+float GL2OriginPawnCR
+?GL2ShaderWater@@3HA
+int GL2ShaderWater
+?GConfig@@3PAVFConfigCacheIni@@A
+class FConfigCacheIni *GConfig
+?appStrcmp@@YAHPB_W0@Z
+int __cdecl appStrcmp(wchar_t const *, wchar_t const *)
+?appRequestExit@@YAXH@Z
+void __cdecl appRequestExit(int)
+?appSystemTime@@YAXAAH0000000@Z
+void __cdecl appSystemTime(int &, int &, int &, int &, int &, int &, int &, int &)
+?appAtoi@@YAHPB_W@Z
+int __cdecl appAtoi(wchar_t const *)
+?Printf@FString@@SA?AV1@PB_WZZ
+public: static class FString __cdecl FString::Printf(wchar_t const *, ...)
+?appInit@@YAXPB_W0PAVFMalloc@@PAVFOutputDevice@@PAVFOutputDeviceError@@PAVFFeedbackContext@@PAVFFileManager@@HPAVFCodec@@@Z
+void __cdecl appInit(wchar_t const *, wchar_t const *, class FMalloc *, class FOutputDevice *, class FOutputDeviceError *, class FFeedbackContext *, class FFileManager *, int, class FCodec *)
+?GL2PawnClippingMaxRangeRate@@3MA
+float GL2PawnClippingMaxRangeRate
+?CreateFileWriter@FFileManagerWindows@@UAEPAVFArchive@@PB_WKPAVFOutputDevice@@@Z
+public: virtual class FArchive * __thiscall FFileManagerWindows::CreateFileWriter(wchar_t const *, unsigned long, class FOutputDevice *)
+?CreateFileReader@FFileManagerWindows@@UAEPAVFArchive@@PB_WKPAVFOutputDevice@@@Z
+public: virtual class FArchive * __thiscall FFileManagerWindows::CreateFileReader(wchar_t const *, unsigned long, class FOutputDevice *)
+?Clear@L2ThreadStats@@QAEXXZ
+public: void __thiscall L2ThreadStats::Clear(void)
+?appStrfind@@YAPB_WPB_W0@Z
+wchar_t const * __cdecl appStrfind(wchar_t const *, wchar_t const *)
+?GIsEditor@@3HA
+int GIsEditor
+?GSEKScreenY@@3HA
+int GSEKScreenY
+?GNull@@3PAVFOutputDevice@@A
+class FOutputDevice *GNull
+?appSecondsQPC@@YANXZ
+double __cdecl appSecondsQPC(void)
+?appDumpAlloc@@YAXXZ
+void __cdecl appDumpAlloc(void)
+?GObjAvailable@UObject@@1V?$TArray@H@@A
+protected: static class TArray<int> UObject::GObjAvailable
+?GFullCheckMsg@@3PA_WA
+wchar_t *GFullCheckMsg
+?GIsBenchmarking@@3HA
+int GIsBenchmarking
+?appHandleExceptionInfo@@YAXABVL2Exception@@@Z
+void __cdecl appHandleExceptionInfo(class L2Exception const &)
+?GMalloc@@3PAVFMalloc@@A
+class FMalloc *GMalloc
+?GL2LogTimePrecision@@3HA
+int GL2LogTimePrecision
+?appStrcat@@YAPA_WPA_WPB_W@Z
+wchar_t * __cdecl appStrcat(wchar_t *, wchar_t const *)
+?GL2SkipDeviceResetWhenDeviceLost@@3HA
+int GL2SkipDeviceResetWhenDeviceLost
+?GUserIni@@3PA_WA
+wchar_t *GUserIni
+?GIsL2Projector@@3HA
+int GIsL2Projector
+?appStrlen@@YAHPB_W@Z
+int __cdecl appStrlen(wchar_t const *)
+?GIsRequestingExit@@3HA
+int GIsRequestingExit
+?GL2DESCodec@@3PAVFCodec@@A
+class FCodec *GL2DESCodec
+?appExit@@YAXXZ
+void __cdecl appExit(void)
+?GL2GPUSkinning@@3HA
+int GL2GPUSkinning
+?Parse@@YAHPB_W0AAVFName@@@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, class FName &)
+?Parse@@YAHPB_W0PA_WHH@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, wchar_t *, int, int)
+?Parse@@YAHPB_W0AAH@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, int &)
+?Parse@@YAHPB_W0AAVFString@@H@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, class FString &, int)
+?GL2RunningFirstHandle@@3PAXA
+void *GL2RunningFirstHandle
+?GErrorHist@@3PA_WA
+wchar_t *GErrorHist
+?GL2CheckResource@@3HA
+int GL2CheckResource
+?self@FCrashDump@@0V1@A
+private: static class FCrashDump FCrashDump::self
+?GL2TerrainCR@@3MA
+float GL2TerrainCR
+?GLazyLoad@@3HA
+int GLazyLoad
+?appGetVarArgs@@YAHPA_WHAAPB_W@Z
+int __cdecl appGetVarArgs(wchar_t *, int, wchar_t const *&)
+?appUnwindf@@YAXPB_WZZ
+void __cdecl appUnwindf(wchar_t const *, ...)
+?GL2UpdateSlowlyState@@3HA
+int GL2UpdateSlowlyState
+?PrivateStaticClass@UClass@@0V1@A
+private: static class UClass UClass::PrivateStaticClass
+?ParseObject@@YAHPB_W0PAVUClass@@AAPAVUObject@@PAV2@@Z
+int __cdecl ParseObject(wchar_t const *, wchar_t const *, class UClass *, class UObject *&, class UObject *)
+?appPreExit@@YAXXZ
+void __cdecl appPreExit(void)
+?winGetSizeANSI@@YAHPB_W@Z
+int __cdecl winGetSizeANSI(wchar_t const *)
+?GIsServer@@3HA
+int GIsServer
+?GL2TargetFPS@@3MA
+float GL2TargetFPS
+?appSprintf@@YAHPA_WPB_WZZ
+int __cdecl appSprintf(wchar_t *, wchar_t const *, ...)
+?GL2DeviceResetMaxTryNum@@3HA
+int GL2DeviceResetMaxTryNum
+??_7FOutputDevice@@6B@
+const FOutputDevice::`vftable'
+?GIsL2NetLog@@3HA
+int GIsL2NetLog
+?appCyclesQPC@@YA_KXZ
+unsigned __int64 __cdecl appCyclesQPC(void)
+??1L2HangDetectMarker@@QAE@XZ
+public: __thiscall L2HangDetectMarker::~L2HangDetectMarker(void)
+??0L2HangDetectMarker@@QAE@PB_W@Z
+public: __thiscall L2HangDetectMarker::L2HangDetectMarker(wchar_t const *)
+?GL2MinFrameOptionEffect@@3HA
+int GL2MinFrameOptionEffect
+?ExportToOutputDevice@UExporter@@SAXPAVUObject@@PAV1@AAVFOutputDevice@@PB_WH@Z
+public: static void __cdecl UExporter::ExportToOutputDevice(class UObject *, class UExporter *, class FOutputDevice &, wchar_t const *, int)
+?GNetworkLog@@3PAVFOutputDevice@@A
+class FOutputDevice *GNetworkLog
+?GLogHook@@3PAVFOutputDevice@@A
+class FOutputDevice *GLogHook
+?GL2ReplayMode@@3HA
+int GL2ReplayMode
+?GMachineDirectX@@3PA_WA
+wchar_t *GMachineDirectX
+?appRand@@YAHXZ
+int __cdecl appRand(void)
+??_7FL2RSACodec@@6B@
+const FL2RSACodec::`vftable'
+?DeleteDirectory@FFileManagerGeneric@@UAEHPB_WHH@Z
+public: virtual int __thiscall FFileManagerGeneric::DeleteDirectory(wchar_t const *, int, int)
+?MakeDirectory@FFileManagerGeneric@@UAEHPB_WH@Z
+public: virtual int __thiscall FFileManagerGeneric::MakeDirectory(wchar_t const *, int)
+?Copy@FFileManagerGeneric@@UAEKPB_W0HHHKPAUFCopyProgress@@@Z
+public: virtual unsigned long __thiscall FFileManagerGeneric::Copy(wchar_t const *, wchar_t const *, int, int, int, unsigned long, struct FCopyProgress *)
+?appSqrt@@YANN@Z
+double __cdecl appSqrt(double)
+?LocalizeGeneral@@YAPB_WPB_W00@Z
+wchar_t const * __cdecl LocalizeGeneral(wchar_t const *, wchar_t const *, wchar_t const *)
+?LocalizeGeneral@@YAPB_WPBDPB_W1@Z
+wchar_t const * __cdecl LocalizeGeneral(char const *, wchar_t const *, wchar_t const *)
+?appStricmp@@YAHPB_W0@Z
+int __cdecl appStricmp(wchar_t const *, wchar_t const *)
+?GIsClient@@3HA
+int GIsClient
+?GL2SaveLog@@3HA
+int GL2SaveLog
+?Logf2@FOutputDevice@@QAAXAAPB_WZZ
+public: void __cdecl FOutputDevice::Logf2(wchar_t const *&, ...)
+?Logf2@FOutputDevice@@QAAXW4EName@@AAPB_WZZ
+public: void __cdecl FOutputDevice::Logf2(enum EName, wchar_t const *&, ...)
+?Logf@FOutputDevice@@QAAXPB_WZZ
+public: void __cdecl FOutputDevice::Logf(wchar_t const *, ...)
+?Logf@FOutputDevice@@QAAXW4EName@@PB_WZZ
+public: void __cdecl FOutputDevice::Logf(enum EName, wchar_t const *, ...)
+?Log@FOutputDevice@@QAEXW4EName@@PB_W@Z
+public: void __thiscall FOutputDevice::Log(enum EName, wchar_t const *)
+?appFromAnsi@@YAPB_WPBDPA_W@Z
+wchar_t const * __cdecl appFromAnsi(char const *, wchar_t *)
+?GSEKScreenX@@3HA
+int GSEKScreenX
+?GIni@@3PA_WA
+wchar_t *GIni
+?appFailAssert@@YAXPBD0H@Z
+void __cdecl appFailAssert(char const *, char const *, int)
+?GUnicodeOS@@3HA
+int GUnicodeOS
+?appSleep@@YAXM@Z
+void __cdecl appSleep(float)
+??0FName@@QAE@PB_WW4EFindName@@@Z
+public: __thiscall FName::FName(wchar_t const *, enum EFindName)
+?appGetSystemErrorMessage@@YAPB_WH@Z
+wchar_t const * __cdecl appGetSystemErrorMessage(int)
+?GL2TextureDetail@@3HA
+int GL2TextureDetail
+?GIsScriptable@@3HA
+int GIsScriptable
+?GL2UseSteam@@3HA
+int GL2UseSteam
+?SetStaticMeshLodCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetStaticMeshLodCR(float)
+?SetStaticMeshCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetStaticMeshCR(float)
+?SetActorCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetActorCR(float)
+?GetTerrainCRByIndex@L2Configuration@@QAE_NHAAM0000@Z
+public: bool __thiscall L2Configuration::GetTerrainCRByIndex(int, float &, float &, float &, float &, float &)
+?GIsCriticalError@@3HA
+int GIsCriticalError
+?Remove@FArray@@QAEXHHH@Z
+public: void __thiscall FArray::Remove(int, int, int)
+?GL2RenderDeco@@3HA
+int GL2RenderDeco
+?GExceptionInfo@@3PA_WA
+wchar_t *GExceptionInfo
+?appPackage@@YAPB_WXZ
+wchar_t const * __cdecl appPackage(void)
+?GInitLocalTime@@3NA
+double GInitLocalTime
+?winToUNICODE@@YAPA_WPA_WPBDH@Z
+wchar_t * __cdecl winToUNICODE(wchar_t *, char const *, int)
+?appMsgf@@YA?BHHPB_WZZ
+int const __cdecl appMsgf(int, wchar_t const *, ...)
+?GColorBits@@3HA
+int GColorBits
+?GLanguageType@@3HA
+int GLanguageType
+?GL2EnableMemDump@@3HA
+int GL2EnableMemDump
+??_7FArchive@@6B@
+const FArchive::`vftable'
+?GL2KeyboardMove2023@@3HA
+int GL2KeyboardMove2023
+?GMachineVideo@@3PA_WA
+wchar_t *GMachineVideo
+?LocalizeError@@YAPB_WPBDPB_W1@Z
+wchar_t const * __cdecl LocalizeError(char const *, wchar_t const *, wchar_t const *)
+?PrivateStaticClass@UPackage@@0VUClass@@A
+private: static class UClass UPackage::PrivateStaticClass
+?GObjObjects@UObject@@1V?$TArray@PAVUObject@@@@A
+protected: static class TArray<class UObject *> UObject::GObjObjects
+?appRandInit@@YAXH@Z
+void __cdecl appRandInit(int)
+?ParseCommand@@YAHPAPB_WPB_W@Z
+int __cdecl ParseCommand(wchar_t const **, wchar_t const *)
+?GetObj@?$TSingleton@VL2ThreadUtil@@@@SAAAVL2ThreadUtil@@XZ
+public: static class L2ThreadUtil & __cdecl TSingleton<class L2ThreadUtil>::GetObj(void)
+?GetObj@?$TSingleton@VL2Configuration@@@@SAAAVL2Configuration@@XZ
+public: static class L2Configuration & __cdecl TSingleton<class L2Configuration>::GetObj(void)
+?GetObj@?$TSingleton@VL2UserHardWareInformation@@@@SAAAVL2UserHardWareInformation@@XZ
+public: static class L2UserHardWareInformation & __cdecl TSingleton<class L2UserHardWareInformation>::GetObj(void)
+??0FFileManagerGeneric@@QAE@XZ
+public: __thiscall FFileManagerGeneric::FFileManagerGeneric(void)
+??1FL2RSACodec@@QAE@XZ
+public: __thiscall FL2RSACodec::~FL2RSACodec(void)
+??0FL2RSACodec@@QAE@XZ
+public: __thiscall FL2RSACodec::FL2RSACodec(void)
+?SetVideoMemory@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetVideoMemory(unsigned long)
+?SetDXRevision@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetDXRevision(unsigned long)
+?SetDXVersion@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetDXVersion(unsigned long)
+?GetPawnViewerPlayRate@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetPawnViewerPlayRate(void) const
+?SetDepthShadow@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetDepthShadow(int)
+?GetThreadStats@L2ThreadUtil@@QAEPAVL2ThreadStats@@H@Z
+public: class L2ThreadStats * __thiscall L2ThreadUtil::GetThreadStats(int)
+?IsA@UObject@@QBEHPAVUClass@@@Z
+public: int __thiscall UObject::IsA(class UClass *) const
+?GetDefaultActor@UClass@@QAEPAVAActor@@XZ
+public: class AActor * __thiscall UClass::GetDefaultActor(void)
+?GetDefaultObject@UClass@@QAEPAVUObject@@XZ
+public: class UObject * __thiscall UClass::GetDefaultObject(void)
+?StaticClass@UClass@@SAPAV1@XZ
+public: static class UClass * __cdecl UClass::StaticClass(void)
+?GetSuperStruct@UStruct@@QBEPAV1@XZ
+public: class UStruct * __thiscall UStruct::GetSuperStruct(void) const
+?IsChildOf@UStruct@@QBEHPBV1@@Z
+public: int __thiscall UStruct::IsChildOf(class UStruct const *) const
+?StaticClass@UPackage@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UPackage::StaticClass(void)
+?GetOuter@UObject@@QBEPAV1@XZ
+public: class UObject * __thiscall UObject::GetOuter(void) const
+?GetName@UObject@@QBEPB_WXZ
+public: wchar_t const * __thiscall UObject::GetName(void) const
+?GetGObjAvailableCnt@UObject@@SAHXZ
+public: static int __cdecl UObject::GetGObjAvailableCnt(void)
+?GetGObjObjectsCnt@UObject@@SAHXZ
+public: static int __cdecl UObject::GetGObjObjectsCnt(void)
+?SafeSuppressed@FName@@SAHW4EName@@@Z
+public: static int __cdecl FName::SafeSuppressed(enum EName)
+?SafeString@FName@@SAPB_WW4EName@@@Z
+public: static wchar_t const * __cdecl FName::SafeString(enum EName)
+??0FName@@QAE@XZ
+public: __thiscall FName::FName(void)
+??0FName@@QAE@W4EName@@@Z
+public: __thiscall FName::FName(enum EName)
+??DFName@@QBEPB_WXZ
+public: wchar_t const * __thiscall FName::operator*(void) const
+?Len@FString@@QBEHXZ
+public: int __thiscall FString::Len(void) const
+??HFString@@QBE?AV0@ABV0@@Z
+public: class FString __thiscall FString::operator+(class FString const &) const
+??HFString@@QBE?AV0@PB_W@Z
+public: class FString __thiscall FString::operator+(wchar_t const *) const
+??YFString@@QAEAAV0@PB_W@Z
+public: class FString & __thiscall FString::operator+=(wchar_t const *)
+??DFString@@QBEPB_WXZ
+public: wchar_t const * __thiscall FString::operator*(void) const
+??1FString@@QAE@XZ
+public: __thiscall FString::~FString(void)
+??4FString@@QAEAAV0@$$QAV0@@Z
+public: class FString & __thiscall FString::operator=(class FString &&)
+??4FString@@QAEAAV0@ABV0@@Z
+public: class FString & __thiscall FString::operator=(class FString const &)
+??4FString@@QAEAAV0@PB_W@Z
+public: class FString & __thiscall FString::operator=(wchar_t const *)
+??0FString@@QAE@PB_W@Z
+public: __thiscall FString::FString(wchar_t const *)
+??0FString@@QAE@ABV0@@Z
+public: __thiscall FString::FString(class FString const &)
+??0FString@@QAE@XZ
+public: __thiscall FString::FString(void)
+??0FArray@@IAE@HH@Z
+protected: __thiscall FArray::FArray(int, int)
+??1FArray@@QAE@XZ
+public: __thiscall FArray::~FArray(void)
+??0FArray@@QAE@XZ
+public: __thiscall FArray::FArray(void)
+?Empty@FArray@@QAEXHH@Z
+public: void __thiscall FArray::Empty(int, int)
+?Add@FArray@@QAEHHH@Z
+public: int __thiscall FArray::Add(int, int)
+?Num@FArray@@QBEHXZ
+public: int __thiscall FArray::Num(void) const
+??0FArchive@@QAE@XZ
+public: __thiscall FArchive::FArchive(void)
+?GetCurrentEncryptVersion@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::GetCurrentEncryptVersion(void)
+?GetCriticalSection@FArchive@@UAEPAVFCriticalSection@@XZ
+public: virtual class FCriticalSection * __thiscall FArchive::GetCriticalSection(void)
+?GetError@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::GetError(void)
+?Flush@FArchive@@UAEXXZ
+public: virtual void __thiscall FArchive::Flush(void)
+?Precache@FArchive@@UAEXH@Z
+public: virtual void __thiscall FArchive::Precache(int)
+?DetachRoughLoader@FArchive@@UAEXPAVFRoughLoader@@@Z
+public: virtual void __thiscall FArchive::DetachRoughLoader(class FRoughLoader *)
+?AttachRoughLoader@FArchive@@UAEXPAVFRoughLoader@@@Z
+public: virtual void __thiscall FArchive::AttachRoughLoader(class FRoughLoader *)
+?DetachLazyLoader@FArchive@@UAEXPAVFLazyLoader@@@Z
+public: virtual void __thiscall FArchive::DetachLazyLoader(class FLazyLoader *)
+?AttachLazyLoader@FArchive@@UAEXPAVFLazyLoader@@@Z
+public: virtual void __thiscall FArchive::AttachLazyLoader(class FLazyLoader *)
+?SetStopper@FArchive@@UAEXH@Z
+public: virtual void __thiscall FArchive::SetStopper(int)
+?AtStopper@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::AtStopper(void)
+?AtEnd@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::AtEnd(void)
+?MapObject@FArchive@@UAEHPAVUObject@@@Z
+public: virtual int __thiscall FArchive::MapObject(class UObject *)
+?MapName@FArchive@@UAEHPAVFName@@@Z
+public: virtual int __thiscall FArchive::MapName(class FName *)
+??6FArchive@@UAEAAV0@AAPAVUObject@@@Z
+public: virtual class FArchive & __thiscall FArchive::operator<<(class UObject *&)
+??6FArchive@@UAEAAV0@AAVFName@@@Z
+public: virtual class FArchive & __thiscall FArchive::operator<<(class FName &)
+?CountBytes@FArchive@@UAEXKK@Z
+public: virtual void __thiscall FArchive::CountBytes(unsigned long, unsigned long)
+?Preload@FArchive@@UAEXPAVUObject@@@Z
+public: virtual void __thiscall FArchive::Preload(class UObject *)
+?SerializeInt@FArchive@@UAEXAAKK@Z
+public: virtual void __thiscall FArchive::SerializeInt(unsigned long &, unsigned long)
+?SerializeBits@FArchive@@UAEXPAXH@Z
+public: virtual void __thiscall FArchive::SerializeBits(void *, int)
+??1FArchive@@UAE@XZ
+public: virtual __thiscall FArchive::~FArchive(void)
+?debugf@@YAXW4EName@@PB_WZZ
+void __cdecl debugf(enum EName, wchar_t const *, ...)
+?debugf@@YAXPB_WZZ
+void __cdecl debugf(wchar_t const *, ...)

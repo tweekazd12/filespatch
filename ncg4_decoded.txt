@@ -1,0 +1,14 @@
+ncg4 = debug directory (IMAGE_DEBUG_DIRECTORY) + CodeView/other raw debug data
+
+entry 0 @0x00: Type= 2 (CODEVIEW  ) TimeDateStamp=0x6abccfb3 Size=0x4d    RVA=0x5f9070 FilePtr=0x1d6270
+entry 1 @0x1c: Type=12 (VC_FEATURE) TimeDateStamp=0x6abccfb3 Size=0x14    RVA=0x5f90bd FilePtr=0x1d62bd
+entry 2 @0x38: Type=13 (POGO      ) TimeDateStamp=0x6abccfb3 Size=0x2e0   RVA=0x5f90d1 FilePtr=0x1d62d1
+entry 3 @0x54: Type=14 (ILTCG     ) TimeDateStamp=0x6abccfb3 Size=0x0     RVA=0x5f93b1 FilePtr=0x1d65b1
+
+(4 debug directory entries; the bytes after them are the data these entries point to:
+ the CodeView 'RSDS' blob, VC_FEATURE counts, POGO section layout, etc.)
+
+CodeView record (entry 0, type CODEVIEW), signature 'RSDS':
+  PDB GUID : 2CDAF256-4085-4FFE-B7B3-968C7D06F537
+  Age      : 1
+  PDB path : D:\Work\JP_D10_260826_Patch\Client\Core\Lib\Core.pdb

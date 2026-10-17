@@ -1,0 +1,5819 @@
+# Core.dll - public API surface (demangled)
+
+Recovered **2835** symbol signatures from the ncg2/ncg3 name pool
+(the 240 that L2.exe imports are a subset). Grouped by owning class.
+
+## Subsystems at a glance
+- **Memory management**: FMemCache (26), FMemStack (9), FMemStackFrame (17), FArray (23), FMemMark (5)
+- **File / package I/O**: FFileStream (18), ULinker (17), UFactory (17), UExporter (18), FConfigCacheIni (39), FArchive (46)
+- **Logging / diagnostics**: FOutputDevice (17), FCrashDump (15), L2HangDetectMarker (17)
+- **Object/reflection system (Unreal)**: UObject (523), UClass (31), UStruct (34), UField (21), UProperty (26), UFunction (20), UState (19), UEnum (16), FName (32), UPackage (14), UPackageMap (24)
+- **Strings & text**: FString (83)
+- **Networking / serialization**: FBitReader (20), FBitWriter (17), FArchive (46), UPackageMap (24)
+- **Config / hardware / security**: L2Configuration (68), L2UserHardWareInformation (77), L2ThreadUtil (20)
+
+## Security / anti-cheat ('Frost' etc.)
+- `?GIsGuarded@@3HA
+int GIsGuarded`
+- `?GL2UseTenProtect@@3HA
+int GL2UseTenProtect`
+- `?GetFrostSecureModule@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetFrostSecureModule(void) const`
+- `?SetFrostSecureModule@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetFrostSecureModule(int)`
+
+---
+
+## Full class breakdown (classes with >=4 members)
+
+### (global/free functions)  (814)
+- ??0?$TArray@_W@@QAE@ABV0@@Z
+public: __thiscall TArray<wchar_t>::TArray<wchar_t>(class TArray<wchar_t> const &)
+- ??0?$TArray@_W@@QAE@H@Z
+public: __thiscall TArray<wchar_t>::TArray<wchar_t>(int)
+- ??0?$TArray@_W@@QAE@W4ENoInit@@@Z
+public: __thiscall TArray<wchar_t>::TArray<wchar_t>(enum ENoInit)
+- ??0?$TArray@_W@@QAE@XZ
+public: __thiscall TArray<wchar_t>::TArray<wchar_t>(void)
+- ??0?$TMap@VFString@@VFConfigFile@@@@QAE@ABV0@@Z
+public: __thiscall TMap<class FString, class FConfigFile>::TMap<class FString, class FConfigFile>(class TMap<class FString, class FConfigFile> const &)
+- ??0?$TMap@VFString@@VFConfigFile@@@@QAE@XZ
+public: __thiscall TMap<class FString, class FConfigFile>::TMap<class FString, class FConfigFile>(void)
+- ??0?$TMapBase@VFString@@VFConfigFile@@@@QAE@ABV0@@Z
+public: __thiscall TMapBase<class FString, class FConfigFile>::TMapBase<class FString, class FConfigFile>(class TMapBase<class FString, class FConfigFile> const &)
+- ??0?$TMapBase@VFString@@VFConfigFile@@@@QAE@XZ
+public: __thiscall TMapBase<class FString, class FConfigFile>::TMapBase<class FString, class FConfigFile>(void)
+- ??0?$TSingleton@VL2Configuration@@@@IAE@XZ
+protected: __thiscall TSingleton<class L2Configuration>::TSingleton<class L2Configuration>(void)
+- ??0?$TSingleton@VL2Configuration@@@@QAE@ABV0@@Z
+public: __thiscall TSingleton<class L2Configuration>::TSingleton<class L2Configuration>(class TSingleton<class L2Configuration> const &)
+- ??0?$TSingleton@VL2GlobalVariables@@@@IAE@XZ
+protected: __thiscall TSingleton<class L2GlobalVariables>::TSingleton<class L2GlobalVariables>(void)
+- ??0?$TSingleton@VL2GlobalVariables@@@@QAE@ABV0@@Z
+public: __thiscall TSingleton<class L2GlobalVariables>::TSingleton<class L2GlobalVariables>(class TSingleton<class L2GlobalVariables> const &)
+- ??0?$TSingleton@VL2ThreadUtil@@@@IAE@XZ
+protected: __thiscall TSingleton<class L2ThreadUtil>::TSingleton<class L2ThreadUtil>(void)
+- ??0?$TSingleton@VL2ThreadUtil@@@@QAE@ABV0@@Z
+public: __thiscall TSingleton<class L2ThreadUtil>::TSingleton<class L2ThreadUtil>(class TSingleton<class L2ThreadUtil> const &)
+- ??0?$TSingleton@VL2UserHardWareInformation@@@@IAE@XZ
+protected: __thiscall TSingleton<class L2UserHardWareInformation>::TSingleton<class L2UserHardWareInformation>(void)
+- ??0?$TSingleton@VL2UserHardWareInformation@@@@QAE@ABV0@@Z
+public: __thiscall TSingleton<class L2UserHardWareInformation>::TSingleton<class L2UserHardWareInformation>(class TSingleton<class L2UserHardWareInformation> const &)
+- ??1?$TArray@_W@@QAE@XZ
+public: __thiscall TArray<wchar_t>::~TArray<wchar_t>(void)
+- ??1?$TMap@VFString@@VFConfigFile@@@@QAE@XZ
+public: __thiscall TMap<class FString, class FConfigFile>::~TMap<class FString, class FConfigFile>(void)
+- ??1?$TMapBase@VFString@@VFConfigFile@@@@QAE@XZ
+public: __thiscall TMapBase<class FString, class FConfigFile>::~TMapBase<class FString, class FConfigFile>(void)
+- ??1?$TSingleton@VL2Configuration@@@@MAE@XZ
+protected: virtual __thiscall TSingleton<class L2Configuration>::~TSingleton<class L2Configuration>(void)
+- ??1?$TSingleton@VL2GlobalVariables@@@@MAE@XZ
+protected: virtual __thiscall TSingleton<class L2GlobalVariables>::~TSingleton<class L2GlobalVariables>(void)
+- ??1?$TSingleton@VL2ThreadUtil@@@@MAE@XZ
+protected: virtual __thiscall TSingleton<class L2ThreadUtil>::~TSingleton<class L2ThreadUtil>(void)
+- ??1?$TSingleton@VL2UserHardWareInformation@@@@MAE@XZ
+protected: virtual __thiscall TSingleton<class L2UserHardWareInformation>::~TSingleton<class L2UserHardWareInformation>(void)
+- ??4?$TArray@_W@@QAEAAV0@ABV0@@Z
+public: class TArray<wchar_t> & __thiscall TArray<wchar_t>::operator=(class TArray<wchar_t> const &)
+- ??4?$TMap@VFString@@VFConfigFile@@@@QAEAAV0@ABV0@@Z
+public: class TMap<class FString, class FConfigFile> & __thiscall TMap<class FString, class FConfigFile>::operator=(class TMap<class FString, class FConfigFile> const &)
+- ??4?$TMapBase@VFString@@VFConfigFile@@@@QAEAAV0@ABV0@@Z
+public: class TMapBase<class FString, class FConfigFile> & __thiscall TMapBase<class FString, class FConfigFile>::operator=(class TMapBase<class FString, class FConfigFile> const &)
+- ??4?$TSingleton@VL2Configuration@@@@QAEAAV0@ABV0@@Z
+public: class TSingleton<class L2Configuration> & __thiscall TSingleton<class L2Configuration>::operator=(class TSingleton<class L2Configuration> const &)
+- ??4?$TSingleton@VL2GlobalVariables@@@@QAEAAV0@ABV0@@Z
+public: class TSingleton<class L2GlobalVariables> & __thiscall TSingleton<class L2GlobalVariables>::operator=(class TSingleton<class L2GlobalVariables> const &)
+- ??4?$TSingleton@VL2ThreadUtil@@@@QAEAAV0@ABV0@@Z
+public: class TSingleton<class L2ThreadUtil> & __thiscall TSingleton<class L2ThreadUtil>::operator=(class TSingleton<class L2ThreadUtil> const &)
+- ??4?$TSingleton@VL2UserHardWareInformation@@@@QAEAAV0@ABV0@@Z
+public: class TSingleton<class L2UserHardWareInformation> & __thiscall TSingleton<class L2UserHardWareInformation>::operator=(class TSingleton<class L2UserHardWareInformation> const &)
+- ??6@YAAAVFArchive@@AAV0@AAUFLabelEntry@@@Z
+class FArchive & __cdecl operator<<(class FArchive &, struct FLabelEntry &)
+- ??6@YAAAVFArchive@@AAV0@AAUFNameEntry@@@Z
+class FArchive & __cdecl operator<<(class FArchive &, struct FNameEntry &)
+- ??6@YAAAVFArchive@@AAV0@AAVFCompactIndex@@@Z
+class FArchive & __cdecl operator<<(class FArchive &, class FCompactIndex &)
+- ??6@YAAAVFArchive@@AAV0@AAVFPackageInfo@@@Z
+class FArchive & __cdecl operator<<(class FArchive &, class FPackageInfo &)
+- ??6@YAAAVFArchive@@AAV0@AAVFString@@@Z
+class FArchive & __cdecl operator<<(class FArchive &, class FString &)
+- ??H?$TArray@_W@@QAEAAV0@ABV0@@Z
+public: class TArray<wchar_t> & __thiscall TArray<wchar_t>::operator+(class TArray<wchar_t> const &)
+- ??R?$TArray@_W@@QAEAA_WH@Z
+public: wchar_t & __thiscall TArray<wchar_t>::operator()(int)
+- ??R?$TArray@_W@@QBEAB_WH@Z
+public: wchar_t const & __thiscall TArray<wchar_t>::operator()(int) const
+- ??Y?$TArray@_W@@QAEAAV0@ABV0@@Z
+public: class TArray<wchar_t> & __thiscall TArray<wchar_t>::operator+=(class TArray<wchar_t> const &)
+- ??_7?$TSingleton@VL2Configuration@@@@6B@
+const TSingleton<class L2Configuration>::`vftable'
+- ??_7?$TSingleton@VL2GlobalVariables@@@@6B@
+const TSingleton<class L2GlobalVariables>::`vftable'
+- ??_7?$TSingleton@VL2ThreadUtil@@@@6B@
+const TSingleton<class L2ThreadUtil>::`vftable'
+- ??_7?$TSingleton@VL2UserHardWareInformation@@@@6B@
+const TSingleton<class L2UserHardWareInformation>::`vftable'
+- ?Add@?$TArray@_W@@QAEHH@Z
+public: int __thiscall TArray<wchar_t>::Add(int)
+- ?Add@?$TMapBase@VFString@@VFConfigFile@@@@IAEAAVFConfigFile@@PB_WABV2@@Z
+protected: class FConfigFile & __thiscall TMapBase<class FString, class FConfigFile>::Add(wchar_t const *, class FConfigFile const &)
+- ?AddCompact@?$TArray@_W@@QAEHH@Z
+public: int __thiscall TArray<wchar_t>::AddCompact(int)
+- ?AddDynamicItem@?$TArray@_W@@QAEHAB_W@Z
+public: int __thiscall TArray<wchar_t>::AddDynamicItem(wchar_t const &)
+- ?AddItem@?$TArray@_W@@QAEHAB_W@Z
+public: int __thiscall TArray<wchar_t>::AddItem(wchar_t const &)
+- ?AddNoAlloc@?$TArray@_W@@QAEHAAH@Z
+public: int __thiscall TArray<wchar_t>::AddNoAlloc(int &)
+- ?AddUniqueDynamicItem@?$TArray@_W@@QAEHAB_W@Z
+public: int __thiscall TArray<wchar_t>::AddUniqueDynamicItem(wchar_t const &)
+- ?AddUniqueItem@?$TArray@_W@@QAEHAB_W@Z
+public: int __thiscall TArray<wchar_t>::AddUniqueItem(wchar_t const &)
+- ?AddZeroed@?$TArray@_W@@QAEHH@Z
+public: int __thiscall TArray<wchar_t>::AddZeroed(int)
+- ?AddZeroedCompact@?$TArray@_W@@QAEHH@Z
+public: int __thiscall TArray<wchar_t>::AddZeroedCompact(int)
+- ?Buffer@?1??winAnsiToTCHAR@@YAPA_WPBD@Z@4PA_WA
+wchar_t *`wchar_t * __cdecl winAnsiToTCHAR(char const *)'::`2'::Buffer
+- ?CountBytes@?$TArray@_W@@QAEXAAVFArchive@@@Z
+public: void __thiscall TArray<wchar_t>::CountBytes(class FArchive &)
+- ?CreateSingleton@?$TSingleton@VL2Configuration@@@@CAXXZ
+private: static void __cdecl TSingleton<class L2Configuration>::CreateSingleton(void)
+- ?CreateSingleton@?$TSingleton@VL2GlobalVariables@@@@CAXXZ
+private: static void __cdecl TSingleton<class L2GlobalVariables>::CreateSingleton(void)
+- ?CreateSingleton@?$TSingleton@VL2ThreadUtil@@@@CAXXZ
+private: static void __cdecl TSingleton<class L2ThreadUtil>::CreateSingleton(void)
+- ?CreateSingleton@?$TSingleton@VL2UserHardWareInformation@@@@CAXXZ
+private: static void __cdecl TSingleton<class L2UserHardWareInformation>::CreateSingleton(void)
+- ?DestroySingleton@?$TSingleton@VL2Configuration@@@@SAXXZ
+public: static void __cdecl TSingleton<class L2Configuration>::DestroySingleton(void)
+- ?DestroySingleton@?$TSingleton@VL2GlobalVariables@@@@SAXXZ
+public: static void __cdecl TSingleton<class L2GlobalVariables>::DestroySingleton(void)
+- ?DestroySingleton@?$TSingleton@VL2ThreadUtil@@@@SAXXZ
+public: static void __cdecl TSingleton<class L2ThreadUtil>::DestroySingleton(void)
+- ?DestroySingleton@?$TSingleton@VL2UserHardWareInformation@@@@SAXXZ
+public: static void __cdecl TSingleton<class L2UserHardWareInformation>::DestroySingleton(void)
+- ?Dump@?$TMapBase@VFString@@VFConfigFile@@@@QAEXAAVFOutputDevice@@@Z
+public: void __thiscall TMapBase<class FString, class FConfigFile>::Dump(class FOutputDevice &)
+- ?EdClearLoadErrors@@YAXXZ
+void __cdecl EdClearLoadErrors(void)
+- ?Empty@?$TArray@_W@@QAEXH@Z
+public: void __thiscall TArray<wchar_t>::Empty(int)
+- ?Empty@?$TMapBase@VFString@@VFConfigFile@@@@QAEXXZ
+public: void __thiscall TMapBase<class FString, class FConfigFile>::Empty(void)
+- ?FAR_CLIPPING_PLANE@@3MA
+float FAR_CLIPPING_PLANE
+- ?FGreatestCommonDivisor@@YAHHH@Z
+int __cdecl FGreatestCommonDivisor(int, int)
+- ?FGreatestCommonDivisor@@YA_J_J0@Z
+__int64 __cdecl FGreatestCommonDivisor(__int64, __int64)
+- ?FLeastCommonMultiplier@@YAHHH@Z
+int __cdecl FLeastCommonMultiplier(int, int)
+- ?FLeastCommonMultiplier@@YA_J_J0@Z
+__int64 __cdecl FLeastCommonMultiplier(__int64, __int64)
+- ?FLineExtentBoxIntersection@@YAHABUFBox@@ABUFVector@@11AAU2@2AAM@Z
+int __cdecl FLineExtentBoxIntersection(struct FBox const &, struct FVector const &, struct FVector const &, struct FVector const &, struct FVector &, struct FVector &, float &)
+- ?Find@?$TMapBase@VFString@@VFConfigFile@@@@QAEPAVFConfigFile@@ABVFString@@@Z
+public: class FConfigFile * __thiscall TMapBase<class FString, class FConfigFile>::Find(class FString const &)
+- ?Find@?$TMapBase@VFString@@VFConfigFile@@@@QBEPBVFConfigFile@@ABVFString@@@Z
+public: class FConfigFile const * __thiscall TMapBase<class FString, class FConfigFile>::Find(class FString const &) const
+- ?FindItem@?$TArray@_W@@QBEHAB_WAAH@Z
+public: int __thiscall TArray<wchar_t>::FindItem(wchar_t const &, int &) const
+- ?FindItemIndex@?$TArray@_W@@QBEHAB_W@Z
+public: int __thiscall TArray<wchar_t>::FindItemIndex(wchar_t const &) const
+- ?GAllocatedMemory@@3KA
+unsigned long GAllocatedMemory
+- ?GArrayPropertyNum@@3HA
+int GArrayPropertyNum
+- ?GAudioDefaultRadius@@3MA
+float GAudioDefaultRadius
+- ?GAudioMaxRadiusMultiplier@@3MA
+float GAudioMaxRadiusMultiplier
+- ?GBlendSpineBone@@3HA
+int GBlendSpineBone
+- ?GCPUCoreCount@@3KA
+unsigned long GCPUCoreCount
+- ?GCRCTable@@3PAKA
+unsigned long *GCRCTable
+- ?GCastDuplicate@@3HA
+int GCastDuplicate
+- ?GCdPath@@3PA_WA
+wchar_t *GCdPath
+- ?GCenterOfPacketBroadcastRange@@3UFVector@@A
+struct FVector GCenterOfPacketBroadcastRange
+- ?GCheckGrpLog@@3PAVFOutputDevice@@A
+class FOutputDevice *GCheckGrpLog
+- ?GClientFileTimeZoneOffset@@3HA
+int GClientFileTimeZoneOffset
+- ?GColorBits@@3HA
+int GColorBits
+- ?GConfig@@3PAVFConfigCacheIni@@A
+class FConfigCacheIni *GConfig
+- ?GCountryCode@@3PA_WA
+wchar_t *GCountryCode
+- ?GCountryName@@3PA_WA
+wchar_t *GCountryName
+- ?GDebugger@@3PAVUDebugger@@A
+class UDebugger *GDebugger
+- ?GDefaultGamma@@3HA
+int GDefaultGamma
+- ?GDeviceResetTick@@3_JA
+__int64 GDeviceResetTick
+- ?GEdLoadErrors@@3V?$TArray@VFEdLoadError@@@@A
+class TArray<class FEdLoadError> GEdLoadErrors
+- ?GEdSelectionLock@@3HA
+int GEdSelectionLock
+- ?GEdShowFogInViewports@@3HA
+int GEdShowFogInViewports
+- ?GEditorFlag@@3V?$TBitSet@K@@A
+class TBitSet<unsigned long> GEditorFlag
+- ?GEffectLevel@@3HA
+int GEffectLevel
+- ?GEnableEngSelection@@3HA
+int GEnableEngSelection
+- ?GEnglishCountry@@3HA
+int GEnglishCountry
+- ?GError@@3PAVFOutputDeviceError@@A
+class FOutputDeviceError *GError
+- ?GErrorHist@@3PA_WA
+wchar_t *GErrorHist
+- ?GErrorMsg@@3PA_WA
+wchar_t *GErrorMsg
+- ?GExceptionInfo@@3PA_WA
+wchar_t *GExceptionInfo
+- ?GExec@@3PAVFExec@@A
+class FExec *GExec
+- ?GExitPurge@@3HA
+int GExitPurge
+- ?GFalse@@3PA_WA
+wchar_t *GFalse
+- ?GFileManager@@3PAVFFileManager@@A
+class FFileManager *GFileManager
+- ?GFileStream@@3PAVFFileStream@@A
+class FFileStream *GFileStream
+- ?GFlashWindowOnNotify@@3HA
+int GFlashWindowOnNotify
+- ?GFlashWindowRate@@3MA
+float GFlashWindowRate
+- ?GForceLanguageType@@3HA
+int GForceLanguageType
+- ?GFreeCameraMode@@3HA
+int GFreeCameraMode
+- ?GFullCheckMsg@@3PA_WA
+wchar_t *GFullCheckMsg
+- ?GGFxEnable@@3HA
+int GGFxEnable
+- ?GGammaCorrection@@3HA
+int GGammaCorrection
+- ?GGetRunaway@@YAHXZ
+int __cdecl GGetRunaway(void)
+- ?GHangDetectDialog@@3PAUHWND__@@A
+struct HWND__*GHangDetectDialog
+- ?GIgnoreFriendPartyInviting@@3HA
+int GIgnoreFriendPartyInviting
+- ?GIgnoreNormalFriend@@3HA
+int GIgnoreNormalFriend
+- ?GIgnoreNormalPartyInviting@@3HA
+int GIgnoreNormalPartyInviting
+- ?GIgnorePledgeFriend@@3HA
+int GIgnorePledgeFriend
+- ?GIgnorePledgePartyInviting@@3HA
+int GIgnorePledgePartyInviting
+- ?GIni@@3PA_WA
+wchar_t *GIni
+- ?GInitLocalTime@@3NA
+double GInitLocalTime
+- ?GInitRunaway@@YAXXZ
+void __cdecl GInitRunaway(void)
+- ?GIsArrowMode@@3HA
+int GIsArrowMode
+- ?GIsBenchmarking@@3HA
+int GIsBenchmarking
+- ?GIsClient@@3HA
+int GIsClient
+- ?GIsCriticalError@@3HA
+int GIsCriticalError
+- ?GIsDynamicRecompile@@3HA
+int GIsDynamicRecompile
+- ?GIsEditor@@3HA
+int GIsEditor
+- ?GIsEnterChatting@@3HA
+int GIsEnterChatting
+- ?GIsEnterChattingSelectMode@@3HA
+int GIsEnterChattingSelectMode
+- ?GIsFixedDefaultCamera@@3HA
+int GIsFixedDefaultCamera
+- ?GIsGuarded@@3HA
+int GIsGuarded
+- ?GIsL2HideName@@3HA
+int GIsL2HideName
+- ?GIsL2Mark@@3HA
+int GIsL2Mark
+- ?GIsL2NetLog@@3HA
+int GIsL2NetLog
+- ?GIsL2PawnViewer@@3HA
+int GIsL2PawnViewer
+- ?GIsL2Projector@@3HA
+int GIsL2Projector
+- ?GIsL2Seamless@@3HA
+int GIsL2Seamless
+- ?GIsL2SuperShadow@@3HA
+int GIsL2SuperShadow
+- ?GIsL2WaterEffect@@3HA
+int GIsL2WaterEffect
+- ?GIsL2WaterEffectType@@3HA
+int GIsL2WaterEffectType
+- ?GIsLeftHandedMouse@@3HA
+int GIsLeftHandedMouse
+- ?GIsLoadL2WaterEffect@@3HA
+int GIsLoadL2WaterEffect
+- ?GIsNative@@3HA
+int GIsNative
+- ?GIsOldChat@@3HA
+int GIsOldChat
+- ?GIsOnlyL2Console@@3HA
+int GIsOnlyL2Console
+- ?GIsOnlyXMLUI@@3HA
+int GIsOnlyXMLUI
+- ?GIsRejectingDuel@@3HA
+int GIsRejectingDuel
+- ?GIsRequestingExit@@3HA
+int GIsRequestingExit
+- ?GIsRunning@@3HA
+int GIsRunning
+- ?GIsSEK@@3HA
+int GIsSEK
+- ?GIsScriptable@@3HA
+int GIsScriptable
+- ?GIsServer@@3HA
+int GIsServer
+- ?GIsSlowTask@@3HA
+int GIsSlowTask
+- ?GIsStarted@@3HA
+int GIsStarted
+- ?GIsStickyWindow@@3HA
+int GIsStickyWindow
+- ?GIsTransparencyMode@@3HA
+int GIsTransparencyMode
+- ?GIsTrueFontUse@@3HA
+int GIsTrueFontUse
+- ?GIsUCC@@3HA
+int GIsUCC
+- ?GIsUseXMLUI@@3HA
+int GIsUseXMLUI
+- ?GL2ActorAppearingType@@3HA
+int GL2ActorAppearingType
+- ?GL2AntiPortalCR@@3MA
+float GL2AntiPortalCR
+- ?GL2Antialiasing@@3HA
+int GL2Antialiasing
+- ?GL2AttendanceEnable@@3HA
+int GL2AttendanceEnable
+- ?GL2AttendanceSendPacket@@3HA
+int GL2AttendanceSendPacket
+- ?GL2AudioMode@@3HA
+int GL2AudioMode
+- ?GL2AutoLogin@@3HA
+int GL2AutoLogin
+- ?GL2AutoLoginMutexHandle@@3PAXA
+void *GL2AutoLoginMutexHandle
+- ?GL2BR_ClassicAutoPlayModify@@3HA
+int GL2BR_ClassicAutoPlayModify
+- ?GL2BeastLightMapNum@@3HB
+int const GL2BeastLightMapNum
+- ?GL2BeastNewlyLoadedMeshArray@@3V?$TArray@PAX@@A
+class TArray<void *> GL2BeastNewlyLoadedMeshArray
+- ?GL2BeastbCollectStaticMesh@@3HA
+int GL2BeastbCollectStaticMesh
+- ?GL2BossBattleInParticipation@@3HA
+int GL2BossBattleInParticipation
+- ?GL2CanUseJoystick@@3HA
+int GL2CanUseJoystick
+- ?GL2ChangeSingleMeshForBuilder@@3HA
+int GL2ChangeSingleMeshForBuilder
+- ?GL2CheckFakeItem@@3HA
+int GL2CheckFakeItem
+- ?GL2CheckIgnoreDepthRenderTarget@@3HA
+int GL2CheckIgnoreDepthRenderTarget
+- ?GL2CheckIgnoreL2Shader@@3HA
+int GL2CheckIgnoreL2Shader
+- ?GL2CheckPackageWhenFileOpen@@3HA
+int GL2CheckPackageWhenFileOpen
+- ?GL2CheckResource@@3HA
+int GL2CheckResource
+- ?GL2ClassicHomeURL@@3PA_WA
+wchar_t *GL2ClassicHomeURL
+- ?GL2ClickActorColorScaleB@@3MA
+float GL2ClickActorColorScaleB
+- ?GL2ClickActorColorScaleG@@3MA
+float GL2ClickActorColorScaleG
+- ?GL2ClickActorColorScaleR@@3MA
+float GL2ClickActorColorScaleR
+- ?GL2ClientDlls@@3PAPB_WA
+wchar_t const **GL2ClientDlls
+- ?GL2ClientLimitGroups@@3HA
+int GL2ClientLimitGroups
+- ?GL2ClientLimitHandle@@3PAXA
+void *GL2ClientLimitHandle
+- ?GL2ClientOrder@@3HA
+int GL2ClientOrder
+- ?GL2ClientSocketClosedTick@@3_JA
+__int64 GL2ClientSocketClosedTick
+- ?GL2ClientStandAlone@@3HA
+int GL2ClientStandAlone
+- ?GL2CmdLineLogin@@3HA
+int GL2CmdLineLogin
+- ?GL2CommonLookItemPreload@@3HA
+int GL2CommonLookItemPreload
+- ?GL2CrashDevLog@@3VL2CrashDevLog@@A
+class L2CrashDevLog GL2CrashDevLog
+- ?GL2CullWaterSheetByScreenArea@@3HA
+int GL2CullWaterSheetByScreenArea
+- ?GL2CurrentResourceBytes@@3_JA
+__int64 GL2CurrentResourceBytes
+- ?GL2CurrentShowPawnBack@@3HA
+int GL2CurrentShowPawnBack
+- ?GL2CurrentTxtCodec@@3PAVFCodec@@A
+class FCodec *GL2CurrentTxtCodec
+- ?GL2DESCodec@@3PAVFCodec@@A
+class FCodec *GL2DESCodec
+- ?GL2DLLLoadErrorID@@3HA
+int GL2DLLLoadErrorID
+- ?GL2DLLLoadLastError@@3KA
+unsigned long GL2DLLLoadLastError
+- ?GL2DamageLightDuration@@3MA
+float GL2DamageLightDuration
+- ?GL2DamagingColor@@3PAHA
+int *GL2DamagingColor
+- ?GL2DebugGlobal0@@3_NA
+bool GL2DebugGlobal0
+- ?GL2DebugGlobal1@@3_NA
+bool GL2DebugGlobal1
+- ?GL2DebugGlobal2@@3_NA
+bool GL2DebugGlobal2
+- ?GL2DebugGlobal3@@3_NA
+bool GL2DebugGlobal3
+- ?GL2DebugGlobal4@@3_NA
+bool GL2DebugGlobal4
+- ?GL2DecoRatioApplyRange@@3MA
+float GL2DecoRatioApplyRange
+- ?GL2DecoRenderRate@@3MA
+float GL2DecoRenderRate
+- ?GL2DecoRenderRatioOn@@3HA
+int GL2DecoRenderRatioOn
+- ?GL2DefaultShadow@@3HA
+int GL2DefaultShadow
+- ?GL2DeviceCreatedCnt@@3HA
+int GL2DeviceCreatedCnt
+- ?GL2DeviceCreatedTick@@3HA
+int GL2DeviceCreatedTick
+- ?GL2DeviceReleasedWithError@@3JA
+long GL2DeviceReleasedWithError
+- ?GL2DeviceResetFailCnt@@3HA
+int GL2DeviceResetFailCnt
+- ?GL2DeviceResetMaxTryNum@@3HA
+int GL2DeviceResetMaxTryNum
+- ?GL2DeviceResetResult@@3JA
+long GL2DeviceResetResult
+- ?GL2DirectionalMovePendingTime@@3MA
+float GL2DirectionalMovePendingTime
+- ?GL2DisableGCLobby@@3HA
+int GL2DisableGCLobby
+- ?GL2DisableRenderWaterSheet@@3HA
+int GL2DisableRenderWaterSheet
+- ?GL2DisableSkillDelay@@3HA
+int GL2DisableSkillDelay
+- ?GL2DisassemSizePerProtocol@@3HA
+int GL2DisassemSizePerProtocol
+- ?GL2DramaticSunLightDiffuseValue@@3MA
+float GL2DramaticSunLightDiffuseValue
+- ?GL2DrawCollisionStaticMeshBlue@@3HA
+int GL2DrawCollisionStaticMeshBlue
+- ?GL2DrawDebugLines@@3HA
+int GL2DrawDebugLines
+- ?GL2DrawDebugLinesDelay@@3MA
+float GL2DrawDebugLinesDelay
+- ?GL2DrawLODLevel@@3HA
+int GL2DrawLODLevel
+- ?GL2DrawTargetName@@3HA
+int GL2DrawTargetName
+- ?GL2EditorFileLoadErrorMessage1@@3V?$TArray@VFString@@@@A
+class TArray<class FString> GL2EditorFileLoadErrorMessage1
+- ?GL2EditorFileLoadErrorMessage2@@3V?$TArray@VFString@@@@A
+class TArray<class FString> GL2EditorFileLoadErrorMessage2
+- ?GL2EnableMemDump@@3HA
+int GL2EnableMemDump
+- ?GL2EnablePurgeLevel@@3HA
+int GL2EnablePurgeLevel
+- ?GL2EnableStaticMeshShadow@@3HA
+int GL2EnableStaticMeshShadow
+- ?GL2EngineBuildTime@@3VFString@@A
+class FString GL2EngineBuildTime
+- ?GL2EnterSingleMeshZoneFirst@@3HA
+int GL2EnterSingleMeshZoneFirst
+- ?GL2EnterWorldRaidTick@@3_JA
+__int64 GL2EnterWorldRaidTick
+- ?GL2ErrorFileName@@3VFString@@A
+class FString GL2ErrorFileName
+- ?GL2ExclusiveServerNum@@3HA
+int GL2ExclusiveServerNum
+- ?GL2ExportStatDataToXml@@3HA
+int GL2ExportStatDataToXml
+- ?GL2ExternalLogin@@3HA
+int GL2ExternalLogin
+- ?GL2F2PQuestRewardPenaltyPer@@3HA
+int GL2F2PQuestRewardPenaltyPer
+- ?GL2F2PQuestRewardPenaltyQuests@@3V?$TArray@H@@A
+class TArray<int> GL2F2PQuestRewardPenaltyQuests
+- ?GL2FFEffectUse@@3HA
+int GL2FFEffectUse
+- ?GL2FirstRunMutex@@3PAXA
+void *GL2FirstRunMutex
+- ?GL2Flash@@3HA
+int GL2Flash
+- ?GL2FogEnd@@3MA
+float GL2FogEnd
+- ?GL2FogEndOriginal@@3MA
+float GL2FogEndOriginal
+- ?GL2FogSpeed@@3MA
+float GL2FogSpeed
+- ?GL2FogStart@@3MA
+float GL2FogStart
+- ?GL2FogStartOriginal@@3MA
+float GL2FogStartOriginal
+- ?GL2ForceReduceSkillEffect@@3HA
+int GL2ForceReduceSkillEffect
+- ?GL2FreeRunningFirstHandle@@3PAXA
+void *GL2FreeRunningFirstHandle
+- ?GL2FreeUserClient@@3HA
+int GL2FreeUserClient
+- ?GL2FreeUserClientClassic@@3HA
+int GL2FreeUserClientClassic
+- ?GL2FreeUserClientClassicEva@@3HA
+int GL2FreeUserClientClassicEva
+- ?GL2FreeUserClientClassicWolf@@3HA
+int GL2FreeUserClientClassicWolf
+- ?GL2FreeUserTwoClient@@3HA
+int GL2FreeUserTwoClient
+- ?GL2GCState@@3W4GCSTATE@@A
+enum GCSTATE GL2GCState
+- ?GL2GFxValidateDeviceResult@@3JA
+long GL2GFxValidateDeviceResult
+- ?GL2GFxValidateDeviceTick@@3HA
+int GL2GFxValidateDeviceTick
+- ?GL2GPUSkinning@@3HA
+int GL2GPUSkinning
+- ?GL2GeoDataHeight@@3UFVector@@A
+struct FVector GL2GeoDataHeight
+- ?GL2GeoDataLoad@@3HA
+int GL2GeoDataLoad
+- ?GL2GeoDataLoadInfo@@3VFString@@A
+class FString GL2GeoDataLoadInfo
+- ?GL2GeoDataView@@3HA
+int GL2GeoDataView
+- ?GL2HDREffect@@3HA
+int GL2HDREffect
+- ?GL2HDREffectType@@3HA
+int GL2HDREffectType
+- ?GL2HeightAutoAdjustEnable@@3HA
+int GL2HeightAutoAdjustEnable
+- ?GL2HideDropMesh@@3HA
+int GL2HideDropMesh
+- ?GL2HideMyCostume@@3HA
+int GL2HideMyCostume
+- ?GL2HideOtherCostume@@3HA
+int GL2HideOtherCostume
+- ?GL2HidePet@@3HA
+int GL2HidePet
+- ?GL2HitCheckLockCount@@3HA
+int GL2HitCheckLockCount
+- ?GL2HitCheckLockTime@@3NA
+double GL2HitCheckLockTime
+- ?GL2HomeURL@@3PA_WA
+wchar_t *GL2HomeURL
+- ?GL2IMEShowConsole@@3HA
+int GL2IMEShowConsole
+- ?GL2IgnoreDepthNormalInDrawSortedSection@@3HA
+int GL2IgnoreDepthNormalInDrawSortedSection
+- ?GL2ImproveAgathionCR@@3HA
+int GL2ImproveAgathionCR
+- ?GL2ImproveFaceRotation@@3HA
+int GL2ImproveFaceRotation
+- ?GL2ImprovePawnAnimTick@@3HA
+int GL2ImprovePawnAnimTick
+- ?GL2ImproveProcessSkin@@3HA
+int GL2ImproveProcessSkin
+- ?GL2ImproveShadowCR@@3HA
+int GL2ImproveShadowCR
+- ?GL2ImproveSimulMesh@@3HA
+int GL2ImproveSimulMesh
+- ?GL2ImproveSkipPawnAnim@@3HA
+int GL2ImproveSkipPawnAnim
+- ?GL2ImproveSkipUpdateEmitter@@3HA
+int GL2ImproveSkipUpdateEmitter
+- ?GL2ImproveUpdateParticles@@3HA
+int GL2ImproveUpdateParticles
+- ?GL2ImproveWaterHitEffectCR@@3HA
+int GL2ImproveWaterHitEffectCR
+- ?GL2InTimeRestrictField@@3HA
+int GL2InTimeRestrictField
+- ?GL2IsFirstRun@@3HA
+int GL2IsFirstRun
+- ?GL2IsFocusWindowAudioOn@@3HA
+int GL2IsFocusWindowAudioOn
+- ?GL2IsMovieRender@@3HA
+int GL2IsMovieRender
+- ?GL2IsUIEditor@@3HA
+int GL2IsUIEditor
+- ?GL2IsUniqueGachaVideoON@@3HA
+int GL2IsUniqueGachaVideoON
+- ?GL2IsUniqueGachaWMCheck@@3HA
+int GL2IsUniqueGachaWMCheck
+- ?GL2IsWorldRaidServer@@3HA
+int GL2IsWorldRaidServer
+- ?GL2ItemLinkOptimize@@3HA
+int GL2ItemLinkOptimize
+- ?GL2KeepMinFrameRate@@3HA
+int GL2KeepMinFrameRate
+- ?GL2KeepSpecularandSelfIllumination@@3HA
+int GL2KeepSpecularandSelfIllumination
+- ?GL2KeyboardMove2023@@3HA
+int GL2KeyboardMove2023
+- ?GL2LISPSMEnable@@3HA
+int GL2LISPSMEnable
+- ?GL2LISPSMPCSSEnable@@3HA
+int GL2LISPSMPCSSEnable
+- ?GL2LODPivot@@3MA
+float GL2LODPivot
+- ?GL2LODSpecularOff@@3HA
+int GL2LODSpecularOff
+- ?GL2LastRecvPacketNum@@3HA
+int GL2LastRecvPacketNum
+- ?GL2LastRecvPacketNumEX@@3HA
+int GL2LastRecvPacketNumEX
+- ?GL2LastRenderStaticMeshName@@3VFString@@A
+class FString GL2LastRenderStaticMeshName
+- ?GL2LastSendPacketNum@@3HA
+int GL2LastSendPacketNum
+- ?GL2LastSendPacketNumEX@@3HA
+int GL2LastSendPacketNumEX
+- ?GL2LastYebisReleaseResult@@3JA
+long GL2LastYebisReleaseResult
+- ?GL2LastYebisResetResult@@3JA
+long GL2LastYebisResetResult
+- ?GL2LeaveWorldRaidTick@@3_JA
+__int64 GL2LeaveWorldRaidTick
+- ?GL2LetterBoxAlpha@@3HA
+int GL2LetterBoxAlpha
+- ?GL2LevelOfWeather@@3HA
+int GL2LevelOfWeather
+- ?GL2LightingOnlyMode@@3HA
+int GL2LightingOnlyMode
+- ?GL2LightmapScale@@3MA
+float GL2LightmapScale
+- ?GL2LocalizationEnterChattingSelectMode@@3HA
+int GL2LocalizationEnterChattingSelectMode
+- ?GL2LogTimePrecision@@3HA
+int GL2LogTimePrecision
+- ?GL2MTLMovePendingTime@@3MA
+float GL2MTLMovePendingTime
+- ?GL2MainThreadErrCount@@3HA
+int GL2MainThreadErrCount
+- ?GL2MaterialCompileCollectMaterials@@3HA
+int GL2MaterialCompileCollectMaterials
+- ?GL2MaterialCompileCollectMaterialsArray@@3V?$TArray@PAX@@A
+class TArray<void *> GL2MaterialCompileCollectMaterialsArray
+- ?GL2MaxLights@@3HA
+int GL2MaxLights
+- ?GL2MaxPawnResourceLoad@@3MA
+float GL2MaxPawnResourceLoad
+- ?GL2MinFrameOptionDeco@@3HA
+int GL2MinFrameOptionDeco
+- ?GL2MinFrameOptionEffect@@3HA
+int GL2MinFrameOptionEffect
+- ?GL2MinFrameOptionTerrain@@3HA
+int GL2MinFrameOptionTerrain
+- ?GL2MinFrameOptionTextue@@3HA
+int GL2MinFrameOptionTextue
+- ?GL2MouseAutoMove@@3HA
+int GL2MouseAutoMove
+- ?GL2MouseCaptured@@3HA
+int GL2MouseCaptured
+- ?GL2NPAuthSocketClosedTick@@3_JA
+__int64 GL2NPAuthSocketClosedTick
+- ?GL2NPGEPacking@@3HA
+int GL2NPGEPacking
+- ?GL2NPLogin@@3HA
+int GL2NPLogin
+- ?GL2NVPerfHUD@@3HA
+int GL2NVPerfHUD
+- ?GL2NavigationLog@@3HA
+int GL2NavigationLog
+- ?GL2NeedEditChange@@3HA
+int GL2NeedEditChange
+- ?GL2NewVoteSystem@@3HA
+int GL2NewVoteSystem
+- ?GL2NextTargetMode@@3HA
+int GL2NextTargetMode
+- ?GL2NoGC@@3HA
+int GL2NoGC
+- ?GL2NotifySoundFlags@@3HA
+int GL2NotifySoundFlags
+- ?GL2OnNCSDKWebview@@3HA
+int GL2OnNCSDKWebview
+- ?GL2OrcFortressSiegeInProgress@@3HA
+int GL2OrcFortressSiegeInProgress
+- ?GL2OriginPawnCR@@3MA
+float GL2OriginPawnCR
+- ?GL2OriginStaticMeshCR@@3MA
+float GL2OriginStaticMeshCR
+- ?GL2OriginStaticMeshLodCR@@3MA
+float GL2OriginStaticMeshLodCR
+- ?GL2OriginTerrainCR@@3MA
+float GL2OriginTerrainCR
+- ?GL2OthersThreadErrCount@@3HA
+int GL2OthersThreadErrCount
+- ?GL2PacketCheck@@3HA
+int GL2PacketCheck
+- ?GL2ParticleSpawningRate@@3MA
+float GL2ParticleSpawningRate
+- ?GL2PartyLooting@@3HA
+int GL2PartyLooting
+- ?GL2PawnClippingMaxRangeRate@@3MA
+float GL2PawnClippingMaxRangeRate
+- ?GL2PawnLoadComponentUnit@@3HA
+int GL2PawnLoadComponentUnit
+- ?GL2PawnLoadLazyPeaceZone@@3HA
+int GL2PawnLoadLazyPeaceZone
+- ?GL2PawnResourceManagerLogEachPawn@@3HA
+int GL2PawnResourceManagerLogEachPawn
+- ?GL2PawnResourceManagerLogRecording@@3HA
+int GL2PawnResourceManagerLogRecording
+- ?GL2PerfMonitorCheckServer@@3HA
+int GL2PerfMonitorCheckServer
+- ?GL2PetitionMethod@@3HA
+int GL2PetitionMethod
+- ?GL2PositionAdjustForDebug@@3UFVector@@A
+struct FVector GL2PositionAdjustForDebug
+- ?GL2ProjectorCR@@3MA
+float GL2ProjectorCR
+- ?GL2PurchaseLimitCraftAnimShow@@3HA
+int GL2PurchaseLimitCraftAnimShow
+- ?GL2RangeRateForIgnoredRange@@3PAMA
+float *GL2RangeRateForIgnoredRange
+- ?GL2ReduceSkillEffect@@3HA
+int GL2ReduceSkillEffect
+- ?GL2ReleaseRC@@3HA
+int GL2ReleaseRC
+- ?GL2RemoteMouseDelta@@3HA
+int GL2RemoteMouseDelta
+- ?GL2RenderActorLimit@@3HA
+int GL2RenderActorLimit
+- ?GL2RenderActorLimitOpt@@3HA
+int GL2RenderActorLimitOpt
+- ?GL2RenderDeco@@3HA
+int GL2RenderDeco
+- ?GL2RenderEmitterCur@@3HA
+int GL2RenderEmitterCur
+- ?GL2RenderEmitterMax@@3HA
+int GL2RenderEmitterMax
+- ?GL2RenderGFxHeadDisplay@@3HA
+int GL2RenderGFxHeadDisplay
+- ?GL2RenderedParticleCount@@3HA
+int GL2RenderedParticleCount
+- ?GL2ReplayLoadResource@@3HA
+int GL2ReplayLoadResource
+- ?GL2ReplayMode@@3HA
+int GL2ReplayMode
+- ?GL2ReplayStartGTick@@3_JA
+__int64 GL2ReplayStartGTick
+- ?GL2RotatePawnBeforeMTL@@3HA
+int GL2RotatePawnBeforeMTL
+- ?GL2RunAutoReconnect@@3HA
+int GL2RunAutoReconnect
+- ?GL2RunningFirstHandle@@3PAXA
+void *GL2RunningFirstHandle
+- ?GL2SaveLog@@3HA
+int GL2SaveLog
+- ?GL2SceneID@@3HA
+int GL2SceneID
+- ?GL2SceneStartTicks@@3_JA
+__int64 GL2SceneStartTicks
+- ?GL2ScreenShotQuality@@3HA
+int GL2ScreenShotQuality
+- ?GL2ScriptErrorStop@@3HA
+int GL2ScriptErrorStop
+- ?GL2SeamlessMaginotLine@@3MA
+float GL2SeamlessMaginotLine
+- ?GL2SeamlessWorld@@3HA
+int GL2SeamlessWorld
+- ?GL2SendMsgToGFX@@3HA
+int GL2SendMsgToGFX
+- ?GL2ServerID@@3HA
+int GL2ServerID
+- ?GL2ServerName@@3PA_WA
+wchar_t *GL2ServerName
+- ?GL2ServerType@@3HA
+int GL2ServerType
+- ?GL2ShaderError@@3HA
+int GL2ShaderError
+- ?GL2ShaderPath@@3PA_WA
+wchar_t *GL2ShaderPath
+- ?GL2ShaderWater@@3HA
+int GL2ShaderWater
+- ?GL2ShadowRenderSkipCnt@@3HA
+int GL2ShadowRenderSkipCnt
+- ?GL2SharedSky@@3HA
+int GL2SharedSky
+- ?GL2ShowCMViewer@@3HA
+int GL2ShowCMViewer
+- ?GL2ShowDamageText@@3HA
+int GL2ShowDamageText
+- ?GL2ShowEmitterDebugInfo@@3HA
+int GL2ShowEmitterDebugInfo
+- ?GL2ShowEnableTrackerBox@@3HA
+int GL2ShowEnableTrackerBox
+- ?GL2ShowExampleAnimation@@3HA
+int GL2ShowExampleAnimation
+- ?GL2ShowImportPackage@@3HA
+int GL2ShowImportPackage
+- ?GL2ShowLectureMark@@3HA
+int GL2ShowLectureMark
+- ?GL2ShowMyName@@3HA
+int GL2ShowMyName
+- ?GL2ShowMyServantName@@3HA
+int GL2ShowMyServantName
+- ?GL2ShowNPCName@@3HA
+int GL2ShowNPCName
+- ?GL2ShowOtherPCName@@3HA
+int GL2ShowOtherPCName
+- ?GL2ShowOtherServantName@@3HA
+int GL2ShowOtherServantName
+- ?GL2ShowPartyMemberName@@3HA
+int GL2ShowPartyMemberName
+- ?GL2ShowPawnBack@@3HA
+int GL2ShowPawnBack
+- ?GL2ShowPledgeMemberName@@3HA
+int GL2ShowPledgeMemberName
+- ?GL2ShowPortalPoly@@3HA
+int GL2ShowPortalPoly
+- ?GL2ShowServerHeight@@3HA
+int GL2ShowServerHeight
+- ?GL2ShowShopMsg@@3HA
+int GL2ShowShopMsg
+- ?GL2ShowSkillCastingBox@@3HA
+int GL2ShowSkillCastingBox
+- ?GL2ShowStrangeStateBox@@3HA
+int GL2ShowStrangeStateBox
+- ?GL2ShowUIScriptDebugInfo@@3HA
+int GL2ShowUIScriptDebugInfo
+- ?GL2ShowVirtualWindowBackground@@3HA
+int GL2ShowVirtualWindowBackground
+- ?GL2ShowWaterSheetInfo@@3HA
+int GL2ShowWaterSheetInfo
+- ?GL2ShowWaterSheetRenderTartget@@3HA
+int GL2ShowWaterSheetRenderTartget
+- ?GL2ShowWindowBox@@3HA
+int GL2ShowWindowBox
+- ?GL2ShowWindowName@@3HA
+int GL2ShowWindowName
+- ?GL2SkipCalculateFullShader@@3HA
+int GL2SkipCalculateFullShader
+- ?GL2SkipDeviceResetWhenDeviceLost@@3HA
+int GL2SkipDeviceResetWhenDeviceLost
+- ?GL2SkipHitCheckCount@@3HA
+int GL2SkipHitCheckCount
+- ?GL2SkipMTLWhenFalling@@3HA
+int GL2SkipMTLWhenFalling
+- ?GL2SkipSpawnEffectEmitter@@3HA
+int GL2SkipSpawnEffectEmitter
+- ?GL2SoundDataBuffer@@3PAEA
+unsigned char *GL2SoundDataBuffer
+- ?GL2SoundDataBufferSize@@3HA
+int GL2SoundDataBufferSize
+- ?GL2SwitchingScreenMode@@3HA
+int GL2SwitchingScreenMode
+- ?GL2TargetFPS@@3MA
+float GL2TargetFPS
+- ?GL2TerrainCR@@3MA
+float GL2TerrainCR
+- ?GL2TestAuthReconnect@@3HA
+int GL2TestAuthReconnect
+- ?GL2TestServer@@3HA
+int GL2TestServer
+- ?GL2TextureDetail@@3HA
+int GL2TextureDetail
+- ?GL2ThaiHtmlMode@@3HA
+int GL2ThaiHtmlMode
+- ?GL2ThreadFilter@@3HA
+int GL2ThreadFilter
+- ?GL2ThreadFilterBackup@@3HA
+int GL2ThreadFilterBackup
+- ?GL2ThreadSkinning@@3HA
+int GL2ThreadSkinning
+- ?GL2TodoListOption@@3HA
+int GL2TodoListOption
+- ?GL2ToggleSpoilEffect@@3HA
+int GL2ToggleSpoilEffect
+- ?GL2TouchingSingleMeshZone@@3VFName@@A
+class FName GL2TouchingSingleMeshZone
+- ?GL2TurningMovePendingTime@@3MA
+float GL2TurningMovePendingTime
+- ?GL2UCCIgnoreThrow@@3HA
+int GL2UCCIgnoreThrow
+- ?GL2UIErrorLog@@3PAVFOutputDevice@@A
+class FOutputDevice *GL2UIErrorLog
+- ?GL2UnderWaterEffect@@3HA
+int GL2UnderWaterEffect
+- ?GL2UpdateSlowlyState@@3HA
+int GL2UpdateSlowlyState
+- ?GL2UseAllSpawnedPawnUseSkill@@3HA
+int GL2UseAllSpawnedPawnUseSkill
+- ?GL2UseAntiPortalClipping@@3HA
+int GL2UseAntiPortalClipping
+- ?GL2UseAuthUserData@@3HA
+int GL2UseAuthUserData
+- ?GL2UseAutoEquipSoulShotClassic@@3HA
+int GL2UseAutoEquipSoulShotClassic
+- ?GL2UseAutoEquipSoulShotLive@@3HA
+int GL2UseAutoEquipSoulShotLive
+- ?GL2UseAutoMacroClassic@@3HA
+int GL2UseAutoMacroClassic
+- ?GL2UseAutoMacroLive@@3HA
+int GL2UseAutoMacroLive
+- ?GL2UseAutoReconnect@@3HA
+int GL2UseAutoReconnect
+- ?GL2UseAutoTrackingPawn@@3HA
+int GL2UseAutoTrackingPawn
+- ?GL2UseBalthusCharacter@@3HA
+int GL2UseBalthusCharacter
+- ?GL2UseBoneSimul@@3HA
+int GL2UseBoneSimul
+- ?GL2UseCharacterCreateEvent@@3HA
+int GL2UseCharacterCreateEvent
+- ?GL2UseColorCursor@@3HA
+int GL2UseColorCursor
+- ?GL2UseCommand@@3HA
+int GL2UseCommand
+- ?GL2UseCommonLookItem@@3HA
+int GL2UseCommonLookItem
+- ?GL2UseCostume@@3HA
+int GL2UseCostume
+- ?GL2UseDamageLight@@3HA
+int GL2UseDamageLight
+- ?GL2UseDamageTextXML@@3HA
+int GL2UseDamageTextXML
+- ?GL2UseDeadTimerAden@@3HA
+int GL2UseDeadTimerAden
+- ?GL2UseDeadTimerClassic@@3HA
+int GL2UseDeadTimerClassic
+- ?GL2UseDeadTimerLive@@3HA
+int GL2UseDeadTimerLive
+- ?GL2UseEMailAccount@@3HA
+int GL2UseEMailAccount
+- ?GL2UseFresnelDebug@@3HA
+int GL2UseFresnelDebug
+- ?GL2UseGlobalOTP@@3HA
+int GL2UseGlobalOTP
+- ?GL2UseGoodsInventory@@3HA
+int GL2UseGoodsInventory
+- ?GL2UseHairColorWnd@@3HA
+int GL2UseHairColorWnd
+- ?GL2UseHitWateEffect@@3HA
+int GL2UseHitWateEffect
+- ?GL2UseKeyCrypt@@3HA
+int GL2UseKeyCrypt
+- ?GL2UseLazyMode@@3HA
+int GL2UseLazyMode
+- ?GL2UseLightmap@@3HA
+int GL2UseLightmap
+- ?GL2UseMapLog@@3HA
+int GL2UseMapLog
+- ?GL2UseNCLauncher@@3HA
+int GL2UseNCLauncher
+- ?GL2UseNormalMap@@3HA
+int GL2UseNormalMap
+- ?GL2UseOriginServerSocket@@3HA
+int GL2UseOriginServerSocket
+- ?GL2UsePawnResourceManager@@3HA
+int GL2UsePawnResourceManager
+- ?GL2UsePerformanceMonitor@@3HA
+int GL2UsePerformanceMonitor
+- ?GL2UsePrivateStoreBypass@@3HA
+int GL2UsePrivateStoreBypass
+- ?GL2UseQQ@@3HA
+int GL2UseQQ
+- ?GL2UseQuestRewardPenaltyPer@@3HA
+int GL2UseQuestRewardPenaltyPer
+- ?GL2UseReducePawnLOD@@3HA
+int GL2UseReducePawnLOD
+- ?GL2UseReplayManager@@3HA
+int GL2UseReplayManager
+- ?GL2UseSameVS@@3HA
+int GL2UseSameVS
+- ?GL2UseSecondaryAuth@@3HA
+int GL2UseSecondaryAuth
+- ?GL2UseServerAddrChangeCommandLine@@3HA
+int GL2UseServerAddrChangeCommandLine
+- ?GL2UseServerYaw@@3HA
+int GL2UseServerYaw
+- ?GL2UseSingleBuffer@@3HA
+int GL2UseSingleBuffer
+- ?GL2UseSingleMeshRendering@@3HA
+int GL2UseSingleMeshRendering
+- ?GL2UseSkipAnim@@3HA
+int GL2UseSkipAnim
+- ?GL2UseSpeedHackCheck@@3HA
+int GL2UseSpeedHackCheck
+- ?GL2UseSteam@@3HA
+int GL2UseSteam
+- ?GL2UseSteamUI@@3HA
+int GL2UseSteamUI
+- ?GL2UseTCLSLogin@@3HA
+int GL2UseTCLSLogin
+- ?GL2UseTCLSLoginMultiLine@@3HA
+int GL2UseTCLSLoginMultiLine
+- ?GL2UseTCLSLoginStatus@@3HA
+int GL2UseTCLSLoginStatus
+- ?GL2UseTenProtect@@3HA
+int GL2UseTenProtect
+- ?GL2UseTodoListArena@@3HA
+int GL2UseTodoListArena
+- ?GL2UseTodoListClassic@@3HA
+int GL2UseTodoListClassic
+- ?GL2UseTodoListLive@@3HA
+int GL2UseTodoListLive
+- ?GL2UseTokenAutoLogin@@3HA
+int GL2UseTokenAutoLogin
+- ?GL2UseTrilinear@@3HA
+int GL2UseTrilinear
+- ?GL2UseUShaderSpecularTerm@@3HA
+int GL2UseUShaderSpecularTerm
+- ?GL2UseUnderwear@@3HA
+int GL2UseUnderwear
+- ?GL2UseWaterAntiPortalClipping@@3HA
+int GL2UseWaterAntiPortalClipping
+- ?GL2UseYebis@@3HA
+int GL2UseYebis
+- ?GL2UseYebisDebug@@3HA
+int GL2UseYebisDebug
+- ?GL2UseYebisDepthForWorldZ@@3HA
+int GL2UseYebisDepthForWorldZ
+- ?GL2UseYebisDepthPauseSencilAlpha@@3HA
+int GL2UseYebisDepthPauseSencilAlpha
+- ?GL2UseYebisDepthRT@@3HA
+int GL2UseYebisDepthRT
+- ?GL2UseYebisDepthSetFoucs@@3HA
+int GL2UseYebisDepthSetFoucs
+- ?GL2UserCurrZoneName@@3PA_WA
+wchar_t *GL2UserCurrZoneName
+- ?GL2UserExPacketTableName@@3PAPA_WA
+wchar_t **GL2UserExPacketTableName
+- ?GL2UserExPacketTableSize@@3HA
+int GL2UserExPacketTableSize
+- ?GL2UserPacketTableName@@3PAPA_WA
+wchar_t **GL2UserPacketTableName
+- ?GL2UserPacketTableSize@@3HA
+int GL2UserPacketTableSize
+- ?GL2UserPosition@@3PAMA
+float *GL2UserPosition
+- ?GL2UserPremiumLevel@@3HA
+int GL2UserPremiumLevel
+- ?GL2UsingJoystick@@3HA
+int GL2UsingJoystick
+- ?GL2UsingPS4Controller@@3HA
+int GL2UsingPS4Controller
+- ?GL2WaterSheetCullAreaThreshold@@3MA
+float GL2WaterSheetCullAreaThreshold
+- ?GL2WaterSheetForceHide@@3HA
+int GL2WaterSheetForceHide
+- ?GL2WireSkeletalMesh@@3HA
+int GL2WireSkeletalMesh
+- ?GL2YebisGlow@@3HA
+int GL2YebisGlow
+- ?GL2YetiPushEnabled@@3HA
+int GL2YetiPushEnabled
+- ?GL2YetiStreamingStarted@@3HA
+int GL2YetiStreamingStarted
+- ?GL2bRenderEngine@@3HA
+int GL2bRenderEngine
+- ?GL2bRenderTerrain@@3HA
+int GL2bRenderTerrain
+- ?GL2bSpawnSimpleEmitter@@3HA
+int GL2bSpawnSimpleEmitter
+- ?GL2bUserpawnOriginLoc@@3HA
+int GL2bUserpawnOriginLoc
+- ?GLanguageType@@3HA
+int GLanguageType
+- ?GLastAccessServerType@@3HA
+int GLastAccessServerType
+- ?GLastGFxDisplayExceptTick@@3_JA
+__int64 GLastGFxDisplayExceptTick
+- ?GLazyLoad@@3HA
+int GLazyLoad
+- ?GLog@@3PAVFOutputDevice@@A
+class FOutputDevice *GLog
+- ?GLogHook2@@3PAVFOutputDevice@@A
+class FOutputDevice *GLogHook2
+- ?GLogHook@@3PAVFOutputDevice@@A
+class FOutputDevice *GLogHook
+- ?GMACAddress@@3_JA
+__int64 GMACAddress
+- ?GMachineCPU@@3PA_WA
+wchar_t *GMachineCPU
+- ?GMachineDirectX@@3PA_WA
+wchar_t *GMachineDirectX
+- ?GMachineOS@@3PA_WA
+wchar_t *GMachineOS
+- ?GMachineVideo@@3PA_WA
+wchar_t *GMachineVideo
+- ?GMakeCacheIDIndex@@3_KA
+unsigned __int64 GMakeCacheIDIndex
+- ?GMalloc@@3PAVFMalloc@@A
+class FMalloc *GMalloc
+- ?GMasterLevelActorsNum@@3HA
+int GMasterLevelActorsNum
+- ?GMath@@3VFGlobalMath@@A
+class FGlobalMath GMath
+- ?GMem@@3VFMemStack@@A
+class FMemStack GMem
+- ?GNativeDuplicate@@3HA
+int GNativeDuplicate
+- ?GNativeObjNum@@3HA
+int GNativeObjNum
+- ?GNetworkLog@@3PAVFOutputDevice@@A
+class FOutputDevice *GNetworkLog
+- ?GNewMemoryCount@@3KA
+unsigned long GNewMemoryCount
+- ?GNo@@3PA_WA
+wchar_t *GNo
+- ?GNone@@3PA_WA
+wchar_t *GNone
+- ?GNull@@3PAVFOutputDevice@@A
+class FOutputDevice *GNull
+- ?GNullObjNum@@3HA
+int GNullObjNum
+- ?GPCViewerSelectedCollision@@3PAVUObject@@A
+class UObject *GPCViewerSelectedCollision
+- ?GPageSize@@3KA
+unsigned long GPageSize
+- ?GPhysicalCoreCount@@3KA
+unsigned long GPhysicalCoreCount
+- ?GPhysicalMemory@@3KA
+unsigned long GPhysicalMemory
+- ?GPrivateMemory@@3KA
+unsigned long GPrivateMemory
+- ?GProcessorCount@@3KA
+unsigned long GProcessorCount
+- ?GPropAddr@@3PAEA
+unsigned char *GPropAddr
+- ?GPropObject@@3PAVUObject@@A
+class UObject *GPropObject
+- ?GProperty@@3PAVUProperty@@A
+class UProperty *GProperty
+- ?GRadiiHeight@@3HA
+int GRadiiHeight
+- ?GRadiiMode@@3HA
+int GRadiiMode
+- ?GRadiiRadius@@3HA
+int GRadiiRadius
+- ?GRefreshRate@@3HA
+int GRefreshRate
+- ?GRunningOS@@3W4ERunningOS@@A
+enum ERunningOS GRunningOS
+- ?GSEKScreenX@@3HA
+int GSEKScreenX
+- ?GSEKScreenY@@3HA
+int GSEKScreenY
+- ?GScriptCycles@@3HA
+int GScriptCycles
+- ?GScriptEntryTag@@3HA
+int GScriptEntryTag
+- ?GSecondsPerCycle@@3NA
+double GSecondsPerCycle
+- ?GSecondsPerCycleQPF@@3NA
+double GSecondsPerCycleQPF
+- ?GShowDecorationDensityMesh@@3HA
+int GShowDecorationDensityMesh
+- ?GShowPacketBroadcastRange@@3HA
+int GShowPacketBroadcastRange
+- ?GShowUIDebugMsg@@3HA
+int GShowUIDebugMsg
+- ?GSizeOfPacketBroadcastRange@@3UFVector@@A
+struct FVector GSizeOfPacketBroadcastRange
+- ?GSocketErrorCode@@3HA
+int GSocketErrorCode
+- ?GStructNum@@3HA
+int GStructNum
+- ?GSys@@3PAVUSystem@@A
+class USystem *GSys
+- ?GTestCoLvLostTick@@3_JA
+__int64 GTestCoLvLostTick
+- ?GTestCoLvNotResetTick@@3_JA
+__int64 GTestCoLvNotResetTick
+- ?GTestCoLvResultBeforeBeginScene@@3JA
+long GTestCoLvResultBeforeBeginScene
+- ?GTestCoLvResultBeforeReset@@3JA
+long GTestCoLvResultBeforeReset
+- ?GTicks@@3_JA
+__int64 GTicks
+- ?GTopWnd@@3PAUHWND__@@A
+struct HWND__*GTopWnd
+- ?GTrue@@3PA_WA
+wchar_t *GTrue
+- ?GTsfUiLessMode@@3HA
+int GTsfUiLessMode
+- ?GUglyHackFlags@@3KA
+unsigned long GUglyHackFlags
+- ?GUndo@@3PAVFTransactionBase@@A
+class FTransactionBase *GUndo
+- ?GUnicode@@3HA
+int GUnicode
+- ?GUnicodeOS@@3HA
+int GUnicodeOS
+- ?GUseBurningDespawn@@3HA
+int GUseBurningDespawn
+- ?GUseCollisionCheckInSiege@@3HA
+int GUseCollisionCheckInSiege
+- ?GUseCollisionCheckWithNPC@@3HA
+int GUseCollisionCheckWithNPC
+- ?GUseDucking@@3HA
+int GUseDucking
+- ?GUseMultiLang@@3HA
+int GUseMultiLang
+- ?GUseSendClientLog@@3HA
+int GUseSendClientLog
+- ?GUseTSF@@3HA
+int GUseTSF
+- ?GUseUniqueObjectName@@3HA
+int GUseUniqueObjectName
+- ?GUseUnrealBuiltInFont@@3HA
+int GUseUnrealBuiltInFont
+- ?GUserIni@@3PA_WA
+wchar_t *GUserIni
+- ?GUsingOMP@@3HA
+int GUsingOMP
+- ?GWarn@@3PAVFFeedbackContext@@A
+class FFeedbackContext *GWarn
+- ?GWindowManager@@3PAVUSubsystem@@A
+class USubsystem *GWindowManager
+- ?GYes@@3PA_WA
+wchar_t *GYes
+- ?GetObj@?$TSingleton@VL2Configuration@@@@SAAAVL2Configuration@@XZ
+public: static class L2Configuration & __cdecl TSingleton<class L2Configuration>::GetObj(void)
+- ?GetObj@?$TSingleton@VL2GlobalVariables@@@@SAAAVL2GlobalVariables@@XZ
+public: static class L2GlobalVariables & __cdecl TSingleton<class L2GlobalVariables>::GetObj(void)
+- ?GetObj@?$TSingleton@VL2ThreadUtil@@@@SAAAVL2ThreadUtil@@XZ
+public: static class L2ThreadUtil & __cdecl TSingleton<class L2ThreadUtil>::GetObj(void)
+- ?GetObj@?$TSingleton@VL2UserHardWareInformation@@@@SAAAVL2UserHardWareInformation@@XZ
+public: static class L2UserHardWareInformation & __cdecl TSingleton<class L2UserHardWareInformation>::GetObj(void)
+- ?GetObjPtr@?$TSingleton@VL2Configuration@@@@SAPAVL2Configuration@@XZ
+public: static class L2Configuration * __cdecl TSingleton<class L2Configuration>::GetObjPtr(void)
+- ?GetObjPtr@?$TSingleton@VL2GlobalVariables@@@@SAPAVL2GlobalVariables@@XZ
+public: static class L2GlobalVariables * __cdecl TSingleton<class L2GlobalVariables>::GetObjPtr(void)
+- ?GetObjPtr@?$TSingleton@VL2ThreadUtil@@@@SAPAVL2ThreadUtil@@XZ
+public: static class L2ThreadUtil * __cdecl TSingleton<class L2ThreadUtil>::GetObjPtr(void)
+- ?GetObjPtr@?$TSingleton@VL2UserHardWareInformation@@@@SAPAVL2UserHardWareInformation@@XZ
+public: static class L2UserHardWareInformation * __cdecl TSingleton<class L2UserHardWareInformation>::GetObjPtr(void)
+- ?Insert@?$TArray@_W@@QAEXHH@Z
+public: void __thiscall TArray<wchar_t>::Insert(int, int)
+- ?InsertZeroed@?$TArray@_W@@QAEXHH@Z
+public: void __thiscall TArray<wchar_t>::InsertZeroed(int, int)
+- ?Last@?$TArray@_W@@QAEAA_WH@Z
+public: wchar_t & __thiscall TArray<wchar_t>::Last(int)
+- ?Last@?$TArray@_W@@QBEAB_WH@Z
+public: wchar_t const & __thiscall TArray<wchar_t>::Last(int) const
+- ?LastGarbageCollectedGTicks@@3_JA
+__int64 LastGarbageCollectedGTicks
+- ?Localize@@YAPB_WPBD0PB_W1H@Z
+wchar_t const * __cdecl Localize(char const *, char const *, wchar_t const *, wchar_t const *, int)
+- ?Localize@@YAPB_WPB_W000H@Z
+wchar_t const * __cdecl Localize(wchar_t const *, wchar_t const *, wchar_t const *, wchar_t const *, int)
+- ?LocalizeError@@YAPB_WPBDPB_W1@Z
+wchar_t const * __cdecl LocalizeError(char const *, wchar_t const *, wchar_t const *)
+- ?LocalizeError@@YAPB_WPB_W00@Z
+wchar_t const * __cdecl LocalizeError(wchar_t const *, wchar_t const *, wchar_t const *)
+- ?LocalizeGeneral@@YAPB_WPBDPB_W1@Z
+wchar_t const * __cdecl LocalizeGeneral(char const *, wchar_t const *, wchar_t const *)
+- ?LocalizeGeneral@@YAPB_WPB_W00@Z
+wchar_t const * __cdecl LocalizeGeneral(wchar_t const *, wchar_t const *, wchar_t const *)
+- ?LocalizeProgress@@YAPB_WPBDPB_W1@Z
+wchar_t const * __cdecl LocalizeProgress(char const *, wchar_t const *, wchar_t const *)
+- ?LocalizeProgress@@YAPB_WPB_W00@Z
+wchar_t const * __cdecl LocalizeProgress(wchar_t const *, wchar_t const *, wchar_t const *)
+- ?NEAR_CLIPPING_PLANE@@3MA
+float NEAR_CLIPPING_PLANE
+- ?Num@?$TMap@VFString@@VFConfigFile@@@@QBEHXZ
+public: int __thiscall TMap<class FString, class FConfigFile>::Num(void) const
+- ?Num@?$TMapBase@VFString@@VFConfigFile@@@@QAEHXZ
+public: int __thiscall TMapBase<class FString, class FConfigFile>::Num(void)
+- ?Parse@@YAHPB_W0AAC@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, signed char &)
+- ?Parse@@YAHPB_W0AAE@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, unsigned char &)
+- ?Parse@@YAHPB_W0AAF@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, short &)
+- ?Parse@@YAHPB_W0AAG@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, unsigned short &)
+- ?Parse@@YAHPB_W0AAH@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, int &)
+- ?Parse@@YAHPB_W0AAK@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, unsigned long &)
+- ?Parse@@YAHPB_W0AAM@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, float &)
+- ?Parse@@YAHPB_W0AAVFGuid@@@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, class FGuid &)
+- ?Parse@@YAHPB_W0AAVFName@@@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, class FName &)
+- ?Parse@@YAHPB_W0AAVFString@@H@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, class FString &, int)
+- ?Parse@@YAHPB_W0AA_J@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, __int64 &)
+- ?Parse@@YAHPB_W0AA_K@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, unsigned __int64 &)
+- ?Parse@@YAHPB_W0PA_WHH@Z
+int __cdecl Parse(wchar_t const *, wchar_t const *, wchar_t *, int, int)
+- ?ParseCommand@@YAHPAPB_WPB_W@Z
+int __cdecl ParseCommand(wchar_t const **, wchar_t const *)
+- ?ParseLine@@YAHPAPB_WAAVFString@@H@Z
+int __cdecl ParseLine(wchar_t const **, class FString &, int)
+- ?ParseLine@@YAHPAPB_WPA_WHH@Z
+int __cdecl ParseLine(wchar_t const **, wchar_t *, int, int)
+- ?ParseNext@@YAXPAPB_W@Z
+void __cdecl ParseNext(wchar_t const **)
+- ?ParseObject@@YAHPB_W0PAVUClass@@AAPAVUObject@@PAV2@@Z
+int __cdecl ParseObject(wchar_t const *, wchar_t const *, class UClass *, class UObject *&, class UObject *)
+- ?ParseParam@@YAHPB_W0@Z
+int __cdecl ParseParam(wchar_t const *, wchar_t const *)
+- ?ParsePatialCommand@@YAHPAPB_WPB_W@Z
+int __cdecl ParsePatialCommand(wchar_t const **, wchar_t const *)
+- ?ParseToken@@YA?AVFString@@AAPB_WH@Z
+class FString __cdecl ParseToken(wchar_t const *&, int)
+- ?ParseToken@@YAHAAPB_WAAVFString@@H@Z
+int __cdecl ParseToken(wchar_t const *&, class FString &, int)
+- ?ParseToken@@YAHAAPB_WPA_WHH@Z
+int __cdecl ParseToken(wchar_t const *&, wchar_t *, int, int)
+- ?ParseUBOOL@@YAHPB_W0AAH@Z
+int __cdecl ParseUBOOL(wchar_t const *, wchar_t const *, int &)
+- ?Pop@?$TArray@_W@@QAE_WXZ
+public: wchar_t __thiscall TArray<wchar_t>::Pop(void)
+- ?Process@?$TArray@_W@@QAEXH@Z
+public: void __thiscall TArray<wchar_t>::Process(int)
+- ?ReadToken@@YAPB_WPB_WPA_WHHH@Z
+wchar_t const * __cdecl ReadToken(wchar_t const *, wchar_t *, int, int, int)
+- ?Rehash@?$TMapBase@VFString@@VFConfigFile@@@@IAEXXZ
+protected: void __thiscall TMapBase<class FString, class FConfigFile>::Rehash(void)
+- ?Relax@?$TMapBase@VFString@@VFConfigFile@@@@IAEXXZ
+protected: void __thiscall TMapBase<class FString, class FConfigFile>::Relax(void)
+- ?Remove@?$TArray@_W@@QAEXHH@Z
+public: void __thiscall TArray<wchar_t>::Remove(int, int)
+- ?Remove@?$TMapBase@VFString@@VFConfigFile@@@@QAEHPB_W@Z
+public: int __thiscall TMapBase<class FString, class FConfigFile>::Remove(wchar_t const *)
+- ?RemoveItem@?$TArray@_W@@QAEHAB_W@Z
+public: int __thiscall TArray<wchar_t>::RemoveItem(wchar_t const &)
+- ?Reserve@?$TArray@_W@@QAEXH@Z
+public: void __thiscall TArray<wchar_t>::Reserve(int)
+- ?Reserve@?$TMapBase@VFString@@VFConfigFile@@@@QAEXH@Z
+public: void __thiscall TMapBase<class FString, class FConfigFile>::Reserve(int)
+- ?ResetError@@YAXXZ
+void __cdecl ResetError(void)
+- ?Set@?$TMapBase@VFString@@VFConfigFile@@@@QAEAAVFConfigFile@@PB_WABV2@@Z
+public: class FConfigFile & __thiscall TMapBase<class FString, class FConfigFile>::Set(wchar_t const *, class FConfigFile const &)
+- ?Shrink@?$TArray@_W@@QAEXXZ
+public: void __thiscall TArray<wchar_t>::Shrink(void)
+- ?__FUNC_NAME__@?2??Dump@?$TMapBase@VFString@@VFConfigFile@@@@QAEXAAVFOutputDevice@@@Z@4QB_WB
+wchar_t const *const `public: void __thiscall TMapBase<class FString, class FConfigFile>::Dump(class FOutputDevice &)'::`3'::__FUNC_NAME__
+- ?appAcos@@YANN@Z
+double __cdecl appAcos(double)
+- ?appAnsiStrlen@@YAHPBD@Z
+int __cdecl appAnsiStrlen(char const *)
+- ?appAtan2@@YANNN@Z
+double __cdecl appAtan2(double, double)
+- ?appAtan@@YANN@Z
+double __cdecl appAtan(double)
+- ?appAtoI64@@YA_JPB_W@Z
+__int64 __cdecl appAtoI64(wchar_t const *)
+- ?appAtof@@YANPB_W@Z
+double __cdecl appAtof(wchar_t const *)
+- ?appAtoi@@YAHPB_W@Z
+int __cdecl appAtoi(wchar_t const *)
+- ?appBaseDir@@YAPB_WXZ
+wchar_t const * __cdecl appBaseDir(void)
+- ?appCeil@@YAHM@Z
+int __cdecl appCeil(float)
+- ?appCeilLogTwo@@YAEK@Z
+unsigned char __cdecl appCeilLogTwo(unsigned long)
+- ?appCleanFileCache@@YAXXZ
+void __cdecl appCleanFileCache(void)
+- ?appClipboardCopy@@YAXPB_W@Z
+void __cdecl appClipboardCopy(wchar_t const *)
+- ?appClipboardCopyBitmap@@YAXPBEHH@Z
+void __cdecl appClipboardCopyBitmap(unsigned char const *, int, int)
+- ?appClipboardPaste@@YA?AVFString@@XZ
+class FString __cdecl appClipboardPaste(void)
+- ?appCmdLine@@YAPB_WXZ
+wchar_t const * __cdecl appCmdLine(void)
+- ?appComputerName@@YAPB_WXZ
+wchar_t const * __cdecl appComputerName(void)
+- ?appConvertIntToTime@@YAXHAAH0000@Z
+void __cdecl appConvertIntToTime(int, int &, int &, int &, int &, int &)
+- ?appCos@@YANN@Z
+double __cdecl appCos(double)
+- ?appCreateBitmap@@YAHPB_WHHPAKPAVFFileManager@@HH@Z
+int __cdecl appCreateBitmap(wchar_t const *, int, int, unsigned long *, class FFileManager *, int, int)
+- ?appCreateJpeg@@YAHPB_WHHPAKPAVFFileManager@@H@Z
+int __cdecl appCreateJpeg(wchar_t const *, int, int, unsigned long *, class FFileManager *, int)
+- ?appCreateProc@@YAPAXPB_W0@Z
+void * __cdecl appCreateProc(wchar_t const *, wchar_t const *)
+- ?appCreateTempFilename@@YAXPB_WPA_W@Z
+void __cdecl appCreateTempFilename(wchar_t const *, wchar_t *)
+- ?appCyclesQPC@@YA_KXZ
+unsigned __int64 __cdecl appCyclesQPC(void)
+- ?appDebugBreak@@YAXXZ
+void __cdecl appDebugBreak(void)
+- ?appDumpAlloc@@YAXXZ
+void __cdecl appDumpAlloc(void)
+- ?appExit@@YAXXZ
+void __cdecl appExit(void)
+- ?appFExt@@YAPB_WPB_W@Z
+wchar_t const * __cdecl appFExt(wchar_t const *)
+- ?appFailAssert@@YAXPBD0H@Z
+void __cdecl appFailAssert(char const *, char const *, int)
+- ?appFindPackageFile@@YAHPB_WPBVFGuid@@PA_W@Z
+int __cdecl appFindPackageFile(wchar_t const *, class FGuid const *, wchar_t *)
+- ?appFloor@@YAHM@Z
+int __cdecl appFloor(float)
+- ?appFmod@@YANNN@Z
+double __cdecl appFmod(double, double)
+- ?appFormat@@YA?AVFString@@V1@ABV?$TMultiMap@VFString@@V1@@@@Z
+class FString __cdecl appFormat(class FString, class TMultiMap<class FString, class FString> const &)
+- ?appFractional@@YAMM@Z
+float __cdecl appFractional(float)
+- ?appFrand@@YAMXZ
+float __cdecl appFrand(void)
+- ?appFreeDllHandle@@YAXPAX@Z
+void __cdecl appFreeDllHandle(void *)
+- ?appFromAnsi@@YAPB_WPBDPA_W@Z
+wchar_t const * __cdecl appFromAnsi(char const *, wchar_t *)
+- ?appGetDllExport@@YAPAXPAXPB_W@Z
+void * __cdecl appGetDllExport(void *, wchar_t const *)
+- ?appGetDllHandle@@YAPAXPB_W@Z
+void * __cdecl appGetDllHandle(wchar_t const *)
+- ?appGetGMTRef@@YA?AVFString@@XZ
+class FString __cdecl appGetGMTRef(void)
+- ?appGetLastError@@YAXXZ
+void __cdecl appGetLastError(void)
+- ?appGetProcReturnCode@@YAHPAXPAH@Z
+int __cdecl appGetProcReturnCode(void *, int *)
+- ?appGetSystemErrorMessage@@YAPB_WH@Z
+wchar_t const * __cdecl appGetSystemErrorMessage(int)
+- ?appGetThrownThreadIndex@@YAHXZ
+int __cdecl appGetThrownThreadIndex(void)
+- ?appGetVarArgs@@YAHPA_WHAAPB_W@Z
+int __cdecl appGetVarArgs(wchar_t *, int, wchar_t const *&)
+- ?appHandleExceptionInfo@@YAXABVL2Exception@@@Z
+void __cdecl appHandleExceptionInfo(class L2Exception const &)
+- ?appI64toa@@YAPA_W_J@Z
+wchar_t * __cdecl appI64toa(__int64)
+- ?appInStr@@YAHPB_W0H@Z
+int __cdecl appInStr(wchar_t const *, wchar_t const *, int)
+- ?appInit@@YAXPB_W0PAVFMalloc@@PAVFOutputDevice@@PAVFOutputDeviceError@@PAVFFeedbackContext@@PAVFFileManager@@HPAVFCodec@@@Z
+void __cdecl appInit(wchar_t const *, wchar_t const *, class FMalloc *, class FOutputDevice *, class FOutputDeviceError *, class FFeedbackContext *, class FFileManager *, int, class FCodec *)
+- ?appIsDebuggerPresent@@YAHXZ
+int __cdecl appIsDebuggerPresent(void)
+- ?appIsNan@@YAHN@Z
+int __cdecl appIsNan(double)
+- ?appIsPureAnsi@@YAHPB_W@Z
+int __cdecl appIsPureAnsi(wchar_t const *)
+- ?appItoa@@YAPA_WH@Z
+wchar_t * __cdecl appItoa(int)
+- ?appLaunchURL@@YAXPB_W0PAVFString@@@Z
+void __cdecl appLaunchURL(wchar_t const *, wchar_t const *, class FString *)
+- ?appLaunchURLNoActive@@YAXPB_W0PAVFString@@@Z
+void __cdecl appLaunchURLNoActive(wchar_t const *, wchar_t const *, class FString *)
+- ?appLoadFileToArray@@YAHAAV?$TArray@E@@PB_WPAVFFileManager@@@Z
+int __cdecl appLoadFileToArray(class TArray<unsigned char> &, wchar_t const *, class FFileManager *)
+- ?appLoadFileToString@@YAHAAVFString@@PB_WPAVFFileManager@@@Z
+int __cdecl appLoadFileToString(class FString &, wchar_t const *, class FFileManager *)
+- ?appLocalTime@@YAXAAH0000@Z
+void __cdecl appLocalTime(int &, int &, int &, int &, int &)
+- ?appMD5Final@@YAXPAEPAUFMD5Context@@@Z
+void __cdecl appMD5Final(unsigned char *, struct FMD5Context *)
+- ?appMD5Init@@YAXPAUFMD5Context@@@Z
+void __cdecl appMD5Init(struct FMD5Context *)
+- ?appMD5Update@@YAXPAUFMD5Context@@PAEH@Z
+void __cdecl appMD5Update(struct FMD5Context *, unsigned char *, int)
+- ?appMSCVer@@YAPB_WXZ
+wchar_t const * __cdecl appMSCVer(void)
+- ?appMemCrc@@YAKPBXHK@Z
+unsigned long __cdecl appMemCrc(void const *, int, unsigned long)
+- ?appMemcmp@@YAHPBX0H@Z
+int __cdecl appMemcmp(void const *, void const *, int)
+- ?appMemmove@@YAPAXPAXPBXH@Z
+void * __cdecl appMemmove(void *, void const *, int)
+- ?appMemset@@YAXPAXHH@Z
+void __cdecl appMemset(void *, int, int)
+- ?appMemswap@@YAXPAX0K@Z
+void __cdecl appMemswap(void *, void *, unsigned long)
+- ?appMkTime32@@YAJPAUtm@@@Z
+long __cdecl appMkTime32(struct tm *)
+- ?appMsgf@@YA?BHHPB_WZZ
+int const __cdecl appMsgf(int, wchar_t const *, ...)
+- ?appPackage@@YAPB_WXZ
+wchar_t const * __cdecl appPackage(void)
+- ?appPow@@YANNN@Z
+double __cdecl appPow(double, double)
+- ?appPreExit@@YAXXZ
+void __cdecl appPreExit(void)
+- ?appQsort@@YAXPAXHHP6AHPBX1@Z@Z
+void __cdecl appQsort(void *, int, int, int (__cdecl *)(void const *, void const *))
+- ?appRand@@YAHXZ
+int __cdecl appRand(void)
+- ?appRandInit@@YAXH@Z
+void __cdecl appRandInit(int)
+- ?appReleaseCoreLog@@YAXXZ
+void __cdecl appReleaseCoreLog(void)
+- ?appRequestExit@@YAXH@Z
+void __cdecl appRequestExit(int)
+- ?appRound@@YAHM@Z
+int __cdecl appRound(float)
+- ?appSRand@@YAMXZ
+float __cdecl appSRand(void)
+- ?appSRandInit@@YAXH@Z
+void __cdecl appSRandInit(int)
+- ?appSaveArrayToFile@@YAHABV?$TArray@E@@PB_WPAVFFileManager@@@Z
+int __cdecl appSaveArrayToFile(class TArray<unsigned char> const &, wchar_t const *, class FFileManager *)
+- ?appSaveStringToFile@@YAHABVFString@@PB_WPAVFFileManager@@W4EFileWrite@@@Z
+int __cdecl appSaveStringToFile(class FString const &, wchar_t const *, class FFileManager *, enum EFileWrite)
+- ?appSecondsQPC@@YANXZ
+double __cdecl appSecondsQPC(void)
+- ?appSetThrownThreadIndex@@YAXXZ
+void __cdecl appSetThrownThreadIndex(void)
+- ?appSin@@YANN@Z
+double __cdecl appSin(double)
+- ?appSleep@@YAXM@Z
+void __cdecl appSleep(float)
+- ?appSpc@@YAPB_WH@Z
+wchar_t const * __cdecl appSpc(int)
+- ?appSprintf@@YAHPA_WPB_WZZ
+int __cdecl appSprintf(wchar_t *, wchar_t const *, ...)
+- ?appSqrt@@YANN@Z
+double __cdecl appSqrt(double)
+- ?appStaticString1024@@YAPA_WXZ
+wchar_t * __cdecl appStaticString1024(void)
+- ?appStrcat@@YAPA_WPA_WPB_W@Z
+wchar_t * __cdecl appStrcat(wchar_t *, wchar_t const *)
+- ?appStrchr@@YAPA_WPB_WH@Z
+wchar_t * __cdecl appStrchr(wchar_t const *, int)
+- ?appStrcmp@@YAHPB_W0@Z
+int __cdecl appStrcmp(wchar_t const *, wchar_t const *)
+- ?appStrcpy@@YAPA_WPA_WPB_W@Z
+wchar_t * __cdecl appStrcpy(wchar_t *, wchar_t const *)
+- ?appStrfind@@YAPB_WPB_W0@Z
+wchar_t const * __cdecl appStrfind(wchar_t const *, wchar_t const *)
+- ?appStricmp@@YAHPB_W0@Z
+int __cdecl appStricmp(wchar_t const *, wchar_t const *)
+- ?appStristr@@YAPA_WPB_W0@Z
+wchar_t * __cdecl appStristr(wchar_t const *, wchar_t const *)
+- ?appStristrByRussia@@YAPA_WPB_W0@Z
+wchar_t * __cdecl appStristrByRussia(wchar_t const *, wchar_t const *)
+- ?appStrlen@@YAHPB_W@Z
+int __cdecl appStrlen(wchar_t const *)
+- ?appStrncat@@YAPA_WPA_WPB_WH@Z
+wchar_t * __cdecl appStrncat(wchar_t *, wchar_t const *, int)
+- ?appStrncmp@@YAHPB_W0H@Z
+int __cdecl appStrncmp(wchar_t const *, wchar_t const *, int)
+- ?appStrncpy@@YAPA_WPA_WPB_WH@Z
+wchar_t * __cdecl appStrncpy(wchar_t *, wchar_t const *, int)
+- ?appStrnicmp@@YAHPB_W0H@Z
+int __cdecl appStrnicmp(wchar_t const *, wchar_t const *, int)
+- ?appStrrchr@@YAPA_WPB_WH@Z
+wchar_t * __cdecl appStrrchr(wchar_t const *, int)
+- ?appStrstr@@YAPA_WPB_W0@Z
+wchar_t * __cdecl appStrstr(wchar_t const *, wchar_t const *)
+- ?appStrtoi@@YAHPB_WPAPA_WH@Z
+int __cdecl appStrtoi(wchar_t const *, wchar_t **, int)
+- ?appStrupr@@YAPA_WPA_W@Z
+wchar_t * __cdecl appStrupr(wchar_t *)
+- ?appSystemTime@@YAXAAH0000000@Z
+void __cdecl appSystemTime(int &, int &, int &, int &, int &, int &, int &, int &)
+- ?appTan@@YANN@Z
+double __cdecl appTan(double)
+- ?appThrowf@@YAXPB_WZZ
+void __cdecl appThrowf(wchar_t const *, ...)
+- ?appTime32@@YAJXZ
+long __cdecl appTime32(void)
+- ?appTimestamp@@YAPB_WXZ
+wchar_t const * __cdecl appTimestamp(void)
+- ?appToAnsi@@YAPBDPB_WPAD@Z
+char const * __cdecl appToAnsi(wchar_t const *, char *)
+- ?appToUnicode@@YAPB_WPB_W@Z
+wchar_t const * __cdecl appToUnicode(wchar_t const *)
+- ?appTrimSpaces@@YAXPAD@Z
+void __cdecl appTrimSpaces(char *)
+- ?appUnwindMsgf@@YAXPB_WZZ
+void __cdecl appUnwindMsgf(wchar_t const *, ...)
+- ?appUnwindf@@YAXPB_WZZ
+void __cdecl appUnwindf(wchar_t const *, ...)
+- ?begin@?$TArray@_W@@QAEPA_WXZ
+public: wchar_t * __thiscall TArray<wchar_t>::begin(void)
+- ?begin@?$TArray@_W@@QBEPB_WXZ
+public: wchar_t const * __thiscall TArray<wchar_t>::begin(void) const
+- ?begin@?$TMapBase@VFString@@VFConfigFile@@@@QAE?AVTIterator@1@XZ
+public: class TMapBase<class FString, class FConfigFile>::TIterator __thiscall TMapBase<class FString, class FConfigFile>::begin(void)
+- ?begin@?$TMapBase@VFString@@VFConfigFile@@@@QBE?AVTConstIterator@1@XZ
+public: class TMapBase<class FString, class FConfigFile>::TConstIterator __thiscall TMapBase<class FString, class FConfigFile>::begin(void) const
+- ?debugf@@YAXPB_WZZ
+void __cdecl debugf(wchar_t const *, ...)
+- ?debugf@@YAXW4EName@@PB_WZZ
+void __cdecl debugf(enum EName, wchar_t const *, ...)
+- ?end@?$TArray@_W@@QAEPA_WXZ
+public: wchar_t * __thiscall TArray<wchar_t>::end(void)
+- ?end@?$TArray@_W@@QBEPB_WXZ
+public: wchar_t const * __thiscall TArray<wchar_t>::end(void) const
+- ?end@?$TMapBase@VFString@@VFConfigFile@@@@QAE?AVTIterator@1@XZ
+public: class TMapBase<class FString, class FConfigFile>::TIterator __thiscall TMapBase<class FString, class FConfigFile>::end(void)
+- ?end@?$TMapBase@VFString@@VFConfigFile@@@@QBE?AVTConstIterator@1@XZ
+public: class TMapBase<class FString, class FConfigFile>::TConstIterator __thiscall TMapBase<class FString, class FConfigFile>::end(void) const
+- ?m_pObject@?$TSingleton@VL2Configuration@@@@0PAVL2Configuration@@A
+private: static class L2Configuration *TSingleton<class L2Configuration>::m_pObject
+- ?m_pObject@?$TSingleton@VL2GlobalVariables@@@@0PAVL2GlobalVariables@@A
+private: static class L2GlobalVariables *TSingleton<class L2GlobalVariables>::m_pObject
+- ?m_pObject@?$TSingleton@VL2ThreadUtil@@@@0PAVL2ThreadUtil@@A
+private: static class L2ThreadUtil *TSingleton<class L2ThreadUtil>::m_pObject
+- ?m_pObject@?$TSingleton@VL2UserHardWareInformation@@@@0PAVL2UserHardWareInformation@@A
+private: static class L2UserHardWareInformation *TSingleton<class L2UserHardWareInformation>::m_pObject
+- ?winAnsiToTCHAR@@YAPA_WPBD@Z
+wchar_t * __cdecl winAnsiToTCHAR(char const *)
+- ?winGetSizeANSI@@YAHPB_W@Z
+int __cdecl winGetSizeANSI(wchar_t const *)
+- ?winGetSizeUNICODE@@YAHPBD@Z
+int __cdecl winGetSizeUNICODE(char const *)
+- ?winToANSI@@YAPADPADPB_WH@Z
+char * __cdecl winToANSI(char *, wchar_t const *, int)
+- ?winToOEM@@YAPADPADPB_WH@Z
+char * __cdecl winToOEM(char *, wchar_t const *, int)
+- ?winToUNICODE@@YAPA_WPA_WPBDH@Z
+wchar_t * __cdecl winToUNICODE(wchar_t *, char const *, int)
+
+### UObject  (523)
+- ??0UObject@@QAE@ABV0@@Z
+public: __thiscall UObject::UObject(class UObject const &)
+- ??0UObject@@QAE@W4EInPlaceConstructor@@PAVUClass@@PAV0@VFName@@K@Z
+public: __thiscall UObject::UObject(enum EInPlaceConstructor, class UClass *, class UObject *, class FName, unsigned long)
+- ??0UObject@@QAE@W4ENativeConstructor@@PAVUClass@@PB_W2K@Z
+public: __thiscall UObject::UObject(enum ENativeConstructor, class UClass *, wchar_t const *, wchar_t const *, unsigned long)
+- ??0UObject@@QAE@W4EStaticConstructor@@PB_W1K@Z
+public: __thiscall UObject::UObject(enum EStaticConstructor, wchar_t const *, wchar_t const *, unsigned long)
+- ??0UObject@@QAE@XZ
+public: __thiscall UObject::UObject(void)
+- ??1UObject@@UAE@XZ
+public: virtual __thiscall UObject::~UObject(void)
+- ??2UObject@@SAPAXIPAV0@PB_WK@Z
+public: static void * __cdecl UObject::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UObject@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UObject::operator new(unsigned int, enum EInternal *)
+- ??4UObject@@QAEAAV0@ABV0@@Z
+public: class UObject & __thiscall UObject::operator=(class UObject const &)
+- ??_7UObject@@6B@
+const UObject::`vftable'
+- ?AddObject@UObject@@IAEXH@Z
+protected: void __thiscall UObject::AddObject(int)
+- ?AddRef@UObject@@UAGKXZ
+public: virtual unsigned long __stdcall UObject::AddRef(void)
+- ?AddToRoot@UObject@@QAEXXZ
+public: void __thiscall UObject::AddToRoot(void)
+- ?AttemptDelete@UObject@@SAHAAPAV1@KH@Z
+public: static int __cdecl UObject::AttemptDelete(class UObject *&, unsigned long, int)
+- ?BeginLoad@UObject@@SAXXZ
+public: static void __cdecl UObject::BeginLoad(void)
+- ?BindPackage@UObject@@SAXPAVUPackage@@@Z
+public: static void __cdecl UObject::BindPackage(class UPackage *)
+- ?CacheDrivers@UObject@@KAXH@Z
+protected: static void __cdecl UObject::CacheDrivers(int)
+- ?CallFunction@UObject@@UAEXAAUFFrame@@QAXPAVUFunction@@@Z
+public: virtual void __thiscall UObject::CallFunction(struct FFrame &, void *const, class UFunction *)
+- ?CallLoadingProgress@UObject@@SAXXZ
+public: static void __cdecl UObject::CallLoadingProgress(void)
+- ?CheckSafePackage@UObject@@SAHPB_W@Z
+public: static int __cdecl UObject::CheckSafePackage(wchar_t const *)
+- ?ClearFlags@UObject@@QAEXK@Z
+public: void __thiscall UObject::ClearFlags(unsigned long)
+- ?ClearL2Game@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::ClearL2Game(void)
+- ?CollectGarbage@UObject@@SAXK@Z
+public: static void __cdecl UObject::CollectGarbage(unsigned long)
+- ?ConditionalDestroy@UObject@@QAEHXZ
+public: int __thiscall UObject::ConditionalDestroy(void)
+- ?ConditionalPostLoad@UObject@@QAEXXZ
+public: void __thiscall UObject::ConditionalPostLoad(void)
+- ?ConditionalRegister@UObject@@QAEXXZ
+public: void __thiscall UObject::ConditionalRegister(void)
+- ?ConditionalShutdownAfterError@UObject@@QAEXXZ
+public: void __thiscall UObject::ConditionalShutdownAfterError(void)
+- ?CreatePackage@UObject@@SAPAVUPackage@@PAV1@PB_W@Z
+public: static class UPackage * __cdecl UObject::CreatePackage(class UObject *, wchar_t const *)
+- ?DeleteAllHashObjectBuffer@UObject@@KAXXZ
+protected: static void __cdecl UObject::DeleteAllHashObjectBuffer(void)
+- ?DeleteLoadingProgress@UObject@@SAXXZ
+public: static void __cdecl UObject::DeleteLoadingProgress(void)
+- ?Destroy@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::Destroy(void)
+- ?DissociateImports@UObject@@SAXXZ
+public: static void __cdecl UObject::DissociateImports(void)
+- ?EndLoad@UObject@@SAXXZ
+public: static void __cdecl UObject::EndLoad(void)
+- ?ExitProperties@UObject@@SAXPAEPAVUClass@@@Z
+public: static void __cdecl UObject::ExitProperties(unsigned char *, class UClass *)
+- ?ExportProperties@UObject@@SAXAAVFOutputDevice@@PAVUClass@@PAEH12@Z
+public: static void __cdecl UObject::ExportProperties(class FOutputDevice &, class UClass *, unsigned char *, int, class UClass *, unsigned char *)
+- ?FindArrayProperty@UObject@@QAEHABVFString@@PAPAVFArray@@PAH@Z
+public: int __thiscall UObject::FindArrayProperty(class FString const &, class FArray **, int *)
+- ?FindBoolProperty@UObject@@QAEHABVFString@@PAH@Z
+public: int __thiscall UObject::FindBoolProperty(class FString const &, int *)
+- ?FindFNameProperty@UObject@@QAEHABVFString@@PAVFName@@@Z
+public: int __thiscall UObject::FindFNameProperty(class FString const &, class FName *)
+- ?FindFloatProperty@UObject@@QAEHABVFString@@PAM@Z
+public: int __thiscall UObject::FindFloatProperty(class FString const &, float *)
+- ?FindFunction@UObject@@QAEPAVUFunction@@VFName@@H@Z
+public: class UFunction * __thiscall UObject::FindFunction(class FName, int)
+- ?FindFunctionChecked@UObject@@QAEPAVUFunction@@VFName@@H@Z
+public: class UFunction * __thiscall UObject::FindFunctionChecked(class FName, int)
+- ?FindIntProperty@UObject@@QAEHABVFString@@PAH@Z
+public: int __thiscall UObject::FindIntProperty(class FString const &, int *)
+- ?FindObjectField@UObject@@QAEPAVUField@@VFName@@H@Z
+public: class UField * __thiscall UObject::FindObjectField(class FName, int)
+- ?FindObjectProperty@UObject@@QAEHABVFString@@PAPAV1@@Z
+public: int __thiscall UObject::FindObjectProperty(class FString const &, class UObject **)
+- ?FindState@UObject@@QAEPAVUState@@VFName@@@Z
+public: class UState * __thiscall UObject::FindState(class FName)
+- ?FindStrProperty@UObject@@QAEHABVFString@@PAV2@@Z
+public: int __thiscall UObject::FindStrProperty(class FString const &, class FString *)
+- ?FindStructProperty@UObject@@QAEHABVFString@@PAPAVUStruct@@@Z
+public: int __thiscall UObject::FindStructProperty(class FString const &, class UStruct **)
+- ?FinishThreadLoad@UObject@@SAXXZ
+public: static void __cdecl UObject::FinishThreadLoad(void)
+- ?GActorCurCount@UObject@@2HA
+public: static int UObject::GActorCurCount
+- ?GActorNewCount@UObject@@2HA
+public: static int UObject::GActorNewCount
+- ?GActorPeakCount@UObject@@2HA
+public: static int UObject::GActorPeakCount
+- ?GAutoRegister@UObject@@1PAV1@A
+protected: static class UObject *UObject::GAutoRegister
+- ?GDissociateImportsCS@UObject@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *UObject::GDissociateImportsCS
+- ?GEmitterCurCount@UObject@@2HA
+public: static int UObject::GEmitterCurCount
+- ?GEmitterNewCount@UObject@@2HA
+public: static int UObject::GEmitterNewCount
+- ?GEmitterPeakCount@UObject@@2HA
+public: static int UObject::GEmitterPeakCount
+- ?GImportCount@UObject@@1HA
+protected: static int UObject::GImportCount
+- ?GLanguage@UObject@@1PA_WA
+protected: static wchar_t *UObject::GLanguage
+- ?GLoadingCS@UObject@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *UObject::GLoadingCS
+- ?GLoadingMapCS@UObject@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *UObject::GLoadingMapCS
+- ?GNatives@@3PAP8UObject@@AEXAAUFFrame@@QAX@ZA
+void (__thiscall UObject::**GNatives)(struct FFrame &, void *const)
+- ?GObjAvailable@UObject@@1V?$TArray@H@@A
+protected: static class TArray<int> UObject::GObjAvailable
+- ?GObjAvailableCS@UObject@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *UObject::GObjAvailableCS
+- ?GObjBeginLoadCount@UObject@@1HA
+protected: static int UObject::GObjBeginLoadCount
+- ?GObjCachedLanguage@UObject@@1PA_WA
+protected: static wchar_t *UObject::GObjCachedLanguage
+- ?GObjCurCount@UObject@@2HA
+public: static int UObject::GObjCurCount
+- ?GObjDrivers@UObject@@1V?$TArray@VFRegistryObjectInfo@@@@A
+protected: static class TArray<class FRegistryObjectInfo> UObject::GObjDrivers
+- ?GObjHash@UObject@@1PAPAV1@A
+protected: static class UObject **UObject::GObjHash
+- ?GObjHashBuffer@UObject@@1PAPAV1@A
+protected: static class UObject **UObject::GObjHashBuffer
+- ?GObjInitialized@UObject@@1HA
+protected: static int UObject::GObjInitialized
+- ?GObjLoaded@UObject@@1V?$TArray@PAVUObject@@@@A
+protected: static class TArray<class UObject *> UObject::GObjLoaded
+- ?GObjLoadedBuffer@UObject@@1V?$TArray@PAVUObject@@@@A
+protected: static class TArray<class UObject *> UObject::GObjLoadedBuffer
+- ?GObjLoaders@UObject@@1V?$TMultiThreadSafeArray@PAVUObject@@@@A
+protected: static class TMultiThreadSafeArray<class UObject *> UObject::GObjLoaders
+- ?GObjNewCount@UObject@@2HA
+public: static int UObject::GObjNewCount
+- ?GObjNoRegister@UObject@@1HA
+protected: static int UObject::GObjNoRegister
+- ?GObjObjects@UObject@@1V?$TArray@PAVUObject@@@@A
+protected: static class TArray<class UObject *> UObject::GObjObjects
+- ?GObjObjectsBuffer@UObject@@1V?$TArray@PAVUObject@@@@A
+protected: static class TArray<class UObject *> UObject::GObjObjectsBuffer
+- ?GObjPackageRemap@UObject@@1PAV?$TMultiMap@VFName@@V1@@@A
+protected: static class TMultiMap<class FName, class FName> *UObject::GObjPackageRemap
+- ?GObjPeakCount@UObject@@2HA
+public: static int UObject::GObjPeakCount
+- ?GObjPreferences@UObject@@1V?$TArray@VFPreferencesInfo@@@@A
+protected: static class TArray<class FPreferencesInfo> UObject::GObjPreferences
+- ?GObjRegisterCount@UObject@@1HA
+protected: static int UObject::GObjRegisterCount
+- ?GObjRegistrants@UObject@@1V?$TArray@PAVUObject@@@@A
+protected: static class TArray<class UObject *> UObject::GObjRegistrants
+- ?GObjRoot@UObject@@1V?$TArray@PAVUObject@@@@A
+protected: static class TArray<class UObject *> UObject::GObjRoot
+- ?GObjTransientPkg@UObject@@1PAVUPackage@@A
+protected: static class UPackage *UObject::GObjTransientPkg
+- ?GPawnCurCount@UObject@@2HA
+public: static int UObject::GPawnCurCount
+- ?GPawnNewCount@UObject@@2HA
+public: static int UObject::GPawnNewCount
+- ?GPawnPeakCount@UObject@@2HA
+public: static int UObject::GPawnPeakCount
+- ?GRegisterNative@@YAEHABQ8UObject@@AEXAAUFFrame@@QAX@Z@Z
+unsigned char __cdecl GRegisterNative(int, void (__thiscall UObject::*const &)(struct FFrame &, void *const))
+- ?GSWObjBeginLoadCount@UObject@@1HA
+protected: static int UObject::GSWObjBeginLoadCount
+- ?GScriptingCS@UObject@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *UObject::GScriptingCS
+- ?GStaticMeshCollisionCS@UObject@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *UObject::GStaticMeshCollisionCS
+- ?GStaticStringCS@UObject@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *UObject::GStaticStringCS
+- ?GetCacheIndex@UObject@@QBEKXZ
+public: unsigned long __thiscall UObject::GetCacheIndex(void) const
+- ?GetClass@UObject@@QBEPAVUClass@@XZ
+public: class UClass * __thiscall UObject::GetClass(void) const
+- ?GetClassNamesFromScriptPackage@UObject@@SAXPBVUPackage@@AAV?$TArray@VFString@@@@PAVUClass@@@Z
+public: static void __cdecl UObject::GetClassNamesFromScriptPackage(class UPackage const *, class TArray<class FString> &, class UClass *)
+- ?GetFName@UObject@@QBE?BVFName@@XZ
+public: class FName const __thiscall UObject::GetFName(void) const
+- ?GetFlags@UObject@@QBEKXZ
+public: unsigned long __thiscall UObject::GetFlags(void) const
+- ?GetFullName@UObject@@QBEPB_WPA_WH@Z
+public: wchar_t const * __thiscall UObject::GetFullName(wchar_t *, int) const
+- ?GetGObjAvailableCnt@UObject@@SAHXZ
+public: static int __cdecl UObject::GetGObjAvailableCnt(void)
+- ?GetGObjObjectsCnt@UObject@@SAHXZ
+public: static int __cdecl UObject::GetGObjObjectsCnt(void)
+- ?GetImportCount@UObject@@SAHXZ
+public: static int __cdecl UObject::GetImportCount(void)
+- ?GetIndex@UObject@@QBEHXZ
+public: int __thiscall UObject::GetIndex(void) const
+- ?GetIndexBuffer@UObject@@QBEHXZ
+public: int __thiscall UObject::GetIndexBuffer(void) const
+- ?GetIndexedObject@UObject@@SAPAV1@H@Z
+public: static class UObject * __cdecl UObject::GetIndexedObject(int)
+- ?GetInitialized@UObject@@SAHXZ
+public: static int __cdecl UObject::GetInitialized(void)
+- ?GetLanguage@UObject@@SAPB_WXZ
+public: static wchar_t const * __cdecl UObject::GetLanguage(void)
+- ?GetLinker@UObject@@QAEPAVULinkerLoad@@XZ
+public: class ULinkerLoad * __thiscall UObject::GetLinker(void)
+- ?GetLinkerIndex@UObject@@QAEHXZ
+public: int __thiscall UObject::GetLinkerIndex(void)
+- ?GetLoaderList@UObject@@SAAAV?$TMultiThreadSafeArray@PAVUObject@@@@XZ
+public: static class TMultiThreadSafeArray<class UObject *> & __cdecl UObject::GetLoaderList(void)
+- ?GetMemPackageLinker@UObject@@SAPAVULinkerLoad@@PAV1@KPAVUPackageMap@@PAVFGuid@@PAXH@Z
+public: static class ULinkerLoad * __cdecl UObject::GetMemPackageLinker(class UObject *, unsigned long, class UPackageMap *, class FGuid *, void *, int)
+- ?GetName@UObject@@QBEPB_WXZ
+public: wchar_t const * __thiscall UObject::GetName(void) const
+- ?GetObjLoaded@UObject@@SAAAV?$TArray@PAVUObject@@@@XZ
+public: static class TArray<class UObject *> & __cdecl UObject::GetObjLoaded(void)
+- ?GetObjectHash@UObject@@SAHABVFName@@H@Z
+public: static int __cdecl UObject::GetObjectHash(class FName const &, int)
+- ?GetOuter@UObject@@QBEPAV1@XZ
+public: class UObject * __thiscall UObject::GetOuter(void) const
+- ?GetPackageLinker@UObject@@SAPAVULinkerLoad@@PAV1@PB_WKPAVUPackageMap@@PAVFGuid@@@Z
+public: static class ULinkerLoad * __cdecl UObject::GetPackageLinker(class UObject *, wchar_t const *, unsigned long, class UPackageMap *, class FGuid *)
+- ?GetPathName@UObject@@QBEPB_WPAV1@PA_W@Z
+public: wchar_t const * __thiscall UObject::GetPathName(class UObject *, wchar_t *) const
+- ?GetPreferences@UObject@@SAXAAV?$TArray@VFPreferencesInfo@@@@PB_WH@Z
+public: static void __cdecl UObject::GetPreferences(class TArray<class FPreferencesInfo> &, wchar_t const *, int)
+- ?GetRegistryObjects@UObject@@SAXAAV?$TArray@VFRegistryObjectInfo@@@@PAVUClass@@1H@Z
+public: static void __cdecl UObject::GetRegistryObjects(class TArray<class FRegistryObjectInfo> &, class UClass *, class UClass *, int)
+- ?GetShortPathNameW@UObject@@QBEPB_WPA_W@Z
+public: wchar_t const * __thiscall UObject::GetShortPathNameW(wchar_t *) const
+- ?GetStateFrame@UObject@@QAEPAUFStateFrame@@XZ
+public: struct FStateFrame * __thiscall UObject::GetStateFrame(void)
+- ?GetTopOuter@UObject@@QBEPAV1@XZ
+public: class UObject * __thiscall UObject::GetTopOuter(void) const
+- ?GetTransientPackage@UObject@@SAPAVUPackage@@XZ
+public: static class UPackage * __cdecl UObject::GetTransientPackage(void)
+- ?GlobalSetProperty@UObject@@SAXPB_WPAVUClass@@PAVUProperty@@HH@Z
+public: static void __cdecl UObject::GlobalSetProperty(wchar_t const *, class UClass *, class UProperty *, int, int)
+- ?GotoLabel@UObject@@UAEHVFName@@@Z
+public: virtual int __thiscall UObject::GotoLabel(class FName)
+- ?GotoState@UObject@@UAE?AW4EGotoState@@VFName@@@Z
+public: virtual enum EGotoState __thiscall UObject::GotoState(class FName)
+- ?HashObject@UObject@@IAEXXZ
+protected: void __thiscall UObject::HashObject(void)
+- ?HashObjectBuffer@UObject@@IAEXXZ
+protected: void __thiscall UObject::HashObjectBuffer(void)
+- ?InitClassDefaultObject@UObject@@QAEXPAVUClass@@H@Z
+public: void __thiscall UObject::InitClassDefaultObject(class UClass *, int)
+- ?InitExecution@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::InitExecution(void)
+- ?InitProperties@UObject@@SAXPAEHPAVUClass@@0HPAV1@2@Z
+public: static void __cdecl UObject::InitProperties(unsigned char *, int, class UClass *, unsigned char *, int, class UObject *, class UObject *)
+- ?IsA@UObject@@QBEHPAVUClass@@@Z
+public: int __thiscall UObject::IsA(class UClass *) const
+- ?IsIn@UObject@@QBEHPAV1@@Z
+public: int __thiscall UObject::IsIn(class UObject *) const
+- ?IsInValid@UObject@@QBEHPAV1@@Z
+public: int __thiscall UObject::IsInValid(class UObject *) const
+- ?IsLoaded@UObject@@UAEHXZ
+public: virtual int __thiscall UObject::IsLoaded(void)
+- ?IsPendingKill@UObject@@UAEHXZ
+public: virtual int __thiscall UObject::IsPendingKill(void)
+- ?IsProbing@UObject@@QAEHVFName@@@Z
+public: int __thiscall UObject::IsProbing(class FName)
+- ?IsReferenced@UObject@@SAHAAPAV1@KH@Z
+public: static int __cdecl UObject::IsReferenced(class UObject *&, unsigned long, int)
+- ?IsValid@UObject@@QAEHXZ
+public: int __thiscall UObject::IsValid(void)
+- ?IsValidInBuffer@UObject@@QAEHXZ
+public: int __thiscall UObject::IsValidInBuffer(void)
+- ?LanguageChange@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::LanguageChange(void)
+- ?LinkerCreate@UObject@@QAEPAV1@PAVULinkerLoad@@PAVUClass@@VFName@@KH@Z
+public: class UObject * __thiscall UObject::LinkerCreate(class ULinkerLoad *, class UClass *, class FName, unsigned long, int)
+- ?LoadConfig@UObject@@QAEXHPAVUClass@@PB_W@Z
+public: void __thiscall UObject::LoadConfig(int, class UClass *, wchar_t const *)
+- ?LoadLocalized@UObject@@QAEXXZ
+public: void __thiscall UObject::LoadLocalized(void)
+- ?LoadPackage@UObject@@SAPAV1@PAV1@PB_WKH@Z
+public: static class UObject * __cdecl UObject::LoadPackage(class UObject *, wchar_t const *, unsigned long, int)
+- ?LoadingProgress@UObject@@1P6AXXZA
+protected: static void (__cdecl *UObject::LoadingProgress)(void)
+- ?MakeUniqueObjectName@UObject@@KA?AVFName@@PAV1@PAVUClass@@@Z
+protected: static class FName __cdecl UObject::MakeUniqueObjectName(class UObject *, class UClass *)
+- ?Modify@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::Modify(void)
+- ?NetDirty@UObject@@UAEXPAVUProperty@@@Z
+public: virtual void __thiscall UObject::NetDirty(class UProperty *)
+- ?ObjectChecked@UObject@@SAHPAVUClass@@PAV1@PB_W2KPAVUPackageMap@@@Z
+public: static int __cdecl UObject::ObjectChecked(class UClass *, class UObject *, wchar_t const *, wchar_t const *, unsigned long, class UPackageMap *)
+- ?ObjlistLog@UObject@@UAEXH@Z
+public: virtual void __thiscall UObject::ObjlistLog(int)
+- ?OnEvent@UObject@@UAEXABVFString@@0@Z
+public: virtual void __thiscall UObject::OnEvent(class FString const &, class FString const &)
+- ?ParseParms@UObject@@QAEXPB_WH@Z
+public: void __thiscall UObject::ParseParms(wchar_t const *, int)
+- ?PostEditChange@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::PostEditChange(void)
+- ?PostLoad@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::PostLoad(void)
+- ?PrivateStaticClass@UObject@@0VUClass@@A
+private: static class UClass UObject::PrivateStaticClass
+- ?ProcessDelegate@UObject@@UAEXVFName@@PAUFScriptDelegate@@PAX2@Z
+public: virtual void __thiscall UObject::ProcessDelegate(class FName, struct FScriptDelegate *, void *, void *)
+- ?ProcessEvent@UObject@@UAEXPAVUFunction@@PAX1@Z
+public: virtual void __thiscall UObject::ProcessEvent(class UFunction *, void *, void *)
+- ?ProcessInternal@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::ProcessInternal(struct FFrame &, void *const)
+- ?ProcessRegistrants@UObject@@SAXXZ
+public: static void __cdecl UObject::ProcessRegistrants(void)
+- ?ProcessRemoteFunction@UObject@@UAEHPAVUFunction@@PAXPAUFFrame@@@Z
+public: virtual int __thiscall UObject::ProcessRemoteFunction(class UFunction *, void *, struct FFrame *)
+- ?ProcessState@UObject@@UAEXM@Z
+public: virtual void __thiscall UObject::ProcessState(float)
+- ?PurgeGarbage@UObject@@KAXXZ
+protected: static void __cdecl UObject::PurgeGarbage(void)
+- ?QueryInterface@UObject@@UAGKABVFGuid@@PAPAX@Z
+public: virtual unsigned long __stdcall UObject::QueryInterface(class FGuid const &, void **)
+- ?Register@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::Register(void)
+- ?Release@UObject@@UAGKXZ
+public: virtual unsigned long __stdcall UObject::Release(void)
+- ?RemoveFromRoot@UObject@@QAEXXZ
+public: void __thiscall UObject::RemoveFromRoot(void)
+- ?Rename@UObject@@UAEXPB_WPAV1@@Z
+public: virtual void __thiscall UObject::Rename(wchar_t const *, class UObject *)
+- ?ResetConfig@UObject@@SAXPAVUClass@@@Z
+public: static void __cdecl UObject::ResetConfig(class UClass *)
+- ?ResetLoaders@UObject@@SAXPAV1@HH@Z
+public: static void __cdecl UObject::ResetLoaders(class UObject *, int, int)
+- ?ResolveName@UObject@@KAHAAPAV1@AAPB_WHH@Z
+protected: static int __cdecl UObject::ResolveName(class UObject *&, wchar_t const *&, int, int)
+- ?SWBeginLoad@UObject@@SAXXZ
+public: static void __cdecl UObject::SWBeginLoad(void)
+- ?SWEndLoad@UObject@@SAXXZ
+public: static void __cdecl UObject::SWEndLoad(void)
+- ?SafeLoadError@UObject@@KAXKPB_W0ZZ
+protected: static void __cdecl UObject::SafeLoadError(unsigned long, wchar_t const *, wchar_t const *, ...)
+- ?SaveConfig@UObject@@QAEXKPB_W@Z
+public: void __thiscall UObject::SaveConfig(unsigned long, wchar_t const *)
+- ?SavePackage@UObject@@SAHPAV1@0KPB_WPAVFOutputDevice@@PAVULinkerLoad@@H@Z
+public: static int __cdecl UObject::SavePackage(class UObject *, class UObject *, unsigned long, wchar_t const *, class FOutputDevice *, class ULinkerLoad *, int)
+- ?ScriptConsoleExec@UObject@@UAEHPB_WAAVFOutputDevice@@PAV1@@Z
+public: virtual int __thiscall UObject::ScriptConsoleExec(wchar_t const *, class FOutputDevice &, class UObject *)
+- ?Serialize@UObject@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UObject::Serialize(class FArchive &)
+- ?SerializeRootSet@UObject@@SAXAAVFArchive@@KK@Z
+public: static void __cdecl UObject::SerializeRootSet(class FArchive &, unsigned long, unsigned long)
+- ?SetClass@UObject@@QAEXPAVUClass@@@Z
+public: void __thiscall UObject::SetClass(class UClass *)
+- ?SetFlags@UObject@@QAEXK@Z
+public: void __thiscall UObject::SetFlags(unsigned long)
+- ?SetImportCount@UObject@@SAXH@Z
+public: static void __cdecl UObject::SetImportCount(int)
+- ?SetLanguage@UObject@@SAXPB_W@Z
+public: static void __cdecl UObject::SetLanguage(wchar_t const *)
+- ?SetLinker@UObject@@IAEXPAVULinkerLoad@@H@Z
+protected: void __thiscall UObject::SetLinker(class ULinkerLoad *, int)
+- ?SetLoadingProgress@UObject@@SAXP6AXXZ@Z
+public: static void __cdecl UObject::SetLoadingProgress(void (__cdecl *)(void))
+- ?SetOuter@UObject@@QAEXPAV1@@Z
+public: void __thiscall UObject::SetOuter(class UObject *)
+- ?SetOuterNULL@UObject@@QAEXXZ
+public: void __thiscall UObject::SetOuterNULL(void)
+- ?ShutdownAfterError@UObject@@UAEXXZ
+public: virtual void __thiscall UObject::ShutdownAfterError(void)
+- ?StaticAllocateObject@UObject@@SAPAV1@PAVUClass@@PAV1@VFName@@K1PAVFOutputDevice@@11@Z
+public: static class UObject * __cdecl UObject::StaticAllocateObject(class UClass *, class UObject *, class FName, unsigned long, class UObject *, class FOutputDevice *, class UObject *, class UObject *)
+- ?StaticCheckObjectsOverQuantity@UObject@@SAXXZ
+public: static void __cdecl UObject::StaticCheckObjectsOverQuantity(void)
+- ?StaticClass@UObject@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UObject::StaticClass(void)
+- ?StaticConfigName@UObject@@SAPB_WXZ
+public: static wchar_t const * __cdecl UObject::StaticConfigName(void)
+- ?StaticConstructObject@UObject@@SAPAV1@PAVUClass@@PAV1@VFName@@K1PAVFOutputDevice@@1@Z
+public: static class UObject * __cdecl UObject::StaticConstructObject(class UClass *, class UObject *, class FName, unsigned long, class UObject *, class FOutputDevice *, class UObject *)
+- ?StaticConstructor@UObject@@QAEXXZ
+public: void __thiscall UObject::StaticConstructor(void)
+- ?StaticExec@UObject@@SAHPB_WAAVFOutputDevice@@@Z
+public: static int __cdecl UObject::StaticExec(wchar_t const *, class FOutputDevice &)
+- ?StaticExit@UObject@@SAXXZ
+public: static void __cdecl UObject::StaticExit(void)
+- ?StaticFindObject@UObject@@SAPAV1@PAVUClass@@PAV1@PB_WHH@Z
+public: static class UObject * __cdecl UObject::StaticFindObject(class UClass *, class UObject *, wchar_t const *, int, int)
+- ?StaticFindObjectChecked@UObject@@SAPAV1@PAVUClass@@PAV1@PB_WH@Z
+public: static class UObject * __cdecl UObject::StaticFindObjectChecked(class UClass *, class UObject *, wchar_t const *, int)
+- ?StaticInit@UObject@@SAXXZ
+public: static void __cdecl UObject::StaticInit(void)
+- ?StaticLoadClass@UObject@@SAPAVUClass@@PAV2@PAV1@PB_W2KPAVUPackageMap@@@Z
+public: static class UClass * __cdecl UObject::StaticLoadClass(class UClass *, class UObject *, wchar_t const *, wchar_t const *, unsigned long, class UPackageMap *)
+- ?StaticLoadObject@UObject@@SAPAV1@PAVUClass@@PAV1@ABVFName@@PB_WKPAVUPackageMap@@@Z
+public: static class UObject * __cdecl UObject::StaticLoadObject(class UClass *, class UObject *, class FName const &, wchar_t const *, unsigned long, class UPackageMap *)
+- ?StaticLoadObject@UObject@@SAPAV1@PAVUClass@@PAV1@PB_W2KPAVUPackageMap@@@Z
+public: static class UObject * __cdecl UObject::StaticLoadObject(class UClass *, class UObject *, wchar_t const *, wchar_t const *, unsigned long, class UPackageMap *)
+- ?StaticMemLoadClass@UObject@@SAPAVUClass@@PAV2@PAV1@PB_WPAXHKPAVUPackageMap@@@Z
+public: static class UClass * __cdecl UObject::StaticMemLoadClass(class UClass *, class UObject *, wchar_t const *, void *, int, unsigned long, class UPackageMap *)
+- ?StaticMemLoadObject@UObject@@SAPAV1@PAVUClass@@PAV1@PB_WPAXHKPAVUPackageMap@@@Z
+public: static class UObject * __cdecl UObject::StaticMemLoadObject(class UClass *, class UObject *, wchar_t const *, void *, int, unsigned long, class UPackageMap *)
+- ?StaticShutdownAfterError@UObject@@SAXXZ
+public: static void __cdecl UObject::StaticShutdownAfterError(void)
+- ?StaticTick@UObject@@SAXXZ
+public: static void __cdecl UObject::StaticTick(void)
+- ?UnhashObject@UObject@@IAEXH@Z
+protected: void __thiscall UObject::UnhashObject(int)
+- ?UnhashObjectBuffer@UObject@@IAEXH@Z
+protected: void __thiscall UObject::UnhashObjectBuffer(int)
+- ?VerifyLinker@UObject@@SAXPAVULinkerLoad@@@Z
+public: static void __cdecl UObject::VerifyLinker(class ULinkerLoad *)
+- ?__DefaultConstructor@UObject@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UObject::__DefaultConstructor(class FObjectInitializer const &)
+- ?eventBeginState@UObject@@QAEXXZ
+public: void __thiscall UObject::eventBeginState(void)
+- ?eventEndState@UObject@@QAEXXZ
+public: void __thiscall UObject::eventEndState(void)
+- ?execAbs@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAbs(struct FFrame &, void *const)
+- ?execAcos@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAcos(struct FFrame &, void *const)
+- ?execAddAdd_Byte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddAdd_Byte(struct FFrame &, void *const)
+- ?execAddAdd_Int@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddAdd_Int(struct FFrame &, void *const)
+- ?execAddAdd_PreByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddAdd_PreByte(struct FFrame &, void *const)
+- ?execAddAdd_PreInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddAdd_PreInt(struct FFrame &, void *const)
+- ?execAddEqual_ByteByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddEqual_ByteByte(struct FFrame &, void *const)
+- ?execAddEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddEqual_FloatFloat(struct FFrame &, void *const)
+- ?execAddEqual_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddEqual_INT64INT64(struct FFrame &, void *const)
+- ?execAddEqual_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddEqual_IntInt(struct FFrame &, void *const)
+- ?execAddEqual_RotatorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddEqual_RotatorRotator(struct FFrame &, void *const)
+- ?execAddEqual_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddEqual_VectorVector(struct FFrame &, void *const)
+- ?execAddParamFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddParamFloat(struct FFrame &, void *const)
+- ?execAddParamINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddParamINT64(struct FFrame &, void *const)
+- ?execAddParamInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddParamInt(struct FFrame &, void *const)
+- ?execAddParamString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAddParamString(struct FFrame &, void *const)
+- ?execAdd_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAdd_FloatFloat(struct FFrame &, void *const)
+- ?execAdd_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAdd_INT64INT64(struct FFrame &, void *const)
+- ?execAdd_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAdd_IntInt(struct FFrame &, void *const)
+- ?execAdd_RotatorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAdd_RotatorRotator(struct FFrame &, void *const)
+- ?execAdd_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAdd_VectorVector(struct FFrame &, void *const)
+- ?execAndAnd_BoolBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAndAnd_BoolBool(struct FFrame &, void *const)
+- ?execAnd_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAnd_IntInt(struct FFrame &, void *const)
+- ?execArrayElement@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execArrayElement(struct FFrame &, void *const)
+- ?execAsc@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAsc(struct FFrame &, void *const)
+- ?execAsin@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAsin(struct FFrame &, void *const)
+- ?execAssert@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAssert(struct FFrame &, void *const)
+- ?execAt_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAt_StringString(struct FFrame &, void *const)
+- ?execAtan@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execAtan(struct FFrame &, void *const)
+- ?execBoolToByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execBoolToByte(struct FFrame &, void *const)
+- ?execBoolToFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execBoolToFloat(struct FFrame &, void *const)
+- ?execBoolToINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execBoolToINT64(struct FFrame &, void *const)
+- ?execBoolToInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execBoolToInt(struct FFrame &, void *const)
+- ?execBoolToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execBoolToString(struct FFrame &, void *const)
+- ?execBoolVariable@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execBoolVariable(struct FFrame &, void *const)
+- ?execByteConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execByteConst(struct FFrame &, void *const)
+- ?execByteToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execByteToBool(struct FFrame &, void *const)
+- ?execByteToFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execByteToFloat(struct FFrame &, void *const)
+- ?execByteToINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execByteToINT64(struct FFrame &, void *const)
+- ?execByteToInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execByteToInt(struct FFrame &, void *const)
+- ?execByteToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execByteToString(struct FFrame &, void *const)
+- ?execCaps@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execCaps(struct FFrame &, void *const)
+- ?execCase@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execCase(struct FFrame &, void *const)
+- ?execChr@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execChr(struct FFrame &, void *const)
+- ?execClamp@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execClamp(struct FFrame &, void *const)
+- ?execClassContext@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execClassContext(struct FFrame &, void *const)
+- ?execClassIsChildOf@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execClassIsChildOf(struct FFrame &, void *const)
+- ?execClockwiseFrom_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execClockwiseFrom_IntInt(struct FFrame &, void *const)
+- ?execComplementEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execComplementEqual_FloatFloat(struct FFrame &, void *const)
+- ?execComplementEqual_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execComplementEqual_StringString(struct FFrame &, void *const)
+- ?execComplement_PreInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execComplement_PreInt(struct FFrame &, void *const)
+- ?execConcat_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execConcat_StringString(struct FFrame &, void *const)
+- ?execContext@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execContext(struct FFrame &, void *const)
+- ?execCos@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execCos(struct FFrame &, void *const)
+- ?execCross_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execCross_VectorVector(struct FFrame &, void *const)
+- ?execDebugInfo@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDebugInfo(struct FFrame &, void *const)
+- ?execDefaultVariable@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDefaultVariable(struct FFrame &, void *const)
+- ?execDelegateFunction@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDelegateFunction(struct FFrame &, void *const)
+- ?execDelegateProperty@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDelegateProperty(struct FFrame &, void *const)
+- ?execDisable@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDisable(struct FFrame &, void *const)
+- ?execDivideEqual_ByteByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivideEqual_ByteByte(struct FFrame &, void *const)
+- ?execDivideEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivideEqual_FloatFloat(struct FFrame &, void *const)
+- ?execDivideEqual_IntFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivideEqual_IntFloat(struct FFrame &, void *const)
+- ?execDivideEqual_RotatorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivideEqual_RotatorFloat(struct FFrame &, void *const)
+- ?execDivideEqual_VectorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivideEqual_VectorFloat(struct FFrame &, void *const)
+- ?execDivide_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivide_FloatFloat(struct FFrame &, void *const)
+- ?execDivide_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivide_INT64INT64(struct FFrame &, void *const)
+- ?execDivide_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivide_IntInt(struct FFrame &, void *const)
+- ?execDivide_RotatorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivide_RotatorFloat(struct FFrame &, void *const)
+- ?execDivide_VectorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDivide_VectorFloat(struct FFrame &, void *const)
+- ?execDot_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDot_VectorVector(struct FFrame &, void *const)
+- ?execDynArrayElement@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDynArrayElement(struct FFrame &, void *const)
+- ?execDynArrayInsert@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDynArrayInsert(struct FFrame &, void *const)
+- ?execDynArrayLength@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDynArrayLength(struct FFrame &, void *const)
+- ?execDynArrayRemove@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDynArrayRemove(struct FFrame &, void *const)
+- ?execDynArraySort@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDynArraySort(struct FFrame &, void *const)
+- ?execDynamicCast@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDynamicCast(struct FFrame &, void *const)
+- ?execDynamicLoadObject@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execDynamicLoadObject(struct FFrame &, void *const)
+- ?execEatString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEatString(struct FFrame &, void *const)
+- ?execEnable@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEnable(struct FFrame &, void *const)
+- ?execEndFunctionParms@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEndFunctionParms(struct FFrame &, void *const)
+- ?execEqualEqual_BoolBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_BoolBool(struct FFrame &, void *const)
+- ?execEqualEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_FloatFloat(struct FFrame &, void *const)
+- ?execEqualEqual_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_INT64INT64(struct FFrame &, void *const)
+- ?execEqualEqual_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_IntInt(struct FFrame &, void *const)
+- ?execEqualEqual_NameName@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_NameName(struct FFrame &, void *const)
+- ?execEqualEqual_ObjectObject@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_ObjectObject(struct FFrame &, void *const)
+- ?execEqualEqual_RotatorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_RotatorRotator(struct FFrame &, void *const)
+- ?execEqualEqual_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_StringString(struct FFrame &, void *const)
+- ?execEqualEqual_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execEqualEqual_VectorVector(struct FFrame &, void *const)
+- ?execExp@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execExp(struct FFrame &, void *const)
+- ?execFClamp@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFClamp(struct FFrame &, void *const)
+- ?execFMax@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFMax(struct FFrame &, void *const)
+- ?execFMin@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFMin(struct FFrame &, void *const)
+- ?execFRand@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFRand(struct FFrame &, void *const)
+- ?execFalse@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFalse(struct FFrame &, void *const)
+- ?execFinalFunction@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFinalFunction(struct FFrame &, void *const)
+- ?execFindObject@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFindObject(struct FFrame &, void *const)
+- ?execFloatConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFloatConst(struct FFrame &, void *const)
+- ?execFloatToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFloatToBool(struct FFrame &, void *const)
+- ?execFloatToByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFloatToByte(struct FFrame &, void *const)
+- ?execFloatToINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFloatToINT64(struct FFrame &, void *const)
+- ?execFloatToInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFloatToInt(struct FFrame &, void *const)
+- ?execFloatToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execFloatToString(struct FFrame &, void *const)
+- ?execGetAxes@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetAxes(struct FFrame &, void *const)
+- ?execGetEnum@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetEnum(struct FFrame &, void *const)
+- ?execGetParamFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetParamFloat(struct FFrame &, void *const)
+- ?execGetParamINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetParamINT64(struct FFrame &, void *const)
+- ?execGetParamInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetParamInt(struct FFrame &, void *const)
+- ?execGetParamString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetParamString(struct FFrame &, void *const)
+- ?execGetPropertyText@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetPropertyText(struct FFrame &, void *const)
+- ?execGetStateName@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetStateName(struct FFrame &, void *const)
+- ?execGetUnAxes@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGetUnAxes(struct FFrame &, void *const)
+- ?execGlobalFunction@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGlobalFunction(struct FFrame &, void *const)
+- ?execGotoLabel@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGotoLabel(struct FFrame &, void *const)
+- ?execGotoState@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGotoState(struct FFrame &, void *const)
+- ?execGreaterEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreaterEqual_FloatFloat(struct FFrame &, void *const)
+- ?execGreaterEqual_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreaterEqual_INT64INT64(struct FFrame &, void *const)
+- ?execGreaterEqual_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreaterEqual_IntInt(struct FFrame &, void *const)
+- ?execGreaterEqual_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreaterEqual_StringString(struct FFrame &, void *const)
+- ?execGreaterGreaterGreater_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreaterGreaterGreater_IntInt(struct FFrame &, void *const)
+- ?execGreaterGreater_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreaterGreater_IntInt(struct FFrame &, void *const)
+- ?execGreaterGreater_VectorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreaterGreater_VectorRotator(struct FFrame &, void *const)
+- ?execGreater_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreater_FloatFloat(struct FFrame &, void *const)
+- ?execGreater_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreater_INT64INT64(struct FFrame &, void *const)
+- ?execGreater_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreater_IntInt(struct FFrame &, void *const)
+- ?execGreater_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execGreater_StringString(struct FFrame &, void *const)
+- ?execHighNative0@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative0(struct FFrame &, void *const)
+- ?execHighNative10@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative10(struct FFrame &, void *const)
+- ?execHighNative11@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative11(struct FFrame &, void *const)
+- ?execHighNative12@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative12(struct FFrame &, void *const)
+- ?execHighNative13@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative13(struct FFrame &, void *const)
+- ?execHighNative14@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative14(struct FFrame &, void *const)
+- ?execHighNative15@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative15(struct FFrame &, void *const)
+- ?execHighNative1@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative1(struct FFrame &, void *const)
+- ?execHighNative2@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative2(struct FFrame &, void *const)
+- ?execHighNative3@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative3(struct FFrame &, void *const)
+- ?execHighNative4@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative4(struct FFrame &, void *const)
+- ?execHighNative5@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative5(struct FFrame &, void *const)
+- ?execHighNative6@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative6(struct FFrame &, void *const)
+- ?execHighNative7@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative7(struct FFrame &, void *const)
+- ?execHighNative8@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative8(struct FFrame &, void *const)
+- ?execHighNative9@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execHighNative9(struct FFrame &, void *const)
+- ?execINT64Const@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execINT64Const(struct FFrame &, void *const)
+- ?execINT64ToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execINT64ToBool(struct FFrame &, void *const)
+- ?execINT64ToByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execINT64ToByte(struct FFrame &, void *const)
+- ?execINT64ToFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execINT64ToFloat(struct FFrame &, void *const)
+- ?execINT64ToInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execINT64ToInt(struct FFrame &, void *const)
+- ?execINT64ToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execINT64ToString(struct FFrame &, void *const)
+- ?execInStr@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execInStr(struct FFrame &, void *const)
+- ?execInstanceVariable@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execInstanceVariable(struct FFrame &, void *const)
+- ?execIntConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntConst(struct FFrame &, void *const)
+- ?execIntConstByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntConstByte(struct FFrame &, void *const)
+- ?execIntOne@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntOne(struct FFrame &, void *const)
+- ?execIntToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntToBool(struct FFrame &, void *const)
+- ?execIntToByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntToByte(struct FFrame &, void *const)
+- ?execIntToFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntToFloat(struct FFrame &, void *const)
+- ?execIntToINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntToINT64(struct FFrame &, void *const)
+- ?execIntToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntToString(struct FFrame &, void *const)
+- ?execIntZero@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIntZero(struct FFrame &, void *const)
+- ?execInterpCurveEval@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execInterpCurveEval(struct FFrame &, void *const)
+- ?execInterpCurveGetInputDomain@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execInterpCurveGetInputDomain(struct FFrame &, void *const)
+- ?execInterpCurveGetOutputRange@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execInterpCurveGetOutputRange(struct FFrame &, void *const)
+- ?execInvert@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execInvert(struct FFrame &, void *const)
+- ?execIsA@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIsA(struct FFrame &, void *const)
+- ?execIsInState@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIsInState(struct FFrame &, void *const)
+- ?execIsPlus@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIsPlus(struct FFrame &, void *const)
+- ?execIterator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execIterator(struct FFrame &, void *const)
+- ?execJump@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execJump(struct FFrame &, void *const)
+- ?execJumpIfNot@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execJumpIfNot(struct FFrame &, void *const)
+- ?execLeft@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLeft(struct FFrame &, void *const)
+- ?execLen@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLen(struct FFrame &, void *const)
+- ?execLerp@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLerp(struct FFrame &, void *const)
+- ?execLessEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLessEqual_FloatFloat(struct FFrame &, void *const)
+- ?execLessEqual_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLessEqual_INT64INT64(struct FFrame &, void *const)
+- ?execLessEqual_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLessEqual_IntInt(struct FFrame &, void *const)
+- ?execLessEqual_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLessEqual_StringString(struct FFrame &, void *const)
+- ?execLessLess_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLessLess_IntInt(struct FFrame &, void *const)
+- ?execLessLess_VectorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLessLess_VectorRotator(struct FFrame &, void *const)
+- ?execLess_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLess_FloatFloat(struct FFrame &, void *const)
+- ?execLess_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLess_INT64INT64(struct FFrame &, void *const)
+- ?execLess_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLess_IntInt(struct FFrame &, void *const)
+- ?execLess_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLess_StringString(struct FFrame &, void *const)
+- ?execLet@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLet(struct FFrame &, void *const)
+- ?execLetBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLetBool(struct FFrame &, void *const)
+- ?execLetDelegate@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLetDelegate(struct FFrame &, void *const)
+- ?execLocalVariable@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLocalVariable(struct FFrame &, void *const)
+- ?execLocalize@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLocalize(struct FFrame &, void *const)
+- ?execLog@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLog(struct FFrame &, void *const)
+- ?execLoge@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execLoge(struct FFrame &, void *const)
+- ?execMax@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMax(struct FFrame &, void *const)
+- ?execMetaCast@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMetaCast(struct FFrame &, void *const)
+- ?execMid@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMid(struct FFrame &, void *const)
+- ?execMin64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMin64(struct FFrame &, void *const)
+- ?execMin@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMin(struct FFrame &, void *const)
+- ?execMirrorVectorByNormal@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMirrorVectorByNormal(struct FFrame &, void *const)
+- ?execMultiplyEqual_ByteByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiplyEqual_ByteByte(struct FFrame &, void *const)
+- ?execMultiplyEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiplyEqual_FloatFloat(struct FFrame &, void *const)
+- ?execMultiplyEqual_IntFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiplyEqual_IntFloat(struct FFrame &, void *const)
+- ?execMultiplyEqual_RotatorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiplyEqual_RotatorFloat(struct FFrame &, void *const)
+- ?execMultiplyEqual_VectorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiplyEqual_VectorFloat(struct FFrame &, void *const)
+- ?execMultiplyEqual_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiplyEqual_VectorVector(struct FFrame &, void *const)
+- ?execMultiplyMultiply_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiplyMultiply_FloatFloat(struct FFrame &, void *const)
+- ?execMultiply_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_FloatFloat(struct FFrame &, void *const)
+- ?execMultiply_FloatRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_FloatRotator(struct FFrame &, void *const)
+- ?execMultiply_FloatVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_FloatVector(struct FFrame &, void *const)
+- ?execMultiply_INT64Float@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_INT64Float(struct FFrame &, void *const)
+- ?execMultiply_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_INT64INT64(struct FFrame &, void *const)
+- ?execMultiply_IntFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_IntFloat(struct FFrame &, void *const)
+- ?execMultiply_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_IntInt(struct FFrame &, void *const)
+- ?execMultiply_RotatorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_RotatorFloat(struct FFrame &, void *const)
+- ?execMultiply_VectorFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_VectorFloat(struct FFrame &, void *const)
+- ?execMultiply_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execMultiply_VectorVector(struct FFrame &, void *const)
+- ?execNameConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNameConst(struct FFrame &, void *const)
+- ?execNameToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNameToBool(struct FFrame &, void *const)
+- ?execNameToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNameToString(struct FFrame &, void *const)
+- ?execNativeParm@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNativeParm(struct FFrame &, void *const)
+- ?execNew@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNew(struct FFrame &, void *const)
+- ?execNoObject@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNoObject(struct FFrame &, void *const)
+- ?execNormal@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNormal(struct FFrame &, void *const)
+- ?execNormalize@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNormalize(struct FFrame &, void *const)
+- ?execNotEqual_BoolBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_BoolBool(struct FFrame &, void *const)
+- ?execNotEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_FloatFloat(struct FFrame &, void *const)
+- ?execNotEqual_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_INT64INT64(struct FFrame &, void *const)
+- ?execNotEqual_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_IntInt(struct FFrame &, void *const)
+- ?execNotEqual_NameName@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_NameName(struct FFrame &, void *const)
+- ?execNotEqual_ObjectObject@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_ObjectObject(struct FFrame &, void *const)
+- ?execNotEqual_RotatorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_RotatorRotator(struct FFrame &, void *const)
+- ?execNotEqual_StringString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_StringString(struct FFrame &, void *const)
+- ?execNotEqual_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNotEqual_VectorVector(struct FFrame &, void *const)
+- ?execNot_PreBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNot_PreBool(struct FFrame &, void *const)
+- ?execNothing@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execNothing(struct FFrame &, void *const)
+- ?execObjectConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execObjectConst(struct FFrame &, void *const)
+- ?execObjectToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execObjectToBool(struct FFrame &, void *const)
+- ?execObjectToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execObjectToString(struct FFrame &, void *const)
+- ?execOrOr_BoolBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execOrOr_BoolBool(struct FFrame &, void *const)
+- ?execOr_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execOr_IntInt(struct FFrame &, void *const)
+- ?execOrthoRotation@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execOrthoRotation(struct FFrame &, void *const)
+- ?execPercent_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execPercent_FloatFloat(struct FFrame &, void *const)
+- ?execPrimitiveCast@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execPrimitiveCast(struct FFrame &, void *const)
+- ?execQuatFindBetween@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execQuatFindBetween(struct FFrame &, void *const)
+- ?execQuatFromAxisAndAngle@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execQuatFromAxisAndAngle(struct FFrame &, void *const)
+- ?execQuatInvert@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execQuatInvert(struct FFrame &, void *const)
+- ?execQuatProduct@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execQuatProduct(struct FFrame &, void *const)
+- ?execQuatRotateVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execQuatRotateVector(struct FFrame &, void *const)
+- ?execRand@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRand(struct FFrame &, void *const)
+- ?execResetConfig@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execResetConfig(struct FFrame &, void *const)
+- ?execRight@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRight(struct FFrame &, void *const)
+- ?execRotRand@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRotRand(struct FFrame &, void *const)
+- ?execRotationConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRotationConst(struct FFrame &, void *const)
+- ?execRotator2Vector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRotator2Vector(struct FFrame &, void *const)
+- ?execRotatorToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRotatorToBool(struct FFrame &, void *const)
+- ?execRotatorToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRotatorToString(struct FFrame &, void *const)
+- ?execRotatorToVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execRotatorToVector(struct FFrame &, void *const)
+- ?execSaveConfig@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSaveConfig(struct FFrame &, void *const)
+- ?execScriptTrace@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execScriptTrace(struct FFrame &, void *const)
+- ?execSelf@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSelf(struct FFrame &, void *const)
+- ?execSetCrashDevLog@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSetCrashDevLog(struct FFrame &, void *const)
+- ?execSetPropertyText@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSetPropertyText(struct FFrame &, void *const)
+- ?execSin@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSin(struct FFrame &, void *const)
+- ?execSmerp@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSmerp(struct FFrame &, void *const)
+- ?execSqrt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSqrt(struct FFrame &, void *const)
+- ?execSquare@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSquare(struct FFrame &, void *const)
+- ?execStaticSaveConfig@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStaticSaveConfig(struct FFrame &, void *const)
+- ?execStop@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStop(struct FFrame &, void *const)
+- ?execStringConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringConst(struct FFrame &, void *const)
+- ?execStringToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringToBool(struct FFrame &, void *const)
+- ?execStringToByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringToByte(struct FFrame &, void *const)
+- ?execStringToFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringToFloat(struct FFrame &, void *const)
+- ?execStringToINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringToINT64(struct FFrame &, void *const)
+- ?execStringToInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringToInt(struct FFrame &, void *const)
+- ?execStringToRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringToRotator(struct FFrame &, void *const)
+- ?execStringToVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStringToVector(struct FFrame &, void *const)
+- ?execStructCmpEq@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStructCmpEq(struct FFrame &, void *const)
+- ?execStructCmpNe@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStructCmpNe(struct FFrame &, void *const)
+- ?execStructMember@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execStructMember(struct FFrame &, void *const)
+- ?execSubstitute@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubstitute(struct FFrame &, void *const)
+- ?execSubtractEqual_ByteByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractEqual_ByteByte(struct FFrame &, void *const)
+- ?execSubtractEqual_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractEqual_FloatFloat(struct FFrame &, void *const)
+- ?execSubtractEqual_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractEqual_INT64INT64(struct FFrame &, void *const)
+- ?execSubtractEqual_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractEqual_IntInt(struct FFrame &, void *const)
+- ?execSubtractEqual_RotatorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractEqual_RotatorRotator(struct FFrame &, void *const)
+- ?execSubtractEqual_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractEqual_VectorVector(struct FFrame &, void *const)
+- ?execSubtractSubtract_Byte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractSubtract_Byte(struct FFrame &, void *const)
+- ?execSubtractSubtract_Int@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractSubtract_Int(struct FFrame &, void *const)
+- ?execSubtractSubtract_PreByte@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractSubtract_PreByte(struct FFrame &, void *const)
+- ?execSubtractSubtract_PreInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtractSubtract_PreInt(struct FFrame &, void *const)
+- ?execSubtract_FloatFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_FloatFloat(struct FFrame &, void *const)
+- ?execSubtract_INT64INT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_INT64INT64(struct FFrame &, void *const)
+- ?execSubtract_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_IntInt(struct FFrame &, void *const)
+- ?execSubtract_PreFloat@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_PreFloat(struct FFrame &, void *const)
+- ?execSubtract_PreINT64@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_PreINT64(struct FFrame &, void *const)
+- ?execSubtract_PreInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_PreInt(struct FFrame &, void *const)
+- ?execSubtract_PreVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_PreVector(struct FFrame &, void *const)
+- ?execSubtract_RotatorRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_RotatorRotator(struct FFrame &, void *const)
+- ?execSubtract_VectorVector@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSubtract_VectorVector(struct FFrame &, void *const)
+- ?execSwitch@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execSwitch(struct FFrame &, void *const)
+- ?execTan@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execTan(struct FFrame &, void *const)
+- ?execTrue@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execTrue(struct FFrame &, void *const)
+- ?execUndefined@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execUndefined(struct FFrame &, void *const)
+- ?execUnicodeStringConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execUnicodeStringConst(struct FFrame &, void *const)
+- ?execVRand@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVRand(struct FFrame &, void *const)
+- ?execVSize@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVSize(struct FFrame &, void *const)
+- ?execVector2Rotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVector2Rotator(struct FFrame &, void *const)
+- ?execVectorConst@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVectorConst(struct FFrame &, void *const)
+- ?execVectorToBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVectorToBool(struct FFrame &, void *const)
+- ?execVectorToRotator@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVectorToRotator(struct FFrame &, void *const)
+- ?execVectorToString@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVectorToString(struct FFrame &, void *const)
+- ?execVirtualFunction@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execVirtualFunction(struct FFrame &, void *const)
+- ?execWarn@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execWarn(struct FFrame &, void *const)
+- ?execXorXor_BoolBool@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execXorXor_BoolBool(struct FFrame &, void *const)
+- ?execXor_IntInt@UObject@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UObject::execXor_IntInt(struct FFrame &, void *const)
+
+### FString  (83)
+- ??0FString@@AAE@HPB_W@Z
+private: __thiscall FString::FString(int, wchar_t const *)
+- ??0FString@@QAE@ABV0@@Z
+public: __thiscall FString::FString(class FString const &)
+- ??0FString@@QAE@CH@Z
+public: __thiscall FString::FString(signed char, int)
+- ??0FString@@QAE@EH@Z
+public: __thiscall FString::FString(unsigned char, int)
+- ??0FString@@QAE@FH@Z
+public: __thiscall FString::FString(short, int)
+- ??0FString@@QAE@GH@Z
+public: __thiscall FString::FString(unsigned short, int)
+- ??0FString@@QAE@HH@Z
+public: __thiscall FString::FString(int, int)
+- ??0FString@@QAE@KH@Z
+public: __thiscall FString::FString(unsigned long, int)
+- ??0FString@@QAE@MHHH@Z
+public: __thiscall FString::FString(float, int, int, int)
+- ??0FString@@QAE@NHHH@Z
+public: __thiscall FString::FString(double, int, int, int)
+- ??0FString@@QAE@PBD@Z
+public: __thiscall FString::FString(char const *)
+- ??0FString@@QAE@PB_W@Z
+public: __thiscall FString::FString(wchar_t const *)
+- ??0FString@@QAE@W4ENoInit@@@Z
+public: __thiscall FString::FString(enum ENoInit)
+- ??0FString@@QAE@XZ
+public: __thiscall FString::FString(void)
+- ??1FString@@QAE@XZ
+public: __thiscall FString::~FString(void)
+- ??4FString@@QAEAAV0@$$QAV0@@Z
+public: class FString & __thiscall FString::operator=(class FString &&)
+- ??4FString@@QAEAAV0@ABV0@@Z
+public: class FString & __thiscall FString::operator=(class FString const &)
+- ??4FString@@QAEAAV0@PB_W@Z
+public: class FString & __thiscall FString::operator=(wchar_t const *)
+- ??8FString@@QBEHABV0@@Z
+public: int __thiscall FString::operator==(class FString const &) const
+- ??8FString@@QBEHABVFName@@@Z
+public: int __thiscall FString::operator==(class FName const &) const
+- ??8FString@@QBEHPB_W@Z
+public: int __thiscall FString::operator==(wchar_t const *) const
+- ??9FString@@QBEHABV0@@Z
+public: int __thiscall FString::operator!=(class FString const &) const
+- ??9FString@@QBEHABVFName@@@Z
+public: int __thiscall FString::operator!=(class FName const &) const
+- ??9FString@@QBEHPB_W@Z
+public: int __thiscall FString::operator!=(wchar_t const *) const
+- ??AFString@@QAEAA_WH@Z
+public: wchar_t & __thiscall FString::operator[](int)
+- ??AFString@@QBEAB_WH@Z
+public: wchar_t const & __thiscall FString::operator[](int) const
+- ??DFString@@QBE?AV0@ABV0@@Z
+public: class FString __thiscall FString::operator*(class FString const &) const
+- ??DFString@@QBE?AV0@PB_W@Z
+public: class FString __thiscall FString::operator*(wchar_t const *) const
+- ??DFString@@QBEPB_WXZ
+public: wchar_t const * __thiscall FString::operator*(void) const
+- ??GFString@@QBEHABV0@@Z
+public: int __thiscall FString::operator-(class FString const &) const
+- ??HFString@@QBE?AV0@ABV0@@Z
+public: class FString __thiscall FString::operator+(class FString const &) const
+- ??HFString@@QBE?AV0@PB_W@Z
+public: class FString __thiscall FString::operator+(wchar_t const *) const
+- ??MFString@@QBEHABV0@@Z
+public: int __thiscall FString::operator<(class FString const &) const
+- ??MFString@@QBEHPB_W@Z
+public: int __thiscall FString::operator<(wchar_t const *) const
+- ??NFString@@QBEHABV0@@Z
+public: int __thiscall FString::operator<=(class FString const &) const
+- ??NFString@@QBEHPB_W@Z
+public: int __thiscall FString::operator<=(wchar_t const *) const
+- ??OFString@@QBEHABV0@@Z
+public: int __thiscall FString::operator>(class FString const &) const
+- ??OFString@@QBEHPB_W@Z
+public: int __thiscall FString::operator>(wchar_t const *) const
+- ??PFString@@QBEHABV0@@Z
+public: int __thiscall FString::operator>=(class FString const &) const
+- ??PFString@@QBEHPB_W@Z
+public: int __thiscall FString::operator>=(wchar_t const *) const
+- ??XFString@@QAEAAV0@ABV0@@Z
+public: class FString & __thiscall FString::operator*=(class FString const &)
+- ??XFString@@QAEAAV0@PB_W@Z
+public: class FString & __thiscall FString::operator*=(wchar_t const *)
+- ??YFString@@QAEAAV0@ABV0@@Z
+public: class FString & __thiscall FString::operator+=(class FString const &)
+- ??YFString@@QAEAAV0@PB_W@Z
+public: class FString & __thiscall FString::operator+=(wchar_t const *)
+- ??YFString@@QAEAAV0@_W@Z
+public: class FString & __thiscall FString::operator+=(wchar_t)
+- ?Caps@FString@@QBE?AV1@XZ
+public: class FString __thiscall FString::Caps(void) const
+- ?Chr@FString@@SA?AV1@_W@Z
+public: static class FString __cdecl FString::Chr(wchar_t)
+- ?Complement@FString@@QAEXXZ
+public: void __thiscall FString::Complement(void)
+- ?Delete@FString@@QAEXHH@Z
+public: void __thiscall FString::Delete(int, int)
+- ?Empty@FString@@QAEXXZ
+public: void __thiscall FString::Empty(void)
+- ?FormatAsNumber@FString@@SA?AV1@H@Z
+public: static class FString __cdecl FString::FormatAsNumber(int)
+- ?GetCharArray@FString@@QAEAAV?$TArray@_W@@XZ
+public: class TArray<wchar_t> & __thiscall FString::GetCharArray(void)
+- ?GetFirstLine@FString@@QBE?AV1@XZ
+public: class FString __thiscall FString::GetFirstLine(void) const
+- ?InStr@FString@@QBEHABV1@H@Z
+public: int __thiscall FString::InStr(class FString const &, int) const
+- ?InStr@FString@@QBEHPB_WH@Z
+public: int __thiscall FString::InStr(wchar_t const *, int) const
+- ?IsValidNumberString@FString@@QAE_NXZ
+public: bool __thiscall FString::IsValidNumberString(void)
+- ?IsWhiteSpace@FString@@QBEHXZ
+public: int __thiscall FString::IsWhiteSpace(void) const
+- ?Left@FString@@QBE?AV1@H@Z
+public: class FString __thiscall FString::Left(int) const
+- ?LeftChop@FString@@QBE?AV1@H@Z
+public: class FString __thiscall FString::LeftChop(int) const
+- ?LeftPad@FString@@QAE?AV1@H@Z
+public: class FString __thiscall FString::LeftPad(int)
+- ?Len@FString@@QBEHXZ
+public: int __thiscall FString::Len(void) const
+- ?Locs@FString@@QBE?AV1@XZ
+public: class FString __thiscall FString::Locs(void) const
+- ?Mid@FString@@QBE?AV1@HH@Z
+public: class FString __thiscall FString::Mid(int, int) const
+- ?ParseIntoArray@FString@@QBEHPB_WPAV?$TArray@VFString@@@@@Z
+public: int __thiscall FString::ParseIntoArray(wchar_t const *, class TArray<class FString> *) const
+- ?ParserInfoArray@FString@@QBEHABV?$TArray@VFString@@@@PAV2@@Z
+public: int __thiscall FString::ParserInfoArray(class TArray<class FString> const &, class TArray<class FString> *) const
+- ?Printf@FString@@SA?AV1@PB_WZZ
+public: static class FString __cdecl FString::Printf(wchar_t const *, ...)
+- ?Reverse@FString@@QAE?AV1@XZ
+public: class FString __thiscall FString::Reverse(void)
+- ?Right@FString@@QBE?AV1@H@Z
+public: class FString __thiscall FString::Right(int) const
+- ?RightPad@FString@@QAE?AV1@H@Z
+public: class FString __thiscall FString::RightPad(int)
+- ?Shrink@FString@@QAEXXZ
+public: void __thiscall FString::Shrink(void)
+- ?Split@FString@@QBEHABV1@PAV1@1H@Z
+public: int __thiscall FString::Split(class FString const &, class FString *, class FString *, int) const
+- ?SplitIntoArray@FString@@QBEHPB_WPAV?$TArray@VFString@@@@@Z
+public: int __thiscall FString::SplitIntoArray(wchar_t const *, class TArray<class FString> *) const
+- ?Substitute@FString@@QAE?AV1@ABV1@0H@Z
+public: class FString __thiscall FString::Substitute(class FString const &, class FString const &, int)
+- ?Trim@FString@@QBE?AV1@XZ
+public: class FString __thiscall FString::Trim(void) const
+- ?TrimEnd@FString@@QBE?AV1@XZ
+public: class FString __thiscall FString::TrimEnd(void) const
+- ?__FUNC_NAME__@?2??Complement@FString@@QAEXXZ@4QB_WB
+wchar_t const *const `public: void __thiscall FString::Complement(void)'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??IsValidNumberString@FString@@QAE_NXZ@4QB_WB
+wchar_t const *const `public: bool __thiscall FString::IsValidNumberString(void)'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??ParseIntoArray@FString@@QBEHPB_WPAV?$TArray@VFString@@@@@Z@4QB_WB
+wchar_t const *const `public: int __thiscall FString::ParseIntoArray(wchar_t const *, class TArray<class FString> *) const'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??ParserInfoArray@FString@@QBEHABV?$TArray@VFString@@@@PAV3@@Z@4QB_WB
+wchar_t const *const `public: int __thiscall FString::ParserInfoArray(class TArray<class FString> const &, class TArray<class FString> *) const'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??Reverse@FString@@QAE?AV2@XZ@4QB_WB
+wchar_t const *const `public: class FString __thiscall FString::Reverse(void)'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??SplitIntoArray@FString@@QBEHPB_WPAV?$TArray@VFString@@@@@Z@4QB_WB
+wchar_t const *const `public: int __thiscall FString::SplitIntoArray(wchar_t const *, class TArray<class FString> *) const'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??Substitute@FString@@QAE?AV2@ABV2@0H@Z@4QB_WB
+wchar_t const *const `public: class FString __thiscall FString::Substitute(class FString const &, class FString const &, int)'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??TrimEnd@FString@@QBE?AV2@XZ@4QB_WB
+wchar_t const *const `public: class FString __thiscall FString::TrimEnd(void) const'::`3'::__FUNC_NAME__
+
+### L2UserHardWareInformation  (77)
+- ??0L2UserHardWareInformation@@AAE@XZ
+private: __thiscall L2UserHardWareInformation::L2UserHardWareInformation(void)
+- ??0L2UserHardWareInformation@@QAE@ABV0@@Z
+public: __thiscall L2UserHardWareInformation::L2UserHardWareInformation(class L2UserHardWareInformation const &)
+- ??1L2UserHardWareInformation@@EAE@XZ
+private: virtual __thiscall L2UserHardWareInformation::~L2UserHardWareInformation(void)
+- ??4L2UserHardWareInformation@@QAEAAV0@ABV0@@Z
+public: class L2UserHardWareInformation & __thiscall L2UserHardWareInformation::operator=(class L2UserHardWareInformation const &)
+- ??_7L2UserHardWareInformation@@6B@
+const L2UserHardWareInformation::`vftable'
+- ?AddIMEInfo@L2UserHardWareInformation@@QAEXABGABQAUHKL__@@PB_W2@Z
+public: void __thiscall L2UserHardWareInformation::AddIMEInfo(unsigned short const &, struct HKL__*const &, wchar_t const *, wchar_t const *)
+- ?CheckAppCompatFlags@L2UserHardWareInformation@@SAHXZ
+public: static int __cdecl L2UserHardWareInformation::CheckAppCompatFlags(void)
+- ?CheckIni@L2UserHardWareInformation@@AAEHXZ
+private: int __thiscall L2UserHardWareInformation::CheckIni(void)
+- ?CreateAppCompatFlags@L2UserHardWareInformation@@SAXXZ
+public: static void __cdecl L2UserHardWareInformation::CreateAppCompatFlags(void)
+- ?DeleteAppCompatFlags@L2UserHardWareInformation@@SAXXZ
+public: static void __cdecl L2UserHardWareInformation::DeleteAppCompatFlags(void)
+- ?GetCDRomDriveName@L2UserHardWareInformation@@QAEPB_WXZ
+public: wchar_t const * __thiscall L2UserHardWareInformation::GetCDRomDriveName(void)
+- ?GetCDRomDriveType@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetCDRomDriveType(void)
+- ?GetCPUBrandString@L2UserHardWareInformation@@QAEPB_WXZ
+public: wchar_t const * __thiscall L2UserHardWareInformation::GetCPUBrandString(void)
+- ?GetCPUCacheLineSize@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetCPUCacheLineSize(void)
+- ?GetCPUCacheSize@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetCPUCacheSize(void)
+- ?GetCPUCoreCount@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetCPUCoreCount(void)
+- ?GetCPUSpeed@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetCPUSpeed(void)
+- ?GetCrashWindowTypeStr@L2UserHardWareInformation@@QBE?AVFString@@XZ
+public: class FString __thiscall L2UserHardWareInformation::GetCrashWindowTypeStr(void) const
+- ?GetDXRevision@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetDXRevision(void)
+- ?GetDXVersion@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetDXVersion(void)
+- ?GetDiskCheck@L2UserHardWareInformation@@AAE?AV?$TArray@W4E_DISK_CHECK@L2UserHardWareInformation@@@@XZ
+private: class TArray<enum L2UserHardWareInformation::E_DISK_CHECK> __thiscall L2UserHardWareInformation::GetDiskCheck(void)
+- ?GetDiskName@L2UserHardWareInformation@@AAEXAAV?$TArray@VFString@@@@@Z
+private: void __thiscall L2UserHardWareInformation::GetDiskName(class TArray<class FString> &)
+- ?GetDiskSpace@L2UserHardWareInformation@@AAE?AUL2HDD_SpaceCheck@@VFString@@@Z
+private: struct L2HDD_SpaceCheck __thiscall L2UserHardWareInformation::GetDiskSpace(class FString)
+- ?GetIMEInfoString@L2UserHardWareInformation@@QAE?AVFString@@XZ
+public: class FString __thiscall L2UserHardWareInformation::GetIMEInfoString(void)
+- ?GetL2VGA_Check@L2UserHardWareInformation@@QAEABUL2VGA_Check@@XZ
+public: struct L2VGA_Check const & __thiscall L2UserHardWareInformation::GetL2VGA_Check(void)
+- ?GetMacAddress@L2UserHardWareInformation@@QAEPB_WXZ
+public: wchar_t const * __thiscall L2UserHardWareInformation::GetMacAddress(void)
+- ?GetMachineCPU@L2UserHardWareInformation@@QAEPB_WXZ
+public: wchar_t const * __thiscall L2UserHardWareInformation::GetMachineCPU(void)
+- ?GetMultiVGA@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetMultiVGA(void)
+- ?GetOption@L2UserHardWareInformation@@QAEPAUL2Option@@XZ
+public: struct L2Option * __thiscall L2UserHardWareInformation::GetOption(void)
+- ?GetPageMemory@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetPageMemory(void)
+- ?GetPhysMemory@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetPhysMemory(void)
+- ?GetSendHardWare@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetSendHardWare(void)
+- ?GetVgaDriverVersion@L2UserHardWareInformation@@QAEPB_WXZ
+public: wchar_t const * __thiscall L2UserHardWareInformation::GetVgaDriverVersion(void)
+- ?GetVgaName@L2UserHardWareInformation@@QAEPB_WXZ
+public: wchar_t const * __thiscall L2UserHardWareInformation::GetVgaName(void)
+- ?GetVideoMemory@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetVideoMemory(void)
+- ?GetVirtualMemory@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetVirtualMemory(void)
+- ?GetWindowHeight@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetWindowHeight(void)
+- ?GetWindowWidth@L2UserHardWareInformation@@QAEHXZ
+public: int __thiscall L2UserHardWareInformation::GetWindowWidth(void)
+- ?GetWindowsBuildNumber@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetWindowsBuildNumber(void)
+- ?GetWindowsInfo@L2UserHardWareInformation@@QAEPB_WXZ
+public: wchar_t const * __thiscall L2UserHardWareInformation::GetWindowsInfo(void)
+- ?GetWindowsMajorVersion@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetWindowsMajorVersion(void)
+- ?GetWindowsMinorVersion@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetWindowsMinorVersion(void)
+- ?GetWindowsPlatformId@L2UserHardWareInformation@@QAEKXZ
+public: unsigned long __thiscall L2UserHardWareInformation::GetWindowsPlatformId(void)
+- ?INIHardWareCheck@L2UserHardWareInformation@@QAEXXZ
+public: void __thiscall L2UserHardWareInformation::INIHardWareCheck(void)
+- ?InitHDDInfo@L2UserHardWareInformation@@QAEXXZ
+public: void __thiscall L2UserHardWareInformation::InitHDDInfo(void)
+- ?Is64BitOs@L2UserHardWareInformation@@QBEHXZ
+public: int __thiscall L2UserHardWareInformation::Is64BitOs(void) const
+- ?LoadOptionINI@L2UserHardWareInformation@@QAEXXZ
+public: void __thiscall L2UserHardWareInformation::LoadOptionINI(void)
+- ?SaveIni@L2UserHardWareInformation@@AAEXVFString@@@Z
+private: void __thiscall L2UserHardWareInformation::SaveIni(class FString)
+- ?SendHardWareOK@L2UserHardWareInformation@@QAEXXZ
+public: void __thiscall L2UserHardWareInformation::SendHardWareOK(void)
+- ?Set64BitOS@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::Set64BitOS(int)
+- ?SetCDRomDriveName@L2UserHardWareInformation@@QAEXVFString@@@Z
+public: void __thiscall L2UserHardWareInformation::SetCDRomDriveName(class FString)
+- ?SetCPUBrandString@L2UserHardWareInformation@@QAEXABVFString@@@Z
+public: void __thiscall L2UserHardWareInformation::SetCPUBrandString(class FString const &)
+- ?SetCPUCacheLineSize@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetCPUCacheLineSize(int)
+- ?SetCPUCacheSize@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetCPUCacheSize(int)
+- ?SetCPUCoreCount@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetCPUCoreCount(unsigned long)
+- ?SetCPUSpeed@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetCPUSpeed(unsigned long)
+- ?SetDXRevision@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetDXRevision(unsigned long)
+- ?SetDXVersion@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetDXVersion(unsigned long)
+- ?SetMSNUse@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetMSNUse(int)
+- ?SetMacAddress@L2UserHardWareInformation@@QAEXPAE@Z
+public: void __thiscall L2UserHardWareInformation::SetMacAddress(unsigned char *)
+- ?SetMachineCPU@L2UserHardWareInformation@@QAEXABVFString@@@Z
+public: void __thiscall L2UserHardWareInformation::SetMachineCPU(class FString const &)
+- ?SetPageMemory@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetPageMemory(int)
+- ?SetPhysMemory@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetPhysMemory(int)
+- ?SetUseJoystick@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetUseJoystick(int)
+- ?SetVGAInfo@L2UserHardWareInformation@@QAEXKVFString@@T_LARGE_INTEGER@@H@Z
+public: void __thiscall L2UserHardWareInformation::SetVGAInfo(unsigned long, class FString, union _LARGE_INTEGER, int)
+- ?SetVideoMemory@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetVideoMemory(unsigned long)
+- ?SetVirtualMemory@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetVirtualMemory(int)
+- ?SetWindowHeight@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetWindowHeight(int)
+- ?SetWindowWidth@L2UserHardWareInformation@@QAEXH@Z
+public: void __thiscall L2UserHardWareInformation::SetWindowWidth(int)
+- ?SetWindowsBuildNumber@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetWindowsBuildNumber(unsigned long)
+- ?SetWindowsInfo@L2UserHardWareInformation@@QAEXABVFString@@@Z
+public: void __thiscall L2UserHardWareInformation::SetWindowsInfo(class FString const &)
+- ?SetWindowsMajorVersion@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetWindowsMajorVersion(unsigned long)
+- ?SetWindowsMinorVersion@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetWindowsMinorVersion(unsigned long)
+- ?SetWindowsPlatformId@L2UserHardWareInformation@@QAEXK@Z
+public: void __thiscall L2UserHardWareInformation::SetWindowsPlatformId(unsigned long)
+- ?SetWndPos@L2UserHardWareInformation@@QAEXVFString@@HH@Z
+public: void __thiscall L2UserHardWareInformation::SetWndPos(class FString, int, int)
+- ?SetWndSize@L2UserHardWareInformation@@QAEXVFString@@HH@Z
+public: void __thiscall L2UserHardWareInformation::SetWndSize(class FString, int, int)
+- ?UserAbusingFile@L2UserHardWareInformation@@QAEXABUL2UserIPAbusing@@@Z
+public: void __thiscall L2UserHardWareInformation::UserAbusingFile(struct L2UserIPAbusing const &)
+
+### L2Configuration  (68)
+- ??0L2Configuration@@AAE@XZ
+private: __thiscall L2Configuration::L2Configuration(void)
+- ??0L2Configuration@@QAE@ABV0@@Z
+public: __thiscall L2Configuration::L2Configuration(class L2Configuration const &)
+- ??1L2Configuration@@EAE@XZ
+private: virtual __thiscall L2Configuration::~L2Configuration(void)
+- ??4L2Configuration@@QAEAAV0@ABV0@@Z
+public: class L2Configuration & __thiscall L2Configuration::operator=(class L2Configuration const &)
+- ??_7L2Configuration@@6B@
+const L2Configuration::`vftable'
+- ?Exec@L2Configuration@@QAEHPB_WAAVFOutputDevice@@@Z
+public: int __thiscall L2Configuration::Exec(wchar_t const *, class FOutputDevice &)
+- ?FindL2ActorViewDuration@L2Configuration@@QBEMM@Z
+public: float __thiscall L2Configuration::FindL2ActorViewDuration(float) const
+- ?GetActorCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetActorCR(void) const
+- ?GetActualActorCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetActualActorCR(void) const
+- ?GetActualPawnCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetActualPawnCR(void) const
+- ?GetActualStaticMeshCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetActualStaticMeshCR(void) const
+- ?GetActualStaticMeshLodCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetActualStaticMeshLodCR(void) const
+- ?GetDepth@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetDepth(void) const
+- ?GetDepthOfField@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetDepthOfField(void) const
+- ?GetDepthShadow@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetDepthShadow(void) const
+- ?GetDynamicEmitterCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetDynamicEmitterCR(void) const
+- ?GetEdgeDetect@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetEdgeDetect(void) const
+- ?GetFrostSecureModule@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetFrostSecureModule(void) const
+- ?GetNormal@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetNormal(void) const
+- ?GetPawnCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetPawnCR(void) const
+- ?GetPawnViewerPlayRate@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetPawnViewerPlayRate(void) const
+- ?GetRangeRateForIgnoredRange@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetRangeRateForIgnoredRange(void) const
+- ?GetReplayFileVersion@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetReplayFileVersion(void) const
+- ?GetSSAO@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetSSAO(void) const
+- ?GetSSAOF@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetSSAOF(void) const
+- ?GetSSAO_BlurDepthDifference@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_BlurDepthDifference(void) const
+- ?GetSSAO_BlurIntensity@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_BlurIntensity(void) const
+- ?GetSSAO_BlurNormalDifference@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_BlurNormalDifference(void) const
+- ?GetSSAO_DepthDifference@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_DepthDifference(void) const
+- ?GetSSAO_FadeFront@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_FadeFront(void) const
+- ?GetSSAO_MaxIntensity@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_MaxIntensity(void) const
+- ?GetSSAO_NoiseScale@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_NoiseScale(void) const
+- ?GetSSAO_SampleDistance@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_SampleDistance(void) const
+- ?GetSSAO_Strength@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetSSAO_Strength(void) const
+- ?GetShowFog@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetShowFog(void) const
+- ?GetSlowShader@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetSlowShader(void) const
+- ?GetStaticMeshCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetStaticMeshCR(void) const
+- ?GetStaticMeshLodCR@L2Configuration@@QBEMXZ
+public: float __thiscall L2Configuration::GetStaticMeshLodCR(void) const
+- ?GetTerrainCRByIndex@L2Configuration@@QAE_NHAAM0000@Z
+public: bool __thiscall L2Configuration::GetTerrainCRByIndex(int, float &, float &, float &, float &, float &)
+- ?GetUseUnrealBuilderCmd@L2Configuration@@QBEHXZ
+public: int __thiscall L2Configuration::GetUseUnrealBuilderCmd(void) const
+- ?SetActorCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetActorCR(float)
+- ?SetDepth@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetDepth(int)
+- ?SetDepthOfField@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetDepthOfField(int)
+- ?SetDepthShadow@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetDepthShadow(int)
+- ?SetDynamicEmitterCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetDynamicEmitterCR(float)
+- ?SetEdgeDetect@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetEdgeDetect(int)
+- ?SetFrostSecureModule@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetFrostSecureModule(int)
+- ?SetNormal@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetNormal(int)
+- ?SetPawnCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetPawnCR(float)
+- ?SetPawnViewerPlayRate@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetPawnViewerPlayRate(float)
+- ?SetRangeRateForIgnoredRange@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetRangeRateForIgnoredRange(float)
+- ?SetReplayFileVersion@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetReplayFileVersion(int)
+- ?SetSSAO@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetSSAO(int)
+- ?SetSSAOF@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetSSAOF(int)
+- ?SetSSAO_BlurDepthDifference@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_BlurDepthDifference(float)
+- ?SetSSAO_BlurIntensity@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_BlurIntensity(float)
+- ?SetSSAO_BlurNormalDifference@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_BlurNormalDifference(float)
+- ?SetSSAO_DepthDifference@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_DepthDifference(float)
+- ?SetSSAO_FadeFront@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_FadeFront(float)
+- ?SetSSAO_MaxIntensity@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_MaxIntensity(float)
+- ?SetSSAO_NoiseScale@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_NoiseScale(float)
+- ?SetSSAO_SampleDistance@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_SampleDistance(float)
+- ?SetSSAO_Strength@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetSSAO_Strength(float)
+- ?SetShowFog@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetShowFog(int)
+- ?SetSlowShader@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetSlowShader(int)
+- ?SetStaticMeshCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetStaticMeshCR(float)
+- ?SetStaticMeshLodCR@L2Configuration@@QAEXM@Z
+public: void __thiscall L2Configuration::SetStaticMeshLodCR(float)
+- ?SetUseUnrealBuilderCmd@L2Configuration@@QAEXH@Z
+public: void __thiscall L2Configuration::SetUseUnrealBuilderCmd(int)
+
+### FArchive  (46)
+- ??0FArchive@@QAE@ABV0@@Z
+public: __thiscall FArchive::FArchive(class FArchive const &)
+- ??0FArchive@@QAE@XZ
+public: __thiscall FArchive::FArchive(void)
+- ??1FArchive@@UAE@XZ
+public: virtual __thiscall FArchive::~FArchive(void)
+- ??4FArchive@@QAEAAV0@ABV0@@Z
+public: class FArchive & __thiscall FArchive::operator=(class FArchive const &)
+- ??6FArchive@@UAEAAV0@AAPAVUObject@@@Z
+public: virtual class FArchive & __thiscall FArchive::operator<<(class UObject *&)
+- ??6FArchive@@UAEAAV0@AAVFName@@@Z
+public: virtual class FArchive & __thiscall FArchive::operator<<(class FName &)
+- ??_7FArchive@@6B@
+const FArchive::`vftable'
+- ?AtEnd@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::AtEnd(void)
+- ?AtStopper@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::AtStopper(void)
+- ?AttachLazyLoader@FArchive@@UAEXPAVFLazyLoader@@@Z
+public: virtual void __thiscall FArchive::AttachLazyLoader(class FLazyLoader *)
+- ?AttachRoughLoader@FArchive@@UAEXPAVFRoughLoader@@@Z
+public: virtual void __thiscall FArchive::AttachRoughLoader(class FRoughLoader *)
+- ?ByteOrderSerialize@FArchive@@QAEAAV1@PAXH@Z
+public: class FArchive & __thiscall FArchive::ByteOrderSerialize(void *, int)
+- ?Close@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::Close(void)
+- ?ContainsCode@FArchive@@QAEHXZ
+public: int __thiscall FArchive::ContainsCode(void)
+- ?CountBytes@FArchive@@UAEXKK@Z
+public: virtual void __thiscall FArchive::CountBytes(unsigned long, unsigned long)
+- ?DetachLazyLoader@FArchive@@UAEXPAVFLazyLoader@@@Z
+public: virtual void __thiscall FArchive::DetachLazyLoader(class FLazyLoader *)
+- ?DetachRoughLoader@FArchive@@UAEXPAVFRoughLoader@@@Z
+public: virtual void __thiscall FArchive::DetachRoughLoader(class FRoughLoader *)
+- ?Flush@FArchive@@UAEXXZ
+public: virtual void __thiscall FArchive::Flush(void)
+- ?ForClient@FArchive@@QAEHXZ
+public: int __thiscall FArchive::ForClient(void)
+- ?ForEdit@FArchive@@QAEHXZ
+public: int __thiscall FArchive::ForEdit(void)
+- ?ForServer@FArchive@@QAEHXZ
+public: int __thiscall FArchive::ForServer(void)
+- ?GetCriticalSection@FArchive@@UAEPAVFCriticalSection@@XZ
+public: virtual class FCriticalSection * __thiscall FArchive::GetCriticalSection(void)
+- ?GetCurrentEncryptVersion@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::GetCurrentEncryptVersion(void)
+- ?GetError@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::GetError(void)
+- ?IsError@FArchive@@QAEHXZ
+public: int __thiscall FArchive::IsError(void)
+- ?IsGC@FArchive@@QAEHXZ
+public: int __thiscall FArchive::IsGC(void)
+- ?IsLoading@FArchive@@QAEHXZ
+public: int __thiscall FArchive::IsLoading(void)
+- ?IsNet@FArchive@@QAEHXZ
+public: int __thiscall FArchive::IsNet(void)
+- ?IsPersistent@FArchive@@QAEHXZ
+public: int __thiscall FArchive::IsPersistent(void)
+- ?IsSaving@FArchive@@QAEHXZ
+public: int __thiscall FArchive::IsSaving(void)
+- ?IsTrans@FArchive@@QAEHXZ
+public: int __thiscall FArchive::IsTrans(void)
+- ?LicenseeVer@FArchive@@QAEHXZ
+public: int __thiscall FArchive::LicenseeVer(void)
+- ?MapName@FArchive@@UAEHPAVFName@@@Z
+public: virtual int __thiscall FArchive::MapName(class FName *)
+- ?MapObject@FArchive@@UAEHPAVUObject@@@Z
+public: virtual int __thiscall FArchive::MapObject(class UObject *)
+- ?NetVer@FArchive@@QAEHXZ
+public: int __thiscall FArchive::NetVer(void)
+- ?Precache@FArchive@@UAEXH@Z
+public: virtual void __thiscall FArchive::Precache(int)
+- ?Preload@FArchive@@UAEXPAVUObject@@@Z
+public: virtual void __thiscall FArchive::Preload(class UObject *)
+- ?Seek@FArchive@@UAEXH@Z
+public: virtual void __thiscall FArchive::Seek(int)
+- ?Serialize@FArchive@@UAEXPAXH@Z
+public: virtual void __thiscall FArchive::Serialize(void *, int)
+- ?SerializeBits@FArchive@@UAEXPAXH@Z
+public: virtual void __thiscall FArchive::SerializeBits(void *, int)
+- ?SerializeInt@FArchive@@UAEXAAKK@Z
+public: virtual void __thiscall FArchive::SerializeInt(unsigned long &, unsigned long)
+- ?SetStopper@FArchive@@UAEXH@Z
+public: virtual void __thiscall FArchive::SetStopper(int)
+- ?Tell@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::Tell(void)
+- ?ThisContainsCode@FArchive@@QAEXXZ
+public: void __thiscall FArchive::ThisContainsCode(void)
+- ?TotalSize@FArchive@@UAEHXZ
+public: virtual int __thiscall FArchive::TotalSize(void)
+- ?Ver@FArchive@@QAEHXZ
+public: int __thiscall FArchive::Ver(void)
+
+### FConfigCacheIni  (39)
+- ??0FConfigCacheIni@@QAE@ABV0@@Z
+public: __thiscall FConfigCacheIni::FConfigCacheIni(class FConfigCacheIni const &)
+- ??0FConfigCacheIni@@QAE@XZ
+public: __thiscall FConfigCacheIni::FConfigCacheIni(void)
+- ??1FConfigCacheIni@@UAE@XZ
+public: virtual __thiscall FConfigCacheIni::~FConfigCacheIni(void)
+- ??4FConfigCacheIni@@QAEAAV0@ABV0@@Z
+public: class FConfigCacheIni & __thiscall FConfigCacheIni::operator=(class FConfigCacheIni const &)
+- ??_7FConfigCacheIni@@6B@
+const FConfigCacheIni::`vftable'
+- ?AddString@FConfigCacheIni@@UAEXPB_W000@Z
+public: virtual void __thiscall FConfigCacheIni::AddString(wchar_t const *, wchar_t const *, wchar_t const *, wchar_t const *)
+- ?Detach@FConfigCacheIni@@UAEXPB_W@Z
+public: virtual void __thiscall FConfigCacheIni::Detach(wchar_t const *)
+- ?Dump@FConfigCacheIni@@UAEXAAVFOutputDevice@@@Z
+public: virtual void __thiscall FConfigCacheIni::Dump(class FOutputDevice &)
+- ?EmptySection@FConfigCacheIni@@UAEXPB_W0@Z
+public: virtual void __thiscall FConfigCacheIni::EmptySection(wchar_t const *, wchar_t const *)
+- ?Exit@FConfigCacheIni@@UAEXXZ
+public: virtual void __thiscall FConfigCacheIni::Exit(void)
+- ?Find@FConfigCacheIni@@QAEPAVFConfigFile@@PB_WH@Z
+public: class FConfigFile * __thiscall FConfigCacheIni::Find(wchar_t const *, int)
+- ?Flush@FConfigCacheIni@@UAEXHPB_W@Z
+public: virtual void __thiscall FConfigCacheIni::Flush(int, wchar_t const *)
+- ?FlushWithoutExceptionFile@FConfigCacheIni@@UAEXH@Z
+public: virtual void __thiscall FConfigCacheIni::FlushWithoutExceptionFile(int)
+- ?GetBool@FConfigCacheIni@@UAEHPB_W0AAH0@Z
+public: virtual int __thiscall FConfigCacheIni::GetBool(wchar_t const *, wchar_t const *, int &, wchar_t const *)
+- ?GetBool@FConfigCacheIni@@UAEHPB_W0AAHH0@Z
+public: virtual int __thiscall FConfigCacheIni::GetBool(wchar_t const *, wchar_t const *, int &, int, wchar_t const *)
+- ?GetConfigFileText@FConfigCacheIni@@UAEXPB_WAAPADAAH_N@Z
+public: virtual void __thiscall FConfigCacheIni::GetConfigFileText(wchar_t const *, char *&, int &, bool)
+- ?GetFloat@FConfigCacheIni@@UAEHPB_W0AAM0@Z
+public: virtual int __thiscall FConfigCacheIni::GetFloat(wchar_t const *, wchar_t const *, float &, wchar_t const *)
+- ?GetFloat@FConfigCacheIni@@UAEHPB_W0AAMM0@Z
+public: virtual int __thiscall FConfigCacheIni::GetFloat(wchar_t const *, wchar_t const *, float &, float, wchar_t const *)
+- ?GetInt@FConfigCacheIni@@UAEHPB_W0AAH0@Z
+public: virtual int __thiscall FConfigCacheIni::GetInt(wchar_t const *, wchar_t const *, int &, wchar_t const *)
+- ?GetList@FConfigCacheIni@@UAEXAAV?$TArray@VFString@@@@PB_W11@Z
+public: virtual void __thiscall FConfigCacheIni::GetList(class TArray<class FString> &, wchar_t const *, wchar_t const *, wchar_t const *)
+- ?GetSection@FConfigCacheIni@@UAEHPB_WPA_WH0@Z
+public: virtual int __thiscall FConfigCacheIni::GetSection(wchar_t const *, wchar_t *, int, wchar_t const *)
+- ?GetSectionList@FConfigCacheIni@@UAEXAAV?$TArray@PAVFString@@@@PB_W@Z
+public: virtual void __thiscall FConfigCacheIni::GetSectionList(class TArray<class FString *> &, wchar_t const *)
+- ?GetSectionPrivate@FConfigCacheIni@@UAEPAVFConfigSection@@PB_WHH0@Z
+public: virtual class FConfigSection * __thiscall FConfigCacheIni::GetSectionPrivate(wchar_t const *, int, int, wchar_t const *)
+- ?GetStr@FConfigCacheIni@@UAEPB_WPB_W00@Z
+public: virtual wchar_t const * __thiscall FConfigCacheIni::GetStr(wchar_t const *, wchar_t const *, wchar_t const *)
+- ?GetString@FConfigCacheIni@@UAEHPB_W0AAVFString@@0@Z
+public: virtual int __thiscall FConfigCacheIni::GetString(wchar_t const *, wchar_t const *, class FString &, wchar_t const *)
+- ?GetString@FConfigCacheIni@@UAEHPB_W0PA_WH0@Z
+public: virtual int __thiscall FConfigCacheIni::GetString(wchar_t const *, wchar_t const *, wchar_t *, int, wchar_t const *)
+- ?GetStrings@FConfigCacheIni@@UAEHPB_W0AAV?$TArray@VFString@@@@0@Z
+public: virtual int __thiscall FConfigCacheIni::GetStrings(wchar_t const *, wchar_t const *, class TArray<class FString> &, wchar_t const *)
+- ?GetVector@FConfigCacheIni@@UAEHPB_W0AAUFVector@@ABU2@0@Z
+public: virtual int __thiscall FConfigCacheIni::GetVector(wchar_t const *, wchar_t const *, struct FVector &, struct FVector const &, wchar_t const *)
+- ?Init@FConfigCacheIni@@UAEXPB_W0H@Z
+public: virtual void __thiscall FConfigCacheIni::Init(wchar_t const *, wchar_t const *, int)
+- ?InitializeConfigSystem@FConfigCacheIni@@SAXH@Z
+public: static void __cdecl FConfigCacheIni::InitializeConfigSystem(int)
+- ?ProcessAdjustWindowsInfo@FConfigCacheIni@@UAEXP6A_NABVFString@@ABV?$TMultiMap@VFString@@V1@@@@ZPA_WH@Z
+public: virtual void __thiscall FConfigCacheIni::ProcessAdjustWindowsInfo(bool (__cdecl *)(class FString const &, class TMultiMap<class FString, class FString> const &), wchar_t *, int)
+- ?RemoveString@FConfigCacheIni@@UAEXPB_W000@Z
+public: virtual void __thiscall FConfigCacheIni::RemoveString(wchar_t const *, wchar_t const *, wchar_t const *, wchar_t const *)
+- ?SetBool@FConfigCacheIni@@UAEXPB_W0H0@Z
+public: virtual void __thiscall FConfigCacheIni::SetBool(wchar_t const *, wchar_t const *, int, wchar_t const *)
+- ?SetConfigFileText@FConfigCacheIni@@UAEXPB_WPBD_N@Z
+public: virtual void __thiscall FConfigCacheIni::SetConfigFileText(wchar_t const *, char const *, bool)
+- ?SetFloat@FConfigCacheIni@@UAEXPB_W0M0@Z
+public: virtual void __thiscall FConfigCacheIni::SetFloat(wchar_t const *, wchar_t const *, float, wchar_t const *)
+- ?SetInt@FConfigCacheIni@@UAEXPB_W0H0@Z
+public: virtual void __thiscall FConfigCacheIni::SetInt(wchar_t const *, wchar_t const *, int, wchar_t const *)
+- ?SetString@FConfigCacheIni@@UAEXPB_W000@Z
+public: virtual void __thiscall FConfigCacheIni::SetString(wchar_t const *, wchar_t const *, wchar_t const *, wchar_t const *)
+- ?SetVector@FConfigCacheIni@@UAEXPB_W0ABUFVector@@0@Z
+public: virtual void __thiscall FConfigCacheIni::SetVector(wchar_t const *, wchar_t const *, struct FVector const &, wchar_t const *)
+- ?UnloadFile@FConfigCacheIni@@UAEXPB_W@Z
+public: virtual void __thiscall FConfigCacheIni::UnloadFile(wchar_t const *)
+
+### UStruct  (34)
+- ??0UStruct@@IAE@XZ
+protected: __thiscall UStruct::UStruct(void)
+- ??0UStruct@@QAE@ABV0@@Z
+public: __thiscall UStruct::UStruct(class UStruct const &)
+- ??0UStruct@@QAE@PAV0@@Z
+public: __thiscall UStruct::UStruct(class UStruct *)
+- ??0UStruct@@QAE@W4ENativeConstructor@@HPB_W1KPAV0@@Z
+public: __thiscall UStruct::UStruct(enum ENativeConstructor, int, wchar_t const *, wchar_t const *, unsigned long, class UStruct *)
+- ??0UStruct@@QAE@W4EStaticConstructor@@HPB_W1K@Z
+public: __thiscall UStruct::UStruct(enum EStaticConstructor, int, wchar_t const *, wchar_t const *, unsigned long)
+- ??1UStruct@@UAE@XZ
+public: virtual __thiscall UStruct::~UStruct(void)
+- ??2UStruct@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UStruct::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UStruct@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UStruct::operator new(unsigned int, enum EInternal *)
+- ??4UStruct@@QAEAAV0@ABV0@@Z
+public: class UStruct & __thiscall UStruct::operator=(class UStruct const &)
+- ??_7UStruct@@6B@
+const UStruct::`vftable'
+- ?AddCppProperty@UStruct@@UAEXPAVUProperty@@@Z
+public: virtual void __thiscall UStruct::AddCppProperty(class UProperty *)
+- ?CleanupDestroyed@UStruct@@UAEXPAE@Z
+public: virtual void __thiscall UStruct::CleanupDestroyed(unsigned char *)
+- ?Destroy@UStruct@@UAEXXZ
+public: virtual void __thiscall UStruct::Destroy(void)
+- ?FunctionMD5@UStruct@@QAE?AVFString@@XZ
+public: class FString __thiscall UStruct::FunctionMD5(void)
+- ?GetInheritanceSuper@UStruct@@UAEPAV1@XZ
+public: virtual class UStruct * __thiscall UStruct::GetInheritanceSuper(void)
+- ?GetNameCPP@UStruct@@UAEPA_WXZ
+public: virtual wchar_t * __thiscall UStruct::GetNameCPP(void)
+- ?GetPropertiesSize@UStruct@@UAEHXZ
+public: virtual int __thiscall UStruct::GetPropertiesSize(void)
+- ?GetScriptTextCRC@UStruct@@QAEKXZ
+public: unsigned long __thiscall UStruct::GetScriptTextCRC(void)
+- ?GetSuperStruct@UStruct@@QBEPAV1@XZ
+public: class UStruct * __thiscall UStruct::GetSuperStruct(void) const
+- ?IsChildOf@UStruct@@QBEHPBV1@@Z
+public: int __thiscall UStruct::IsChildOf(class UStruct const *) const
+- ?Link@UStruct@@UAEXAAVFArchive@@H@Z
+public: virtual void __thiscall UStruct::Link(class FArchive &, int)
+- ?PostLoad@UStruct@@UAEXXZ
+public: virtual void __thiscall UStruct::PostLoad(void)
+- ?PrivateStaticClass@UStruct@@0VUClass@@A
+private: static class UClass UStruct::PrivateStaticClass
+- ?Register@UStruct@@UAEXXZ
+public: virtual void __thiscall UStruct::Register(void)
+- ?Serialize@UStruct@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UStruct::Serialize(class FArchive &)
+- ?SerializeBin@UStruct@@UAEXAAVFArchive@@PAEH@Z
+public: virtual void __thiscall UStruct::SerializeBin(class FArchive &, unsigned char *, int)
+- ?SerializeBinGC@UStruct@@UAEXAAVFArchive@@PAE@Z
+public: virtual void __thiscall UStruct::SerializeBinGC(class FArchive &, unsigned char *)
+- ?SerializeExpr@UStruct@@UAE?AW4EExprToken@@AAHAAVFArchive@@@Z
+public: virtual enum EExprToken __thiscall UStruct::SerializeExpr(int &, class FArchive &)
+- ?SerializeExprGC@UStruct@@UAE?AW4EExprToken@@AAHAAVFArchive@@@Z
+public: virtual enum EExprToken __thiscall UStruct::SerializeExprGC(int &, class FArchive &)
+- ?SerializeTaggedProperties@UStruct@@UAEXAAVFArchive@@PAEPAVUClass@@@Z
+public: virtual void __thiscall UStruct::SerializeTaggedProperties(class FArchive &, unsigned char *, class UClass *)
+- ?SetPropertiesSize@UStruct@@QAEXH@Z
+public: void __thiscall UStruct::SetPropertiesSize(int)
+- ?StaticClass@UStruct@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UStruct::StaticClass(void)
+- ?StructCompare@UStruct@@QAEHPBX0@Z
+public: int __thiscall UStruct::StructCompare(void const *, void const *)
+- ?__DefaultConstructor@UStruct@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UStruct::__DefaultConstructor(class FObjectInitializer const &)
+
+### FName  (32)
+- ??0FName@@QAE@PB_WW4EFindName@@@Z
+public: __thiscall FName::FName(wchar_t const *, enum EFindName)
+- ??0FName@@QAE@W4EName@@@Z
+public: __thiscall FName::FName(enum EName)
+- ??0FName@@QAE@XZ
+public: __thiscall FName::FName(void)
+- ??4FName@@QAEAAV0@$$QAV0@@Z
+public: class FName & __thiscall FName::operator=(class FName &&)
+- ??4FName@@QAEAAV0@ABV0@@Z
+public: class FName & __thiscall FName::operator=(class FName const &)
+- ??8FName@@QBEHABV0@@Z
+public: int __thiscall FName::operator==(class FName const &) const
+- ??8FName@@QBEHPB_W@Z
+public: int __thiscall FName::operator==(wchar_t const *) const
+- ??9FName@@QBEHABV0@@Z
+public: int __thiscall FName::operator!=(class FName const &) const
+- ??DFName@@QBEPB_WXZ
+public: wchar_t const * __thiscall FName::operator*(void) const
+- ?Available@FName@@0V?$TArray@H@@A
+private: static class TArray<int> FName::Available
+- ?ClearFlags@FName@@QBEXK@Z
+public: void __thiscall FName::ClearFlags(unsigned long) const
+- ?DeleteEntry@FName@@SAXH@Z
+public: static void __cdecl FName::DeleteEntry(int)
+- ?DisplayHash@FName@@SAXAAVFOutputDevice@@@Z
+public: static void __cdecl FName::DisplayHash(class FOutputDevice &)
+- ?GetEntry@FName@@SAPAUFNameEntry@@H@Z
+public: static struct FNameEntry * __cdecl FName::GetEntry(int)
+- ?GetFlags@FName@@QBEKXZ
+public: unsigned long __thiscall FName::GetFlags(void) const
+- ?GetIndex@FName@@QBEHXZ
+public: int __thiscall FName::GetIndex(void) const
+- ?GetInitialized@FName@@SAHXZ
+public: static int __cdecl FName::GetInitialized(void)
+- ?GetMaxNames@FName@@SAHXZ
+public: static int __cdecl FName::GetMaxNames(void)
+- ?Hardcode@FName@@SAXPAUFNameEntry@@@Z
+public: static void __cdecl FName::Hardcode(struct FNameEntry *)
+- ?Initialized@FName@@0HA
+private: static int FName::Initialized
+- ?IsValid@FName@@QBEHXZ
+public: int __thiscall FName::IsValid(void) const
+- ?MoreAvailable@FName@@0HA
+private: static int FName::MoreAvailable
+- ?NameAllocCS@FName@@0PAVFCriticalSection@@A
+private: static class FCriticalSection *FName::NameAllocCS
+- ?NameCS@FName@@0PAVFCriticalSection@@A
+private: static class FCriticalSection *FName::NameCS
+- ?NameHash@FName@@0PAPAUFNameEntry@@A
+private: static struct FNameEntry **FName::NameHash
+- ?Names@FName@@0V?$TArray@PAUFNameEntry@@@@A
+private: static class TArray<struct FNameEntry *> FName::Names
+- ?SafeString@FName@@SAPB_WW4EName@@@Z
+public: static wchar_t const * __cdecl FName::SafeString(enum EName)
+- ?SafeSuppressed@FName@@SAHW4EName@@@Z
+public: static int __cdecl FName::SafeSuppressed(enum EName)
+- ?SetFlags@FName@@QBEXK@Z
+public: void __thiscall FName::SetFlags(unsigned long) const
+- ?StaticExit@FName@@SAXXZ
+public: static void __cdecl FName::StaticExit(void)
+- ?StaticInit@FName@@SAXXZ
+public: static void __cdecl FName::StaticInit(void)
+- ?ToString@FName@@QBE?AVFString@@XZ
+public: class FString __thiscall FName::ToString(void) const
+
+### UClass  (31)
+- ??0UClass@@QAE@ABV0@@Z
+public: __thiscall UClass::UClass(class UClass const &)
+- ??0UClass@@QAE@PAV0@@Z
+public: __thiscall UClass::UClass(class UClass *)
+- ??0UClass@@QAE@W4ENativeConstructor@@KKPAV0@1VFGuid@@PB_W33KP6AXABVFObjectInitializer@@@ZP8UObject@@AEXXZ@Z
+public: __thiscall UClass::UClass(enum ENativeConstructor, unsigned long, unsigned long, class UClass *, class UClass *, class FGuid, wchar_t const *, wchar_t const *, wchar_t const *, unsigned long, void (__cdecl *)(class FObjectInitializer const &), void (__thiscall UObject::*)(void))
+- ??0UClass@@QAE@W4EStaticConstructor@@KKVFGuid@@PB_W22KP6AXABVFObjectInitializer@@@ZP8UObject@@AEXXZ@Z
+public: __thiscall UClass::UClass(enum EStaticConstructor, unsigned long, unsigned long, class FGuid, wchar_t const *, wchar_t const *, wchar_t const *, unsigned long, void (__cdecl *)(class FObjectInitializer const &), void (__thiscall UObject::*)(void))
+- ??0UClass@@QAE@XZ
+public: __thiscall UClass::UClass(void)
+- ??1UClass@@UAE@XZ
+public: virtual __thiscall UClass::~UClass(void)
+- ??2UClass@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UClass::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UClass@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UClass::operator new(unsigned int, enum EInternal *)
+- ??4UClass@@QAEAAV0@ABV0@@Z
+public: class UClass & __thiscall UClass::operator=(class UClass const &)
+- ??_7UClass@@6B@
+const UClass::`vftable'
+- ?AddDependency@UClass@@QAEXPAV1@H@Z
+public: void __thiscall UClass::AddDependency(class UClass *, int)
+- ?Bind@UClass@@UAEXXZ
+public: virtual void __thiscall UClass::Bind(void)
+- ?Destroy@UClass@@UAEXXZ
+public: virtual void __thiscall UClass::Destroy(void)
+- ?GetDefaultActor@UClass@@QAEPAVAActor@@XZ
+public: class AActor * __thiscall UClass::GetDefaultActor(void)
+- ?GetDefaultLevelObject@UClass@@QAEPAVULevelObject@@XZ
+public: class ULevelObject * __thiscall UClass::GetDefaultLevelObject(void)
+- ?GetDefaultObject@UClass@@QAEPAVUObject@@XZ
+public: class UObject * __thiscall UClass::GetDefaultObject(void)
+- ?GetInheritanceSuper@UClass@@UAEPAVUStruct@@XZ
+public: virtual class UStruct * __thiscall UClass::GetInheritanceSuper(void)
+- ?GetNameCPP@UClass@@UAEPA_WXZ
+public: virtual wchar_t * __thiscall UClass::GetNameCPP(void)
+- ?GetOuterUPackage@UClass@@QBEPAVUPackage@@XZ
+public: class UPackage * __thiscall UClass::GetOuterUPackage(void) const
+- ?GetSuperClass@UClass@@QBEPAV1@XZ
+public: class UClass * __thiscall UClass::GetSuperClass(void) const
+- ?HasNativesToExport@UClass@@QAEHPAVUObject@@@Z
+public: int __thiscall UClass::HasNativesToExport(class UObject *)
+- ?IsA@UClass@@ABEHPAV1@@Z
+private: int __thiscall UClass::IsA(class UClass *) const
+- ?Link@UClass@@UAEXAAVFArchive@@H@Z
+public: virtual void __thiscall UClass::Link(class FArchive &, int)
+- ?MergeBools@UClass@@UAEHXZ
+public: virtual int __thiscall UClass::MergeBools(void)
+- ?PostLoad@UClass@@UAEXXZ
+public: virtual void __thiscall UClass::PostLoad(void)
+- ?PrivateStaticClass@UClass@@0V1@A
+private: static class UClass UClass::PrivateStaticClass
+- ?Register@UClass@@UAEXXZ
+public: virtual void __thiscall UClass::Register(void)
+- ?Serialize@UClass@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UClass::Serialize(class FArchive &)
+- ?StaticClass@UClass@@SAPAV1@XZ
+public: static class UClass * __cdecl UClass::StaticClass(void)
+- ?__DefaultConstructor@UClass@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UClass::__DefaultConstructor(class FObjectInitializer const &)
+- ?__FUNC_NAME__@?2??AddDependency@UClass@@QAEXPAV2@H@Z@4QB_WB
+wchar_t const *const `public: void __thiscall UClass::AddDependency(class UClass *, int)'::`3'::__FUNC_NAME__
+
+### FCoords  (28)
+- ??0FCoords@@QAE@ABUFVector@@000@Z
+public: __thiscall FCoords::FCoords(struct FVector const &, struct FVector const &, struct FVector const &, struct FVector const &)
+- ??0FCoords@@QAE@ABUFVector@@@Z
+public: __thiscall FCoords::FCoords(struct FVector const &)
+- ??0FCoords@@QAE@XZ
+public: __thiscall FCoords::FCoords(void)
+- ??4FCoords@@QAEAAV0@$$QAV0@@Z
+public: class FCoords & __thiscall FCoords::operator=(class FCoords &&)
+- ??4FCoords@@QAEAAV0@ABV0@@Z
+public: class FCoords & __thiscall FCoords::operator=(class FCoords const &)
+- ??DFCoords@@QBE?AV0@ABUFRotator@@@Z
+public: class FCoords __thiscall FCoords::operator*(struct FRotator const &) const
+- ??DFCoords@@QBE?AV0@ABUFScale@@@Z
+public: class FCoords __thiscall FCoords::operator*(struct FScale const &) const
+- ??DFCoords@@QBE?AV0@ABUFVector@@@Z
+public: class FCoords __thiscall FCoords::operator*(struct FVector const &) const
+- ??DFCoords@@QBE?AV0@ABV0@@Z
+public: class FCoords __thiscall FCoords::operator*(class FCoords const &) const
+- ??KFCoords@@QBE?AV0@ABUFRotator@@@Z
+public: class FCoords __thiscall FCoords::operator/(struct FRotator const &) const
+- ??KFCoords@@QBE?AV0@ABUFScale@@@Z
+public: class FCoords __thiscall FCoords::operator/(struct FScale const &) const
+- ??KFCoords@@QBE?AV0@ABUFVector@@@Z
+public: class FCoords __thiscall FCoords::operator/(struct FVector const &) const
+- ??XFCoords@@QAEAAV0@ABUFRotator@@@Z
+public: class FCoords & __thiscall FCoords::operator*=(struct FRotator const &)
+- ??XFCoords@@QAEAAV0@ABUFScale@@@Z
+public: class FCoords & __thiscall FCoords::operator*=(struct FScale const &)
+- ??XFCoords@@QAEAAV0@ABUFVector@@@Z
+public: class FCoords & __thiscall FCoords::operator*=(struct FVector const &)
+- ??XFCoords@@QAEAAV0@ABV0@@Z
+public: class FCoords & __thiscall FCoords::operator*=(class FCoords const &)
+- ??_0FCoords@@QAEAAV0@ABUFRotator@@@Z
+public: class FCoords & __thiscall FCoords::operator/=(struct FRotator const &)
+- ??_0FCoords@@QAEAAV0@ABUFScale@@@Z
+public: class FCoords & __thiscall FCoords::operator/=(struct FScale const &)
+- ??_0FCoords@@QAEAAV0@ABUFVector@@@Z
+public: class FCoords & __thiscall FCoords::operator/=(struct FVector const &)
+- ?ApplyPivot@FCoords@@QBE?AV1@ABV1@@Z
+public: class FCoords __thiscall FCoords::ApplyPivot(class FCoords const &) const
+- ?ApplyPivotWithoutScale@FCoords@@QBE?AV1@ABV1@H@Z
+public: class FCoords __thiscall FCoords::ApplyPivotWithoutScale(class FCoords const &, int) const
+- ?Inverse@FCoords@@QBE?AV1@XZ
+public: class FCoords __thiscall FCoords::Inverse(void) const
+- ?Matrix@FCoords@@QBE?AUFMatrix@@XZ
+public: struct FMatrix __thiscall FCoords::Matrix(void) const
+- ?MirrorByPlane@FCoords@@QBE?AV1@ABUFPlane@@@Z
+public: class FCoords __thiscall FCoords::MirrorByPlane(struct FPlane const &) const
+- ?MirrorByVector@FCoords@@QBE?AV1@ABUFVector@@@Z
+public: class FCoords __thiscall FCoords::MirrorByVector(struct FVector const &) const
+- ?OrthoRotation@FCoords@@QBE?AUFRotator@@XZ
+public: struct FRotator __thiscall FCoords::OrthoRotation(void) const
+- ?PivotInverse@FCoords@@QBE?AV1@XZ
+public: class FCoords __thiscall FCoords::PivotInverse(void) const
+- ?Transpose@FCoords@@QBE?AV1@XZ
+public: class FCoords __thiscall FCoords::Transpose(void) const
+
+### FMemCache  (26)
+- ??0FMemCache@@QAE@XZ
+public: __thiscall FMemCache::FMemCache(void)
+- ??4FMemCache@@QAEAAV0@$$QAV0@@Z
+public: class FMemCache & __thiscall FMemCache::operator=(class FMemCache &&)
+- ??4FMemCache@@QAEAAV0@ABV0@@Z
+public: class FMemCache & __thiscall FMemCache::operator=(class FMemCache const &)
+- ?CheckState@FMemCache@@QAEXXZ
+public: void __thiscall FMemCache::CheckState(void)
+- ?ConditionalCheckState@FMemCache@@AAEXXZ
+private: void __thiscall FMemCache::ConditionalCheckState(void)
+- ?Create@FMemCache@@QAEPAE_KAAPAVFCacheItem@1@HHH@Z
+public: unsigned char * __thiscall FMemCache::Create(unsigned __int64, class FMemCache::FCacheItem *&, int, int, int)
+- ?CreateNewFreeSpace@FMemCache@@AAEXPAE0PAVFCacheItem@1@1H@Z
+private: void __thiscall FMemCache::CreateNewFreeSpace(unsigned char *, unsigned char *, class FMemCache::FCacheItem *, class FMemCache::FCacheItem *, int)
+- ?Exec@FMemCache@@QAEHPB_WAAVFOutputDevice@@@Z
+public: int __thiscall FMemCache::Exec(wchar_t const *, class FOutputDevice &)
+- ?Exit@FMemCache@@QAEXH@Z
+public: void __thiscall FMemCache::Exit(int)
+- ?First@FMemCache@@QAEPAVFCacheItem@1@XZ
+public: class FMemCache::FCacheItem * __thiscall FMemCache::First(void)
+- ?Flush@FMemCache@@QAEX_KKH@Z
+public: void __thiscall FMemCache::Flush(unsigned __int64, unsigned long, int)
+- ?FlushItem@FMemCache@@AAEPAVFCacheItem@1@PAV21@H@Z
+private: class FMemCache::FCacheItem * __thiscall FMemCache::FlushItem(class FMemCache::FCacheItem *, int)
+- ?GHash@FMemCache@@QAEKK@Z
+public: unsigned long __thiscall FMemCache::GHash(unsigned long)
+- ?Get@FMemCache@@QAEPAE_KAAPAVFCacheItem@1@H@Z
+public: unsigned char * __thiscall FMemCache::Get(unsigned __int64, class FMemCache::FCacheItem *&, int)
+- ?GetCurUsedSize@FMemCache@@QAEHXZ
+public: int __thiscall FMemCache::GetCurUsedSize(void)
+- ?GetMaxCachedTicks@FMemCache@@QAEHXZ
+public: int __thiscall FMemCache::GetMaxCachedTicks(void)
+- ?GetTime@FMemCache@@QAEHXZ
+public: int __thiscall FMemCache::GetTime(void)
+- ?GetTotalMem@FMemCache@@QAEHXZ
+public: int __thiscall FMemCache::GetTotalMem(void)
+- ?Init@FMemCache@@QAEXHHPAXH@Z
+public: void __thiscall FMemCache::Init(int, int, void *, int)
+- ?Last@FMemCache@@QAEPAVFCacheItem@1@XZ
+public: class FMemCache::FCacheItem * __thiscall FMemCache::Last(void)
+- ?MergeWithNext@FMemCache@@AAEPAVFCacheItem@1@PAV21@@Z
+private: class FMemCache::FCacheItem * __thiscall FMemCache::MergeWithNext(class FMemCache::FCacheItem *)
+- ?Next@FMemCache@@QAEPAVFCacheItem@1@PAV21@@Z
+public: class FMemCache::FCacheItem * __thiscall FMemCache::Next(class FMemCache::FCacheItem *)
+- ?Status@FMemCache@@QAEXPA_W@Z
+public: void __thiscall FMemCache::Status(wchar_t *)
+- ?Tick@FMemCache@@QAEXXZ
+public: void __thiscall FMemCache::Tick(void)
+- ?Unhash@FMemCache@@AAEX_K@Z
+private: void __thiscall FMemCache::Unhash(unsigned __int64)
+- ?UpdateMaxCachedTime@FMemCache@@AAEXPAVFCacheItem@1@@Z
+private: void __thiscall FMemCache::UpdateMaxCachedTime(class FMemCache::FCacheItem *)
+
+### UProperty  (26)
+- ??0UProperty@@QAE@ABV0@@Z
+public: __thiscall UProperty::UProperty(class UProperty const &)
+- ??0UProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UProperty::UProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UProperty@@QAE@XZ
+public: __thiscall UProperty::UProperty(void)
+- ??1UProperty@@UAE@XZ
+public: virtual __thiscall UProperty::~UProperty(void)
+- ??2UProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UProperty::operator new(unsigned int, enum EInternal *)
+- ??4UProperty@@QAEAAV0@ABV0@@Z
+public: class UProperty & __thiscall UProperty::operator=(class UProperty const &)
+- ??_7UProperty@@6B@
+const UProperty::`vftable'
+- ?CleanupDestroyed@UProperty@@UBEXPAE@Z
+public: virtual void __thiscall UProperty::CleanupDestroyed(unsigned char *) const
+- ?CopyCompleteValue@UProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?DestroyValue@UProperty@@UBEXPAX@Z
+public: virtual void __thiscall UProperty::DestroyValue(void *) const
+- ?ExportCpp@UProperty@@UBEXAAVFOutputDevice@@HHHH@Z
+public: virtual void __thiscall UProperty::ExportCpp(class FOutputDevice &, int, int, int, int) const
+- ?ExportText@UProperty@@UBEHHAAVFString@@PAE1H@Z
+public: virtual int __thiscall UProperty::ExportText(int, class FString &, unsigned char *, unsigned char *, int) const
+- ?GetID@UProperty@@UBEEXZ
+public: virtual unsigned char __thiscall UProperty::GetID(void) const
+- ?GetOuterUField@UProperty@@QBEPAVUField@@XZ
+public: class UField * __thiscall UProperty::GetOuterUField(void) const
+- ?GetSize@UProperty@@QBEHXZ
+public: int __thiscall UProperty::GetSize(void) const
+- ?Link@UProperty@@UAEXAAVFArchive@@PAV1@@Z
+public: virtual void __thiscall UProperty::Link(class FArchive &, class UProperty *)
+- ?Matches@UProperty@@QBEHPBX0H@Z
+public: int __thiscall UProperty::Matches(void const *, void const *, int) const
+- ?NetSerializeItem@UProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?Port@UProperty@@UBEHXZ
+public: virtual int __thiscall UProperty::Port(void) const
+- ?PrivateStaticClass@UProperty@@0VUClass@@A
+private: static class UClass UProperty::PrivateStaticClass
+- ?Serialize@UProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UProperty::Serialize(class FArchive &)
+- ?ShouldSerializeValue@UProperty@@QBEHAAVFArchive@@@Z
+public: int __thiscall UProperty::ShouldSerializeValue(class FArchive &) const
+- ?StaticClass@UProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UProperty::StaticClass(void)
+- ?__DefaultConstructor@UProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UPackageMap  (24)
+- ??0UPackageMap@@QAE@ABV0@@Z
+public: __thiscall UPackageMap::UPackageMap(class UPackageMap const &)
+- ??0UPackageMap@@QAE@XZ
+public: __thiscall UPackageMap::UPackageMap(void)
+- ??1UPackageMap@@UAE@XZ
+public: virtual __thiscall UPackageMap::~UPackageMap(void)
+- ??2UPackageMap@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UPackageMap::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UPackageMap@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UPackageMap::operator new(unsigned int, enum EInternal *)
+- ??4UPackageMap@@QAEAAV0@ABV0@@Z
+public: class UPackageMap & __thiscall UPackageMap::operator=(class UPackageMap const &)
+- ??_7UPackageMap@@6B@
+const UPackageMap::`vftable'
+- ?AddLinker@UPackageMap@@UAEHPAVULinkerLoad@@@Z
+public: virtual int __thiscall UPackageMap::AddLinker(class ULinkerLoad *)
+- ?CanSerializeObject@UPackageMap@@UAEHPAVUObject@@@Z
+public: virtual int __thiscall UPackageMap::CanSerializeObject(class UObject *)
+- ?Compute@UPackageMap@@UAEXXZ
+public: virtual void __thiscall UPackageMap::Compute(void)
+- ?Copy@UPackageMap@@QAEXPAV1@@Z
+public: void __thiscall UPackageMap::Copy(class UPackageMap *)
+- ?CopyLinkers@UPackageMap@@QAEXPAV1@@Z
+public: void __thiscall UPackageMap::CopyLinkers(class UPackageMap *)
+- ?Destroy@UPackageMap@@UAEXXZ
+public: virtual void __thiscall UPackageMap::Destroy(void)
+- ?GetClassNetCache@UPackageMap@@UAEPAVFClassNetCache@@PAVUClass@@@Z
+public: virtual class FClassNetCache * __thiscall UPackageMap::GetClassNetCache(class UClass *)
+- ?GetMaxObjectIndex@UPackageMap@@UAEHXZ
+public: virtual int __thiscall UPackageMap::GetMaxObjectIndex(void)
+- ?IndexToObject@UPackageMap@@UAEPAVUObject@@HH@Z
+public: virtual class UObject * __thiscall UPackageMap::IndexToObject(int, int)
+- ?ObjectToIndex@UPackageMap@@UAEHPAVUObject@@@Z
+public: virtual int __thiscall UPackageMap::ObjectToIndex(class UObject *)
+- ?PrivateStaticClass@UPackageMap@@0VUClass@@A
+private: static class UClass UPackageMap::PrivateStaticClass
+- ?Serialize@UPackageMap@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UPackageMap::Serialize(class FArchive &)
+- ?SerializeName@UPackageMap@@UAEHAAVFArchive@@AAVFName@@@Z
+public: virtual int __thiscall UPackageMap::SerializeName(class FArchive &, class FName &)
+- ?SerializeObject@UPackageMap@@UAEHAAVFArchive@@PAVUClass@@AAPAVUObject@@@Z
+public: virtual int __thiscall UPackageMap::SerializeObject(class FArchive &, class UClass *, class UObject *&)
+- ?StaticClass@UPackageMap@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UPackageMap::StaticClass(void)
+- ?SupportsPackage@UPackageMap@@UAEHPAVUObject@@@Z
+public: virtual int __thiscall UPackageMap::SupportsPackage(class UObject *)
+- ?__DefaultConstructor@UPackageMap@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UPackageMap::__DefaultConstructor(class FObjectInitializer const &)
+
+### FArray  (23)
+- ??0FArray@@IAE@HH@Z
+protected: __thiscall FArray::FArray(int, int)
+- ??0FArray@@QAE@W4ENoInit@@@Z
+public: __thiscall FArray::FArray(enum ENoInit)
+- ??0FArray@@QAE@XZ
+public: __thiscall FArray::FArray(void)
+- ??1FArray@@QAE@XZ
+public: __thiscall FArray::~FArray(void)
+- ??4FArray@@QAEAAV0@ABV0@@Z
+public: class FArray & __thiscall FArray::operator=(class FArray const &)
+- ?Add@FArray@@QAEHHH@Z
+public: int __thiscall FArray::Add(int, int)
+- ?AddCompact@FArray@@QAEHHH@Z
+public: int __thiscall FArray::AddCompact(int, int)
+- ?AddZeroed@FArray@@QAEHHH@Z
+public: int __thiscall FArray::AddZeroed(int, int)
+- ?AddZeroedCompact@FArray@@QAEHHH@Z
+public: int __thiscall FArray::AddZeroedCompact(int, int)
+- ?Capacity@FArray@@QBEHXZ
+public: int __thiscall FArray::Capacity(void) const
+- ?CountBytes@FArray@@QAEXAAVFArchive@@H@Z
+public: void __thiscall FArray::CountBytes(class FArchive &, int)
+- ?Empty@FArray@@QAEXHH@Z
+public: void __thiscall FArray::Empty(int, int)
+- ?GetData@FArray@@QAEPAXXZ
+public: void * __thiscall FArray::GetData(void)
+- ?GetData@FArray@@QBEPBXXZ
+public: void const * __thiscall FArray::GetData(void) const
+- ?Insert@FArray@@QAEXHHH@Z
+public: void __thiscall FArray::Insert(int, int, int)
+- ?InsertZeroed@FArray@@QAEXHHH@Z
+public: void __thiscall FArray::InsertZeroed(int, int, int)
+- ?IsEmpty@FArray@@QBEHXZ
+public: int __thiscall FArray::IsEmpty(void) const
+- ?IsValidIndex@FArray@@QBEHH@Z
+public: int __thiscall FArray::IsValidIndex(int) const
+- ?Num@FArray@@QBEHXZ
+public: int __thiscall FArray::Num(void) const
+- ?Realloc@FArray@@IAEXH@Z
+protected: void __thiscall FArray::Realloc(int)
+- ?Remove@FArray@@QAEXHHH@Z
+public: void __thiscall FArray::Remove(int, int, int)
+- ?Shrink@FArray@@QAEXH@Z
+public: void __thiscall FArray::Shrink(int)
+- ?Swap@FArray@@QAEXAAV1@@Z
+public: void __thiscall FArray::Swap(class FArray &)
+
+### UArrayProperty  (23)
+- ??0UArrayProperty@@QAE@ABV0@@Z
+public: __thiscall UArrayProperty::UArrayProperty(class UArrayProperty const &)
+- ??0UArrayProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UArrayProperty::UArrayProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UArrayProperty@@QAE@XZ
+public: __thiscall UArrayProperty::UArrayProperty(void)
+- ??1UArrayProperty@@UAE@XZ
+public: virtual __thiscall UArrayProperty::~UArrayProperty(void)
+- ??2UArrayProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UArrayProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UArrayProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UArrayProperty::operator new(unsigned int, enum EInternal *)
+- ??4UArrayProperty@@QAEAAV0@ABV0@@Z
+public: class UArrayProperty & __thiscall UArrayProperty::operator=(class UArrayProperty const &)
+- ??_7UArrayProperty@@6B@
+const UArrayProperty::`vftable'
+- ?AddCppProperty@UArrayProperty@@UAEXPAVUProperty@@@Z
+public: virtual void __thiscall UArrayProperty::AddCppProperty(class UProperty *)
+- ?CleanupDestroyed@UArrayProperty@@UBEXPAE@Z
+public: virtual void __thiscall UArrayProperty::CleanupDestroyed(unsigned char *) const
+- ?CopyCompleteValue@UArrayProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UArrayProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?DestroyValue@UArrayProperty@@UBEXPAX@Z
+public: virtual void __thiscall UArrayProperty::DestroyValue(void *) const
+- ?ExportCppItem@UArrayProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UArrayProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UArrayProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UArrayProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UArrayProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UArrayProperty::Identical(void const *, void const *) const
+- ?ImportText@UArrayProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UArrayProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UArrayProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UArrayProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UArrayProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UArrayProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UArrayProperty@@0VUClass@@A
+private: static class UClass UArrayProperty::PrivateStaticClass
+- ?Serialize@UArrayProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UArrayProperty::Serialize(class FArchive &)
+- ?SerializeItem@UArrayProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UArrayProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UArrayProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UArrayProperty::StaticClass(void)
+- ?__DefaultConstructor@UArrayProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UArrayProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UFixedArrayProperty  (23)
+- ??0UFixedArrayProperty@@QAE@ABV0@@Z
+public: __thiscall UFixedArrayProperty::UFixedArrayProperty(class UFixedArrayProperty const &)
+- ??0UFixedArrayProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UFixedArrayProperty::UFixedArrayProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UFixedArrayProperty@@QAE@XZ
+public: __thiscall UFixedArrayProperty::UFixedArrayProperty(void)
+- ??1UFixedArrayProperty@@UAE@XZ
+public: virtual __thiscall UFixedArrayProperty::~UFixedArrayProperty(void)
+- ??2UFixedArrayProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UFixedArrayProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UFixedArrayProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UFixedArrayProperty::operator new(unsigned int, enum EInternal *)
+- ??4UFixedArrayProperty@@QAEAAV0@ABV0@@Z
+public: class UFixedArrayProperty & __thiscall UFixedArrayProperty::operator=(class UFixedArrayProperty const &)
+- ??_7UFixedArrayProperty@@6B@
+const UFixedArrayProperty::`vftable'
+- ?AddCppProperty@UFixedArrayProperty@@QAEXPAVUProperty@@H@Z
+public: void __thiscall UFixedArrayProperty::AddCppProperty(class UProperty *, int)
+- ?CleanupDestroyed@UFixedArrayProperty@@UBEXPAE@Z
+public: virtual void __thiscall UFixedArrayProperty::CleanupDestroyed(unsigned char *) const
+- ?CopySingleValue@UFixedArrayProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UFixedArrayProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?DestroyValue@UFixedArrayProperty@@UBEXPAX@Z
+public: virtual void __thiscall UFixedArrayProperty::DestroyValue(void *) const
+- ?ExportCppItem@UFixedArrayProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UFixedArrayProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UFixedArrayProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UFixedArrayProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UFixedArrayProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UFixedArrayProperty::Identical(void const *, void const *) const
+- ?ImportText@UFixedArrayProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UFixedArrayProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UFixedArrayProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UFixedArrayProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UFixedArrayProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UFixedArrayProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UFixedArrayProperty@@0VUClass@@A
+private: static class UClass UFixedArrayProperty::PrivateStaticClass
+- ?Serialize@UFixedArrayProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UFixedArrayProperty::Serialize(class FArchive &)
+- ?SerializeItem@UFixedArrayProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UFixedArrayProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UFixedArrayProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UFixedArrayProperty::StaticClass(void)
+- ?__DefaultConstructor@UFixedArrayProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UFixedArrayProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UObjectProperty  (23)
+- ??0UObjectProperty@@QAE@ABV0@@Z
+public: __thiscall UObjectProperty::UObjectProperty(class UObjectProperty const &)
+- ??0UObjectProperty@@QAE@W4ECppProperty@@HPB_WKPAVUClass@@@Z
+public: __thiscall UObjectProperty::UObjectProperty(enum ECppProperty, int, wchar_t const *, unsigned long, class UClass *)
+- ??0UObjectProperty@@QAE@XZ
+public: __thiscall UObjectProperty::UObjectProperty(void)
+- ??1UObjectProperty@@UAE@XZ
+public: virtual __thiscall UObjectProperty::~UObjectProperty(void)
+- ??2UObjectProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UObjectProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UObjectProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UObjectProperty::operator new(unsigned int, enum EInternal *)
+- ??4UObjectProperty@@QAEAAV0@ABV0@@Z
+public: class UObjectProperty & __thiscall UObjectProperty::operator=(class UObjectProperty const &)
+- ??_7UObjectProperty@@6B@
+const UObjectProperty::`vftable'
+- ?CleanupDestroyed@UObjectProperty@@UBEXPAE@Z
+public: virtual void __thiscall UObjectProperty::CleanupDestroyed(unsigned char *) const
+- ?CopyCompleteValue@UObjectProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UObjectProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UObjectProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UObjectProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?DestroyValue@UObjectProperty@@UBEXPAX@Z
+public: virtual void __thiscall UObjectProperty::DestroyValue(void *) const
+- ?ExportCppItem@UObjectProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UObjectProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UObjectProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UObjectProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UObjectProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UObjectProperty::Identical(void const *, void const *) const
+- ?ImportText@UObjectProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UObjectProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UObjectProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UObjectProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UObjectProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UObjectProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UObjectProperty@@0VUClass@@A
+private: static class UClass UObjectProperty::PrivateStaticClass
+- ?Serialize@UObjectProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UObjectProperty::Serialize(class FArchive &)
+- ?SerializeItem@UObjectProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UObjectProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UObjectProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UObjectProperty::StaticClass(void)
+- ?__DefaultConstructor@UObjectProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UObjectProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UDelegateProperty  (22)
+- ??0UDelegateProperty@@QAE@ABV0@@Z
+public: __thiscall UDelegateProperty::UDelegateProperty(class UDelegateProperty const &)
+- ??0UDelegateProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UDelegateProperty::UDelegateProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UDelegateProperty@@QAE@XZ
+public: __thiscall UDelegateProperty::UDelegateProperty(void)
+- ??1UDelegateProperty@@UAE@XZ
+public: virtual __thiscall UDelegateProperty::~UDelegateProperty(void)
+- ??2UDelegateProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UDelegateProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UDelegateProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UDelegateProperty::operator new(unsigned int, enum EInternal *)
+- ??4UDelegateProperty@@QAEAAV0@ABV0@@Z
+public: class UDelegateProperty & __thiscall UDelegateProperty::operator=(class UDelegateProperty const &)
+- ??_7UDelegateProperty@@6B@
+const UDelegateProperty::`vftable'
+- ?CleanupDestroyed@UDelegateProperty@@UBEXPAE@Z
+public: virtual void __thiscall UDelegateProperty::CleanupDestroyed(unsigned char *) const
+- ?CopyCompleteValue@UDelegateProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UDelegateProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UDelegateProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UDelegateProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?ExportCppItem@UDelegateProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UDelegateProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UDelegateProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UDelegateProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UDelegateProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UDelegateProperty::Identical(void const *, void const *) const
+- ?ImportText@UDelegateProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UDelegateProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UDelegateProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UDelegateProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UDelegateProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UDelegateProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UDelegateProperty@@0VUClass@@A
+private: static class UClass UDelegateProperty::PrivateStaticClass
+- ?Serialize@UDelegateProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UDelegateProperty::Serialize(class FArchive &)
+- ?SerializeItem@UDelegateProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UDelegateProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UDelegateProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UDelegateProperty::StaticClass(void)
+- ?__DefaultConstructor@UDelegateProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UDelegateProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UStructProperty  (22)
+- ??0UStructProperty@@QAE@ABV0@@Z
+public: __thiscall UStructProperty::UStructProperty(class UStructProperty const &)
+- ??0UStructProperty@@QAE@W4ECppProperty@@HPB_WKPAVUStruct@@@Z
+public: __thiscall UStructProperty::UStructProperty(enum ECppProperty, int, wchar_t const *, unsigned long, class UStruct *)
+- ??0UStructProperty@@QAE@XZ
+public: __thiscall UStructProperty::UStructProperty(void)
+- ??1UStructProperty@@UAE@XZ
+public: virtual __thiscall UStructProperty::~UStructProperty(void)
+- ??2UStructProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UStructProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UStructProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UStructProperty::operator new(unsigned int, enum EInternal *)
+- ??4UStructProperty@@QAEAAV0@ABV0@@Z
+public: class UStructProperty & __thiscall UStructProperty::operator=(class UStructProperty const &)
+- ??_7UStructProperty@@6B@
+const UStructProperty::`vftable'
+- ?CleanupDestroyed@UStructProperty@@UBEXPAE@Z
+public: virtual void __thiscall UStructProperty::CleanupDestroyed(unsigned char *) const
+- ?CopySingleValue@UStructProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UStructProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?DestroyValue@UStructProperty@@UBEXPAX@Z
+public: virtual void __thiscall UStructProperty::DestroyValue(void *) const
+- ?ExportCppItem@UStructProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UStructProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UStructProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UStructProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UStructProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UStructProperty::Identical(void const *, void const *) const
+- ?ImportText@UStructProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UStructProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UStructProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UStructProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UStructProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UStructProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UStructProperty@@0VUClass@@A
+private: static class UClass UStructProperty::PrivateStaticClass
+- ?Serialize@UStructProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UStructProperty::Serialize(class FArchive &)
+- ?SerializeItem@UStructProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UStructProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UStructProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UStructProperty::StaticClass(void)
+- ?__DefaultConstructor@UStructProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UStructProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UByteProperty  (21)
+- ??0UByteProperty@@QAE@ABV0@@Z
+public: __thiscall UByteProperty::UByteProperty(class UByteProperty const &)
+- ??0UByteProperty@@QAE@W4ECppProperty@@HPB_WKPAVUEnum@@@Z
+public: __thiscall UByteProperty::UByteProperty(enum ECppProperty, int, wchar_t const *, unsigned long, class UEnum *)
+- ??0UByteProperty@@QAE@XZ
+public: __thiscall UByteProperty::UByteProperty(void)
+- ??1UByteProperty@@UAE@XZ
+public: virtual __thiscall UByteProperty::~UByteProperty(void)
+- ??2UByteProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UByteProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UByteProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UByteProperty::operator new(unsigned int, enum EInternal *)
+- ??4UByteProperty@@QAEAAV0@ABV0@@Z
+public: class UByteProperty & __thiscall UByteProperty::operator=(class UByteProperty const &)
+- ??_7UByteProperty@@6B@
+const UByteProperty::`vftable'
+- ?CopyCompleteValue@UByteProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UByteProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UByteProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UByteProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?ExportCppItem@UByteProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UByteProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UByteProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UByteProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UByteProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UByteProperty::Identical(void const *, void const *) const
+- ?ImportText@UByteProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UByteProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UByteProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UByteProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UByteProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UByteProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UByteProperty@@0VUClass@@A
+private: static class UClass UByteProperty::PrivateStaticClass
+- ?Serialize@UByteProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UByteProperty::Serialize(class FArchive &)
+- ?SerializeItem@UByteProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UByteProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UByteProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UByteProperty::StaticClass(void)
+- ?__DefaultConstructor@UByteProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UByteProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UField  (21)
+- ??0UField@@IAE@XZ
+protected: __thiscall UField::UField(void)
+- ??0UField@@QAE@ABV0@@Z
+public: __thiscall UField::UField(class UField const &)
+- ??0UField@@QAE@PAV0@@Z
+public: __thiscall UField::UField(class UField *)
+- ??0UField@@QAE@W4ENativeConstructor@@PAVUClass@@PB_W2KPAV0@@Z
+public: __thiscall UField::UField(enum ENativeConstructor, class UClass *, wchar_t const *, wchar_t const *, unsigned long, class UField *)
+- ??0UField@@QAE@W4EStaticConstructor@@PB_W1K@Z
+public: __thiscall UField::UField(enum EStaticConstructor, wchar_t const *, wchar_t const *, unsigned long)
+- ??1UField@@UAE@XZ
+public: virtual __thiscall UField::~UField(void)
+- ??2UField@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UField::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UField@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UField::operator new(unsigned int, enum EInternal *)
+- ??4UField@@QAEAAV0@ABV0@@Z
+public: class UField & __thiscall UField::operator=(class UField const &)
+- ??_7UField@@6B@
+const UField::`vftable'
+- ?AddCppProperty@UField@@UAEXPAVUProperty@@@Z
+public: virtual void __thiscall UField::AddCppProperty(class UProperty *)
+- ?Bind@UField@@UAEXXZ
+public: virtual void __thiscall UField::Bind(void)
+- ?GetOwnerClass@UField@@UAEPAVUClass@@XZ
+public: virtual class UClass * __thiscall UField::GetOwnerClass(void)
+- ?GetPropertiesSize@UField@@UAEHXZ
+public: virtual int __thiscall UField::GetPropertiesSize(void)
+- ?MergeBools@UField@@UAEHXZ
+public: virtual int __thiscall UField::MergeBools(void)
+- ?PostLoad@UField@@UAEXXZ
+public: virtual void __thiscall UField::PostLoad(void)
+- ?PrivateStaticClass@UField@@0VUClass@@A
+private: static class UClass UField::PrivateStaticClass
+- ?Register@UField@@UAEXXZ
+public: virtual void __thiscall UField::Register(void)
+- ?Serialize@UField@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UField::Serialize(class FArchive &)
+- ?StaticClass@UField@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UField::StaticClass(void)
+- ?__DefaultConstructor@UField@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UField::__DefaultConstructor(class FObjectInitializer const &)
+
+### UMapProperty  (21)
+- ??0UMapProperty@@QAE@ABV0@@Z
+public: __thiscall UMapProperty::UMapProperty(class UMapProperty const &)
+- ??0UMapProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UMapProperty::UMapProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UMapProperty@@QAE@XZ
+public: __thiscall UMapProperty::UMapProperty(void)
+- ??1UMapProperty@@UAE@XZ
+public: virtual __thiscall UMapProperty::~UMapProperty(void)
+- ??2UMapProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UMapProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UMapProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UMapProperty::operator new(unsigned int, enum EInternal *)
+- ??4UMapProperty@@QAEAAV0@ABV0@@Z
+public: class UMapProperty & __thiscall UMapProperty::operator=(class UMapProperty const &)
+- ??_7UMapProperty@@6B@
+const UMapProperty::`vftable'
+- ?CopySingleValue@UMapProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UMapProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?DestroyValue@UMapProperty@@UBEXPAX@Z
+public: virtual void __thiscall UMapProperty::DestroyValue(void *) const
+- ?ExportCppItem@UMapProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UMapProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UMapProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UMapProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UMapProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UMapProperty::Identical(void const *, void const *) const
+- ?ImportText@UMapProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UMapProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UMapProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UMapProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UMapProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UMapProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UMapProperty@@0VUClass@@A
+private: static class UClass UMapProperty::PrivateStaticClass
+- ?Serialize@UMapProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UMapProperty::Serialize(class FArchive &)
+- ?SerializeItem@UMapProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UMapProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UMapProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UMapProperty::StaticClass(void)
+- ?__DefaultConstructor@UMapProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UMapProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### FBitReader  (20)
+- ??0FBitReader@@QAE@$$QAU0@@Z
+public: __thiscall FBitReader::FBitReader(struct FBitReader &&)
+- ??0FBitReader@@QAE@ABU0@@Z
+public: __thiscall FBitReader::FBitReader(struct FBitReader const &)
+- ??0FBitReader@@QAE@PAEH@Z
+public: __thiscall FBitReader::FBitReader(unsigned char *, int)
+- ??1FBitReader@@UAE@XZ
+public: virtual __thiscall FBitReader::~FBitReader(void)
+- ??4FBitReader@@QAEAAU0@$$QAU0@@Z
+public: struct FBitReader & __thiscall FBitReader::operator=(struct FBitReader &&)
+- ??4FBitReader@@QAEAAU0@ABU0@@Z
+public: struct FBitReader & __thiscall FBitReader::operator=(struct FBitReader const &)
+- ??_7FBitReader@@6B@
+const FBitReader::`vftable'
+- ??_FFBitReader@@QAEXXZ
+public: void __thiscall FBitReader::`default ctor closure'(void)
+- ?AtEnd@FBitReader@@UAEHXZ
+public: virtual int __thiscall FBitReader::AtEnd(void)
+- ?GetData@FBitReader@@QAEPAEXZ
+public: unsigned char * __thiscall FBitReader::GetData(void)
+- ?GetNumBits@FBitReader@@QAEHXZ
+public: int __thiscall FBitReader::GetNumBits(void)
+- ?GetNumBytes@FBitReader@@QAEHXZ
+public: int __thiscall FBitReader::GetNumBytes(void)
+- ?GetPosBits@FBitReader@@QAEHXZ
+public: int __thiscall FBitReader::GetPosBits(void)
+- ?ReadBit@FBitReader@@QAEEXZ
+public: unsigned char __thiscall FBitReader::ReadBit(void)
+- ?ReadInt@FBitReader@@QAEKK@Z
+public: unsigned long __thiscall FBitReader::ReadInt(unsigned long)
+- ?Serialize@FBitReader@@UAEXPAXH@Z
+public: virtual void __thiscall FBitReader::Serialize(void *, int)
+- ?SerializeBits@FBitReader@@UAEXPAXH@Z
+public: virtual void __thiscall FBitReader::SerializeBits(void *, int)
+- ?SerializeInt@FBitReader@@UAEXAAKK@Z
+public: virtual void __thiscall FBitReader::SerializeInt(unsigned long &, unsigned long)
+- ?SetData@FBitReader@@QAEXAAU1@H@Z
+public: void __thiscall FBitReader::SetData(struct FBitReader &, int)
+- ?SetOverflowed@FBitReader@@QAEXXZ
+public: void __thiscall FBitReader::SetOverflowed(void)
+
+### L2ThreadUtil  (20)
+- ??0L2ThreadUtil@@QAE@ABV0@@Z
+public: __thiscall L2ThreadUtil::L2ThreadUtil(class L2ThreadUtil const &)
+- ??0L2ThreadUtil@@QAE@XZ
+public: __thiscall L2ThreadUtil::L2ThreadUtil(void)
+- ??1L2ThreadUtil@@UAE@XZ
+public: virtual __thiscall L2ThreadUtil::~L2ThreadUtil(void)
+- ??4L2ThreadUtil@@QAEAAV0@ABV0@@Z
+public: class L2ThreadUtil & __thiscall L2ThreadUtil::operator=(class L2ThreadUtil const &)
+- ??_7L2ThreadUtil@@6B@
+const L2ThreadUtil::`vftable'
+- ?AddEtcThread@L2ThreadUtil@@QAEXXZ
+public: void __thiscall L2ThreadUtil::AddEtcThread(void)
+- ?AddMainThread@L2ThreadUtil@@QAEXXZ
+public: void __thiscall L2ThreadUtil::AddMainThread(void)
+- ?AddThread@L2ThreadUtil@@QAEXW4L2ThreadFunction@@PAVL2ThreadBase@@@Z
+public: void __thiscall L2ThreadUtil::AddThread(enum L2ThreadFunction, class L2ThreadBase *)
+- ?DeleteThreadSafeParam@L2ThreadUtil@@QAEXPAX@Z
+public: void __thiscall L2ThreadUtil::DeleteThreadSafeParam(void *)
+- ?GetCurrentThreadID@L2ThreadUtil@@QBEKXZ
+public: unsigned long __thiscall L2ThreadUtil::GetCurrentThreadID(void) const
+- ?GetCurrentThreadIndex@L2ThreadUtil@@QBEHXZ
+public: int __thiscall L2ThreadUtil::GetCurrentThreadIndex(void) const
+- ?GetCurrentThreadStats@L2ThreadUtil@@QAEPAVL2ThreadStats@@XZ
+public: class L2ThreadStats * __thiscall L2ThreadUtil::GetCurrentThreadStats(void)
+- ?GetThread@L2ThreadUtil@@QAEPAVL2ThreadBase@@W4L2ThreadFunction@@@Z
+public: class L2ThreadBase * __thiscall L2ThreadUtil::GetThread(enum L2ThreadFunction)
+- ?GetThreadCounter@L2ThreadUtil@@QAEHXZ
+public: int __thiscall L2ThreadUtil::GetThreadCounter(void)
+- ?GetThreadID@L2ThreadUtil@@QAEKW4L2ThreadFunction@@@Z
+public: unsigned long __thiscall L2ThreadUtil::GetThreadID(enum L2ThreadFunction)
+- ?GetThreadStats@L2ThreadUtil@@QAEPAVL2ThreadStats@@H@Z
+public: class L2ThreadStats * __thiscall L2ThreadUtil::GetThreadStats(int)
+- ?IsCurrentThread@L2ThreadUtil@@QAEHW4L2ThreadFunction@@@Z
+public: int __thiscall L2ThreadUtil::IsCurrentThread(enum L2ThreadFunction)
+- ?KillAllThread@L2ThreadUtil@@QAEHXZ
+public: int __thiscall L2ThreadUtil::KillAllThread(void)
+- ?StaticInit@L2ThreadUtil@@QAEXXZ
+public: void __thiscall L2ThreadUtil::StaticInit(void)
+- ?ThreadUtilCS@L2ThreadUtil@@0PAVFCriticalSection@@A
+private: static class FCriticalSection *L2ThreadUtil::ThreadUtilCS
+
+### UBoolProperty  (20)
+- ??0UBoolProperty@@QAE@ABV0@@Z
+public: __thiscall UBoolProperty::UBoolProperty(class UBoolProperty const &)
+- ??0UBoolProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UBoolProperty::UBoolProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UBoolProperty@@QAE@XZ
+public: __thiscall UBoolProperty::UBoolProperty(void)
+- ??1UBoolProperty@@UAE@XZ
+public: virtual __thiscall UBoolProperty::~UBoolProperty(void)
+- ??2UBoolProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UBoolProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UBoolProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UBoolProperty::operator new(unsigned int, enum EInternal *)
+- ??4UBoolProperty@@QAEAAV0@ABV0@@Z
+public: class UBoolProperty & __thiscall UBoolProperty::operator=(class UBoolProperty const &)
+- ??_7UBoolProperty@@6B@
+const UBoolProperty::`vftable'
+- ?CopySingleValue@UBoolProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UBoolProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?ExportCppItem@UBoolProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UBoolProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UBoolProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UBoolProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UBoolProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UBoolProperty::Identical(void const *, void const *) const
+- ?ImportText@UBoolProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UBoolProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UBoolProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UBoolProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UBoolProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UBoolProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UBoolProperty@@0VUClass@@A
+private: static class UClass UBoolProperty::PrivateStaticClass
+- ?Serialize@UBoolProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UBoolProperty::Serialize(class FArchive &)
+- ?SerializeItem@UBoolProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UBoolProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UBoolProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UBoolProperty::StaticClass(void)
+- ?__DefaultConstructor@UBoolProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UBoolProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UFloatProperty  (20)
+- ??0UFloatProperty@@QAE@ABV0@@Z
+public: __thiscall UFloatProperty::UFloatProperty(class UFloatProperty const &)
+- ??0UFloatProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UFloatProperty::UFloatProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UFloatProperty@@QAE@XZ
+public: __thiscall UFloatProperty::UFloatProperty(void)
+- ??1UFloatProperty@@UAE@XZ
+public: virtual __thiscall UFloatProperty::~UFloatProperty(void)
+- ??2UFloatProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UFloatProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UFloatProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UFloatProperty::operator new(unsigned int, enum EInternal *)
+- ??4UFloatProperty@@QAEAAV0@ABV0@@Z
+public: class UFloatProperty & __thiscall UFloatProperty::operator=(class UFloatProperty const &)
+- ??_7UFloatProperty@@6B@
+const UFloatProperty::`vftable'
+- ?CopyCompleteValue@UFloatProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UFloatProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UFloatProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UFloatProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?ExportCppItem@UFloatProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UFloatProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UFloatProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UFloatProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UFloatProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UFloatProperty::Identical(void const *, void const *) const
+- ?ImportText@UFloatProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UFloatProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UFloatProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UFloatProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UFloatProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UFloatProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UFloatProperty@@0VUClass@@A
+private: static class UClass UFloatProperty::PrivateStaticClass
+- ?SerializeItem@UFloatProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UFloatProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UFloatProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UFloatProperty::StaticClass(void)
+- ?__DefaultConstructor@UFloatProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UFloatProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UFunction  (20)
+- ??0UFunction@@IAE@XZ
+protected: __thiscall UFunction::UFunction(void)
+- ??0UFunction@@QAE@ABV0@@Z
+public: __thiscall UFunction::UFunction(class UFunction const &)
+- ??0UFunction@@QAE@PAV0@@Z
+public: __thiscall UFunction::UFunction(class UFunction *)
+- ??1UFunction@@UAE@XZ
+public: virtual __thiscall UFunction::~UFunction(void)
+- ??2UFunction@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UFunction::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UFunction@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UFunction::operator new(unsigned int, enum EInternal *)
+- ??4UFunction@@QAEAAV0@ABV0@@Z
+public: class UFunction & __thiscall UFunction::operator=(class UFunction const &)
+- ??_7UFunction@@6B@
+const UFunction::`vftable'
+- ?Bind@UFunction@@UAEXXZ
+public: virtual void __thiscall UFunction::Bind(void)
+- ?GetInheritanceSuper@UFunction@@UAEPAVUStruct@@XZ
+public: virtual class UStruct * __thiscall UFunction::GetInheritanceSuper(void)
+- ?GetOuterUState@UFunction@@QBEPAVUState@@XZ
+public: class UState * __thiscall UFunction::GetOuterUState(void) const
+- ?GetReturnProperty@UFunction@@QAEPAVUProperty@@XZ
+public: class UProperty * __thiscall UFunction::GetReturnProperty(void)
+- ?GetSuperFunction@UFunction@@QBEPAV1@XZ
+public: class UFunction * __thiscall UFunction::GetSuperFunction(void) const
+- ?Link@UFunction@@UAEXAAVFArchive@@H@Z
+public: virtual void __thiscall UFunction::Link(class FArchive &, int)
+- ?MergeBools@UFunction@@UAEHXZ
+public: virtual int __thiscall UFunction::MergeBools(void)
+- ?PostLoad@UFunction@@UAEXXZ
+public: virtual void __thiscall UFunction::PostLoad(void)
+- ?PrivateStaticClass@UFunction@@0VUClass@@A
+private: static class UClass UFunction::PrivateStaticClass
+- ?Serialize@UFunction@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UFunction::Serialize(class FArchive &)
+- ?StaticClass@UFunction@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UFunction::StaticClass(void)
+- ?__DefaultConstructor@UFunction@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UFunction::__DefaultConstructor(class FObjectInitializer const &)
+
+### UIntProperty  (20)
+- ??0UIntProperty@@QAE@ABV0@@Z
+public: __thiscall UIntProperty::UIntProperty(class UIntProperty const &)
+- ??0UIntProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UIntProperty::UIntProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UIntProperty@@QAE@XZ
+public: __thiscall UIntProperty::UIntProperty(void)
+- ??1UIntProperty@@UAE@XZ
+public: virtual __thiscall UIntProperty::~UIntProperty(void)
+- ??2UIntProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UIntProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UIntProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UIntProperty::operator new(unsigned int, enum EInternal *)
+- ??4UIntProperty@@QAEAAV0@ABV0@@Z
+public: class UIntProperty & __thiscall UIntProperty::operator=(class UIntProperty const &)
+- ??_7UIntProperty@@6B@
+const UIntProperty::`vftable'
+- ?CopyCompleteValue@UIntProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UIntProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UIntProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UIntProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?ExportCppItem@UIntProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UIntProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UIntProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UIntProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UIntProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UIntProperty::Identical(void const *, void const *) const
+- ?ImportText@UIntProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UIntProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UIntProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UIntProperty::Link(class FArchive &, class UProperty *)
+- ?NetSerializeItem@UIntProperty@@UBEHAAVFArchive@@PAVUPackageMap@@PAX@Z
+public: virtual int __thiscall UIntProperty::NetSerializeItem(class FArchive &, class UPackageMap *, void *) const
+- ?PrivateStaticClass@UIntProperty@@0VUClass@@A
+private: static class UClass UIntProperty::PrivateStaticClass
+- ?SerializeItem@UIntProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UIntProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UIntProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UIntProperty::StaticClass(void)
+- ?__DefaultConstructor@UIntProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UIntProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UStrProperty  (20)
+- ??0UStrProperty@@QAE@ABV0@@Z
+public: __thiscall UStrProperty::UStrProperty(class UStrProperty const &)
+- ??0UStrProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UStrProperty::UStrProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UStrProperty@@QAE@XZ
+public: __thiscall UStrProperty::UStrProperty(void)
+- ??1UStrProperty@@UAE@XZ
+public: virtual __thiscall UStrProperty::~UStrProperty(void)
+- ??2UStrProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UStrProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UStrProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UStrProperty::operator new(unsigned int, enum EInternal *)
+- ??4UStrProperty@@QAEAAV0@ABV0@@Z
+public: class UStrProperty & __thiscall UStrProperty::operator=(class UStrProperty const &)
+- ??_7UStrProperty@@6B@
+const UStrProperty::`vftable'
+- ?CopySingleValue@UStrProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UStrProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?DestroyValue@UStrProperty@@UBEXPAX@Z
+public: virtual void __thiscall UStrProperty::DestroyValue(void *) const
+- ?ExportCppItem@UStrProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UStrProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UStrProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UStrProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UStrProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UStrProperty::Identical(void const *, void const *) const
+- ?ImportText@UStrProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UStrProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UStrProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UStrProperty::Link(class FArchive &, class UProperty *)
+- ?PrivateStaticClass@UStrProperty@@0VUClass@@A
+private: static class UClass UStrProperty::PrivateStaticClass
+- ?Serialize@UStrProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UStrProperty::Serialize(class FArchive &)
+- ?SerializeItem@UStrProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UStrProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UStrProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UStrProperty::StaticClass(void)
+- ?__DefaultConstructor@UStrProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UStrProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UNameProperty  (19)
+- ??0UNameProperty@@QAE@ABV0@@Z
+public: __thiscall UNameProperty::UNameProperty(class UNameProperty const &)
+- ??0UNameProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UNameProperty::UNameProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UNameProperty@@QAE@XZ
+public: __thiscall UNameProperty::UNameProperty(void)
+- ??1UNameProperty@@UAE@XZ
+public: virtual __thiscall UNameProperty::~UNameProperty(void)
+- ??2UNameProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UNameProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UNameProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UNameProperty::operator new(unsigned int, enum EInternal *)
+- ??4UNameProperty@@QAEAAV0@ABV0@@Z
+public: class UNameProperty & __thiscall UNameProperty::operator=(class UNameProperty const &)
+- ??_7UNameProperty@@6B@
+const UNameProperty::`vftable'
+- ?CopyCompleteValue@UNameProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UNameProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UNameProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UNameProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?ExportCppItem@UNameProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UNameProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UNameProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UNameProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UNameProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UNameProperty::Identical(void const *, void const *) const
+- ?ImportText@UNameProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UNameProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UNameProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UNameProperty::Link(class FArchive &, class UProperty *)
+- ?PrivateStaticClass@UNameProperty@@0VUClass@@A
+private: static class UClass UNameProperty::PrivateStaticClass
+- ?SerializeItem@UNameProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UNameProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UNameProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UNameProperty::StaticClass(void)
+- ?__DefaultConstructor@UNameProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UNameProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UPtrProperty  (19)
+- ??0UPtrProperty@@QAE@ABV0@@Z
+public: __thiscall UPtrProperty::UPtrProperty(class UPtrProperty const &)
+- ??0UPtrProperty@@QAE@W4ECppProperty@@HPB_WK@Z
+public: __thiscall UPtrProperty::UPtrProperty(enum ECppProperty, int, wchar_t const *, unsigned long)
+- ??0UPtrProperty@@QAE@XZ
+public: __thiscall UPtrProperty::UPtrProperty(void)
+- ??1UPtrProperty@@UAE@XZ
+public: virtual __thiscall UPtrProperty::~UPtrProperty(void)
+- ??2UPtrProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UPtrProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UPtrProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UPtrProperty::operator new(unsigned int, enum EInternal *)
+- ??4UPtrProperty@@QAEAAV0@ABV0@@Z
+public: class UPtrProperty & __thiscall UPtrProperty::operator=(class UPtrProperty const &)
+- ??_7UPtrProperty@@6B@
+const UPtrProperty::`vftable'
+- ?CopyCompleteValue@UPtrProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UPtrProperty::CopyCompleteValue(void *, void *, class UObject *) const
+- ?CopySingleValue@UPtrProperty@@UBEXPAX0PAVUObject@@@Z
+public: virtual void __thiscall UPtrProperty::CopySingleValue(void *, void *, class UObject *) const
+- ?ExportCppItem@UPtrProperty@@UBEXAAVFOutputDevice@@H@Z
+public: virtual void __thiscall UPtrProperty::ExportCppItem(class FOutputDevice &, int) const
+- ?ExportTextItem@UPtrProperty@@UBEXAAVFString@@PAE1H@Z
+public: virtual void __thiscall UPtrProperty::ExportTextItem(class FString &, unsigned char *, unsigned char *, int) const
+- ?Identical@UPtrProperty@@UBEHPBX0@Z
+public: virtual int __thiscall UPtrProperty::Identical(void const *, void const *) const
+- ?ImportText@UPtrProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UPtrProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?Link@UPtrProperty@@UAEXAAVFArchive@@PAVUProperty@@@Z
+public: virtual void __thiscall UPtrProperty::Link(class FArchive &, class UProperty *)
+- ?PrivateStaticClass@UPtrProperty@@0VUClass@@A
+private: static class UClass UPtrProperty::PrivateStaticClass
+- ?SerializeItem@UPtrProperty@@UBEXAAVFArchive@@PAXH@Z
+public: virtual void __thiscall UPtrProperty::SerializeItem(class FArchive &, void *, int) const
+- ?StaticClass@UPtrProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UPtrProperty::StaticClass(void)
+- ?__DefaultConstructor@UPtrProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UPtrProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UState  (19)
+- ??0UState@@IAE@XZ
+protected: __thiscall UState::UState(void)
+- ??0UState@@QAE@ABV0@@Z
+public: __thiscall UState::UState(class UState const &)
+- ??0UState@@QAE@PAV0@@Z
+public: __thiscall UState::UState(class UState *)
+- ??0UState@@QAE@W4ENativeConstructor@@HPB_W1KPAV0@@Z
+public: __thiscall UState::UState(enum ENativeConstructor, int, wchar_t const *, wchar_t const *, unsigned long, class UState *)
+- ??0UState@@QAE@W4EStaticConstructor@@HPB_W1K@Z
+public: __thiscall UState::UState(enum EStaticConstructor, int, wchar_t const *, wchar_t const *, unsigned long)
+- ??1UState@@UAE@XZ
+public: virtual __thiscall UState::~UState(void)
+- ??2UState@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UState::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UState@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UState::operator new(unsigned int, enum EInternal *)
+- ??4UState@@QAEAAV0@ABV0@@Z
+public: class UState & __thiscall UState::operator=(class UState const &)
+- ??_7UState@@6B@
+const UState::`vftable'
+- ?Destroy@UState@@UAEXXZ
+public: virtual void __thiscall UState::Destroy(void)
+- ?GetInheritanceSuper@UState@@UAEPAVUStruct@@XZ
+public: virtual class UStruct * __thiscall UState::GetInheritanceSuper(void)
+- ?GetSuperState@UState@@QBEPAV1@XZ
+public: class UState * __thiscall UState::GetSuperState(void) const
+- ?Link@UState@@UAEXAAVFArchive@@H@Z
+public: virtual void __thiscall UState::Link(class FArchive &, int)
+- ?MergeBools@UState@@UAEHXZ
+public: virtual int __thiscall UState::MergeBools(void)
+- ?PrivateStaticClass@UState@@0VUClass@@A
+private: static class UClass UState::PrivateStaticClass
+- ?Serialize@UState@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UState::Serialize(class FArchive &)
+- ?StaticClass@UState@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UState::StaticClass(void)
+- ?__DefaultConstructor@UState@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UState::__DefaultConstructor(class FObjectInitializer const &)
+
+### FFileStream  (18)
+- ??0FFileStream@@AAE@XZ
+private: __thiscall FFileStream::FFileStream(void)
+- ??1FFileStream@@AAE@XZ
+private: __thiscall FFileStream::~FFileStream(void)
+- ??4FFileStream@@QAEAAV0@ABV0@@Z
+public: class FFileStream & __thiscall FFileStream::operator=(class FFileStream const &)
+- ?Create@FFileStream@@QAEHHPB_W@Z
+public: int __thiscall FFileStream::Create(int, wchar_t const *)
+- ?CreateStream@FFileStream@@QAEHPB_WHHPAXW4EFileStreamType@@1@Z
+public: int __thiscall FFileStream::CreateStream(wchar_t const *, int, int, void *, enum EFileStreamType, void *)
+- ?CriticalSection@FFileStream@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *FFileStream::CriticalSection
+- ?Destroy@FFileStream@@QAEHH@Z
+public: int __thiscall FFileStream::Destroy(int)
+- ?Destroy@FFileStream@@SAXXZ
+public: static void __cdecl FFileStream::Destroy(void)
+- ?DestroyStream@FFileStream@@QAEXHH@Z
+public: void __thiscall FFileStream::DestroyStream(int, int)
+- ?Destroyed@FFileStream@@2HA
+public: static int FFileStream::Destroyed
+- ?Init@FFileStream@@SAPAV1@H@Z
+public: static class FFileStream * __cdecl FFileStream::Init(int)
+- ?Instance@FFileStream@@2PAV1@A
+public: static class FFileStream *FFileStream::Instance
+- ?MaxStreams@FFileStream@@2HA
+public: static int FFileStream::MaxStreams
+- ?QueryStream@FFileStream@@QAEHHAAH@Z
+public: int __thiscall FFileStream::QueryStream(int, int &)
+- ?Read@FFileStream@@QAEHHH@Z
+public: int __thiscall FFileStream::Read(int, int)
+- ?RequestChunks@FFileStream@@QAEXHHPAX@Z
+public: void __thiscall FFileStream::RequestChunks(int, int, void *)
+- ?StreamIndex@FFileStream@@2HA
+public: static int FFileStream::StreamIndex
+- ?Streams@FFileStream@@2PAUFStream@@A
+public: static struct FStream *FFileStream::Streams
+
+### UExporter  (18)
+- ??0UExporter@@QAE@ABV0@@Z
+public: __thiscall UExporter::UExporter(class UExporter const &)
+- ??0UExporter@@QAE@XZ
+public: __thiscall UExporter::UExporter(void)
+- ??1UExporter@@UAE@XZ
+public: virtual __thiscall UExporter::~UExporter(void)
+- ??2UExporter@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UExporter::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UExporter@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UExporter::operator new(unsigned int, enum EInternal *)
+- ??4UExporter@@QAEAAV0@ABV0@@Z
+public: class UExporter & __thiscall UExporter::operator=(class UExporter const &)
+- ??_7UExporter@@6B@
+const UExporter::`vftable'
+- ?ExportBinary@UExporter@@UAEHPAVUObject@@PB_WAAVFArchive@@PAVFFeedbackContext@@@Z
+public: virtual int __thiscall UExporter::ExportBinary(class UObject *, wchar_t const *, class FArchive &, class FFeedbackContext *)
+- ?ExportText@UExporter@@UAEHPAVUObject@@PB_WAAVFOutputDevice@@PAVFFeedbackContext@@@Z
+public: virtual int __thiscall UExporter::ExportText(class UObject *, wchar_t const *, class FOutputDevice &, class FFeedbackContext *)
+- ?ExportToArchive@UExporter@@SAXPAVUObject@@PAV1@AAVFArchive@@PB_W@Z
+public: static void __cdecl UExporter::ExportToArchive(class UObject *, class UExporter *, class FArchive &, wchar_t const *)
+- ?ExportToFile@UExporter@@SAHPAVUObject@@PAV1@PB_WHH@Z
+public: static int __cdecl UExporter::ExportToFile(class UObject *, class UExporter *, wchar_t const *, int, int)
+- ?ExportToOutputDevice@UExporter@@SAXPAVUObject@@PAV1@AAVFOutputDevice@@PB_WH@Z
+public: static void __cdecl UExporter::ExportToOutputDevice(class UObject *, class UExporter *, class FOutputDevice &, wchar_t const *, int)
+- ?FindExporter@UExporter@@SAPAV1@PAVUObject@@PB_W@Z
+public: static class UExporter * __cdecl UExporter::FindExporter(class UObject *, wchar_t const *)
+- ?PrivateStaticClass@UExporter@@0VUClass@@A
+private: static class UClass UExporter::PrivateStaticClass
+- ?Serialize@UExporter@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UExporter::Serialize(class FArchive &)
+- ?StaticClass@UExporter@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UExporter::StaticClass(void)
+- ?StaticConstructor@UExporter@@QAEXXZ
+public: void __thiscall UExporter::StaticConstructor(void)
+- ?__DefaultConstructor@UExporter@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UExporter::__DefaultConstructor(class FObjectInitializer const &)
+
+### FBitWriter  (17)
+- ??0FBitWriter@@QAE@$$QAU0@@Z
+public: __thiscall FBitWriter::FBitWriter(struct FBitWriter &&)
+- ??0FBitWriter@@QAE@ABU0@@Z
+public: __thiscall FBitWriter::FBitWriter(struct FBitWriter const &)
+- ??0FBitWriter@@QAE@H@Z
+public: __thiscall FBitWriter::FBitWriter(int)
+- ??0FBitWriter@@QAE@XZ
+public: __thiscall FBitWriter::FBitWriter(void)
+- ??1FBitWriter@@UAE@XZ
+public: virtual __thiscall FBitWriter::~FBitWriter(void)
+- ??4FBitWriter@@QAEAAU0@$$QAU0@@Z
+public: struct FBitWriter & __thiscall FBitWriter::operator=(struct FBitWriter &&)
+- ??4FBitWriter@@QAEAAU0@ABU0@@Z
+public: struct FBitWriter & __thiscall FBitWriter::operator=(struct FBitWriter const &)
+- ??_7FBitWriter@@6B@
+const FBitWriter::`vftable'
+- ?GetData@FBitWriter@@QAEPAEXZ
+public: unsigned char * __thiscall FBitWriter::GetData(void)
+- ?GetNumBits@FBitWriter@@QAEHXZ
+public: int __thiscall FBitWriter::GetNumBits(void)
+- ?GetNumBytes@FBitWriter@@QAEHXZ
+public: int __thiscall FBitWriter::GetNumBytes(void)
+- ?Serialize@FBitWriter@@UAEXPAXH@Z
+public: virtual void __thiscall FBitWriter::Serialize(void *, int)
+- ?SerializeBits@FBitWriter@@UAEXPAXH@Z
+public: virtual void __thiscall FBitWriter::SerializeBits(void *, int)
+- ?SerializeInt@FBitWriter@@UAEXAAKK@Z
+public: virtual void __thiscall FBitWriter::SerializeInt(unsigned long &, unsigned long)
+- ?SetOverflowed@FBitWriter@@QAEXXZ
+public: void __thiscall FBitWriter::SetOverflowed(void)
+- ?WriteBit@FBitWriter@@QAEXE@Z
+public: void __thiscall FBitWriter::WriteBit(unsigned char)
+- ?WriteInt@FBitWriter@@QAEXKK@Z
+public: void __thiscall FBitWriter::WriteInt(unsigned long, unsigned long)
+
+### FOutputDevice  (17)
+- ??0FOutputDevice@@QAE@ABV0@@Z
+public: __thiscall FOutputDevice::FOutputDevice(class FOutputDevice const &)
+- ??0FOutputDevice@@QAE@XZ
+public: __thiscall FOutputDevice::FOutputDevice(void)
+- ??1FOutputDevice@@UAE@XZ
+public: virtual __thiscall FOutputDevice::~FOutputDevice(void)
+- ??4FOutputDevice@@QAEAAV0@ABV0@@Z
+public: class FOutputDevice & __thiscall FOutputDevice::operator=(class FOutputDevice const &)
+- ??_7FOutputDevice@@6B@
+const FOutputDevice::`vftable'
+- ?Flush@FOutputDevice@@UAEXXZ
+public: virtual void __thiscall FOutputDevice::Flush(void)
+- ?IsSuppressed@FOutputDevice@@UBEHW4EName@@@Z
+public: virtual int __thiscall FOutputDevice::IsSuppressed(enum EName) const
+- ?Log@FOutputDevice@@QAEXABVFString@@@Z
+public: void __thiscall FOutputDevice::Log(class FString const &)
+- ?Log@FOutputDevice@@QAEXPB_W@Z
+public: void __thiscall FOutputDevice::Log(wchar_t const *)
+- ?Log@FOutputDevice@@QAEXW4EName@@ABVFString@@@Z
+public: void __thiscall FOutputDevice::Log(enum EName, class FString const &)
+- ?Log@FOutputDevice@@QAEXW4EName@@PB_W@Z
+public: void __thiscall FOutputDevice::Log(enum EName, wchar_t const *)
+- ?Logf2@FOutputDevice@@QAAXAAPB_WZZ
+public: void __cdecl FOutputDevice::Logf2(wchar_t const *&, ...)
+- ?Logf2@FOutputDevice@@QAAXW4EName@@AAPB_WZZ
+public: void __cdecl FOutputDevice::Logf2(enum EName, wchar_t const *&, ...)
+- ?Logf@FOutputDevice@@QAAXPB_WZZ
+public: void __cdecl FOutputDevice::Logf(wchar_t const *, ...)
+- ?Logf@FOutputDevice@@QAAXW4EName@@PB_WZZ
+public: void __cdecl FOutputDevice::Logf(enum EName, wchar_t const *, ...)
+- ?Release@FOutputDevice@@UAEXXZ
+public: virtual void __thiscall FOutputDevice::Release(void)
+- ?ToggleLog@FOutputDevice@@UAEHW4EName@@@Z
+public: virtual int __thiscall FOutputDevice::ToggleLog(enum EName)
+
+### L2HangDetectMarker  (17)
+- ??0L2HangDetectMarker@@QAE@PB_W@Z
+public: __thiscall L2HangDetectMarker::L2HangDetectMarker(wchar_t const *)
+- ??1L2HangDetectMarker@@QAE@XZ
+public: __thiscall L2HangDetectMarker::~L2HangDetectMarker(void)
+- ??4L2HangDetectMarker@@QAEAAV0@ABV0@@Z
+public: class L2HangDetectMarker & __thiscall L2HangDetectMarker::operator=(class L2HangDetectMarker const &)
+- ?Finalize@L2HangDetectMarker@@SAXXZ
+public: static void __cdecl L2HangDetectMarker::Finalize(void)
+- ?GetStackMsg@L2HangDetectMarker@@SA?AVFString@@XZ
+public: static class FString __cdecl L2HangDetectMarker::GetStackMsg(void)
+- ?HDCallPerTick@L2HangDetectMarker@@0KA
+private: static unsigned long L2HangDetectMarker::HDCallPerTick
+- ?HDLastTick@L2HangDetectMarker@@0_JA
+private: static __int64 L2HangDetectMarker::HDLastTick
+- ?HDLastTickTime@L2HangDetectMarker@@0NA
+private: static double L2HangDetectMarker::HDLastTickTime
+- ?HDTimePerTick@L2HangDetectMarker@@0NA
+private: static double L2HangDetectMarker::HDTimePerTick
+- ?HDWarningContinuousTickCnt@L2HangDetectMarker@@0HA
+private: static int L2HangDetectMarker::HDWarningContinuousTickCnt
+- ?HDWarningContinuousTickLimit@L2HangDetectMarker@@0HB
+private: static int const L2HangDetectMarker::HDWarningContinuousTickLimit
+- ?HDWarningTickLimitSec@L2HangDetectMarker@@0NB
+private: static double const L2HangDetectMarker::HDWarningTickLimitSec
+- ?HDWarningTimeLimitRate@L2HangDetectMarker@@0NB
+private: static double const L2HangDetectMarker::HDWarningTimeLimitRate
+- ?Initialize@L2HangDetectMarker@@SAXXZ
+public: static void __cdecl L2HangDetectMarker::Initialize(void)
+- ?MarkerCS@L2HangDetectMarker@@0PAVFCriticalSection@@A
+private: static class FCriticalSection *L2HangDetectMarker::MarkerCS
+- ?SetMsg@L2HangDetectMarker@@QAAXPB_WZZ
+public: void __cdecl L2HangDetectMarker::SetMsg(wchar_t const *, ...)
+- ?StackLast@L2HangDetectMarker@@0PAV1@A
+private: static class L2HangDetectMarker *L2HangDetectMarker::StackLast
+
+### UFactory  (17)
+- ??0UFactory@@QAE@ABV0@@Z
+public: __thiscall UFactory::UFactory(class UFactory const &)
+- ??0UFactory@@QAE@XZ
+public: __thiscall UFactory::UFactory(void)
+- ??1UFactory@@UAE@XZ
+public: virtual __thiscall UFactory::~UFactory(void)
+- ??2UFactory@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UFactory::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UFactory@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UFactory::operator new(unsigned int, enum EInternal *)
+- ??4UFactory@@QAEAAV0@ABV0@@Z
+public: class UFactory & __thiscall UFactory::operator=(class UFactory const &)
+- ??_7UFactory@@6B@
+const UFactory::`vftable'
+- ?CurrentFilename@UFactory@@2VFString@@A
+public: static class FString UFactory::CurrentFilename
+- ?FactoryCreateBinary@UFactory@@UAEPAVUObject@@PAVUClass@@PAV2@VFName@@K1PB_WAAPBEPBEPAVFFeedbackContext@@@Z
+public: virtual class UObject * __thiscall UFactory::FactoryCreateBinary(class UClass *, class UObject *, class FName, unsigned long, class UObject *, wchar_t const *, unsigned char const *&, unsigned char const *, class FFeedbackContext *)
+- ?FactoryCreateNew@UFactory@@UAEPAVUObject@@PAVUClass@@PAV2@ABVFName@@K1PAVFFeedbackContext@@@Z
+public: virtual class UObject * __thiscall UFactory::FactoryCreateNew(class UClass *, class UObject *, class FName const &, unsigned long, class UObject *, class FFeedbackContext *)
+- ?FactoryCreateText@UFactory@@UAEPAVUObject@@PAVULevel@@PAVUClass@@PAV2@VFName@@K2PB_WAAPB_W4PAVFFeedbackContext@@@Z
+public: virtual class UObject * __thiscall UFactory::FactoryCreateText(class ULevel *, class UClass *, class UObject *, class FName, unsigned long, class UObject *, wchar_t const *, wchar_t const *&, wchar_t const *, class FFeedbackContext *)
+- ?PrivateStaticClass@UFactory@@0VUClass@@A
+private: static class UClass UFactory::PrivateStaticClass
+- ?Serialize@UFactory@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UFactory::Serialize(class FArchive &)
+- ?StaticClass@UFactory@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UFactory::StaticClass(void)
+- ?StaticConstructor@UFactory@@QAEXXZ
+public: void __thiscall UFactory::StaticConstructor(void)
+- ?StaticImportObject@UFactory@@SAPAVUObject@@PAVULevel@@PAVUClass@@PAV2@VFName@@KPB_W2PAV1@4PAVFFeedbackContext@@@Z
+public: static class UObject * __cdecl UFactory::StaticImportObject(class ULevel *, class UClass *, class UObject *, class FName, unsigned long, wchar_t const *, class UObject *, class UFactory *, wchar_t const *, class FFeedbackContext *)
+- ?__DefaultConstructor@UFactory@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UFactory::__DefaultConstructor(class FObjectInitializer const &)
+
+### ULinker  (17)
+- ??0ULinker@@IAE@XZ
+protected: __thiscall ULinker::ULinker(void)
+- ??0ULinker@@QAE@ABV0@@Z
+public: __thiscall ULinker::ULinker(class ULinker const &)
+- ??0ULinker@@QAE@PAVUObject@@@Z
+public: __thiscall ULinker::ULinker(class UObject *)
+- ??0ULinker@@QAE@PAVUObject@@PB_W@Z
+public: __thiscall ULinker::ULinker(class UObject *, wchar_t const *)
+- ??1ULinker@@UAE@XZ
+public: virtual __thiscall ULinker::~ULinker(void)
+- ??2ULinker@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl ULinker::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2ULinker@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl ULinker::operator new(unsigned int, enum EInternal *)
+- ??4ULinker@@QAEAAV0@ABV0@@Z
+public: class ULinker & __thiscall ULinker::operator=(class ULinker const &)
+- ??_7ULinker@@6B@
+const ULinker::`vftable'
+- ?GetExportFullName@ULinker@@QAE?AVFString@@HPB_W@Z
+public: class FString __thiscall ULinker::GetExportFullName(int, wchar_t const *)
+- ?GetImportFullName@ULinker@@QAE?AVFString@@H@Z
+public: class FString __thiscall ULinker::GetImportFullName(int)
+- ?LinksToCode@ULinker@@UAEHXZ
+public: virtual int __thiscall ULinker::LinksToCode(void)
+- ?PrivateStaticClass@ULinker@@0VUClass@@A
+private: static class UClass ULinker::PrivateStaticClass
+- ?QuickMD5@ULinker@@QAE?AVFString@@XZ
+public: class FString __thiscall ULinker::QuickMD5(void)
+- ?Serialize@ULinker@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall ULinker::Serialize(class FArchive &)
+- ?StaticClass@ULinker@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl ULinker::StaticClass(void)
+- ?__DefaultConstructor@ULinker@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl ULinker::__DefaultConstructor(class FObjectInitializer const &)
+
+### FMemStackFrame  (17)
+- ??1FMemStackFrame@@QAE@XZ
+public: __thiscall FMemStackFrame::~FMemStackFrame(void)
+- ??4FMemStackFrame@@QAEAAV0@ABV0@@Z
+public: class FMemStackFrame & __thiscall FMemStackFrame::operator=(class FMemStackFrame const &)
+- ?AllocateNewChunk@FMemStackFrame@@QAEPAEH@Z
+public: unsigned char * __thiscall FMemStackFrame::AllocateNewChunk(int)
+- ?CurUsedSize@FMemStackFrame@@2HA
+public: static int FMemStackFrame::CurUsedSize
+- ?DeleteMemStackCS@FMemStackFrame@@SAXXZ
+public: static void __cdecl FMemStackFrame::DeleteMemStackCS(void)
+- ?Exit@FMemStackFrame@@QAEXXZ
+public: void __thiscall FMemStackFrame::Exit(void)
+- ?FreeChunks@FMemStackFrame@@QAEXPAUFTaggedMemory@@@Z
+public: void __thiscall FMemStackFrame::FreeChunks(struct FTaggedMemory *)
+- ?GetByteCount@FMemStackFrame@@QAEHXZ
+public: int __thiscall FMemStackFrame::GetByteCount(void)
+- ?Init@FMemStackFrame@@QAEXH@Z
+public: void __thiscall FMemStackFrame::Init(int)
+- ?MaxCurUsedSize@FMemStackFrame@@2HA
+public: static int FMemStackFrame::MaxCurUsedSize
+- ?MemStackCS@FMemStackFrame@@2PAVFCriticalSection@@A
+public: static class FCriticalSection *FMemStackFrame::MemStackCS
+- ?PushBytes@FMemStackFrame@@QAEPAEHH@Z
+public: unsigned char * __thiscall FMemStackFrame::PushBytes(int, int)
+- ?StaticExit@FMemStackFrame@@SAXXZ
+public: static void __cdecl FMemStackFrame::StaticExit(void)
+- ?TotalSize@FMemStackFrame@@2HA
+public: static int FMemStackFrame::TotalSize
+- ?UnusedChunks@FMemStackFrame@@2PAUFTaggedMemory@@A
+public: static struct FTaggedMemory *FMemStackFrame::UnusedChunks
+- ?__FUNC_NAME__@?2??Exit@FMemStackFrame@@QAEXXZ@4QB_WB
+wchar_t const *const `public: void __thiscall FMemStackFrame::Exit(void)'::`3'::__FUNC_NAME__
+- ?__FUNC_NAME__@?2??Init@FMemStackFrame@@QAEXH@Z@4QB_WB
+wchar_t const *const `public: void __thiscall FMemStackFrame::Init(int)'::`3'::__FUNC_NAME__
+
+### UCommandlet  (16)
+- ??0UCommandlet@@QAE@ABV0@@Z
+public: __thiscall UCommandlet::UCommandlet(class UCommandlet const &)
+- ??0UCommandlet@@QAE@XZ
+public: __thiscall UCommandlet::UCommandlet(void)
+- ??1UCommandlet@@UAE@XZ
+public: virtual __thiscall UCommandlet::~UCommandlet(void)
+- ??2UCommandlet@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UCommandlet::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UCommandlet@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UCommandlet::operator new(unsigned int, enum EInternal *)
+- ??4UCommandlet@@QAEAAV0@ABV0@@Z
+public: class UCommandlet & __thiscall UCommandlet::operator=(class UCommandlet const &)
+- ??_7UCommandlet@@6B@
+const UCommandlet::`vftable'
+- ?DynamicReloadCheck@UCommandlet@@UAEHABVFString@@0@Z
+public: virtual int __thiscall UCommandlet::DynamicReloadCheck(class FString const &, class FString const &)
+- ?IsChangedPackage@UCommandlet@@UAEHABVFString@@@Z
+public: virtual int __thiscall UCommandlet::IsChangedPackage(class FString const &)
+- ?Main@UCommandlet@@UAEHPB_W@Z
+public: virtual int __thiscall UCommandlet::Main(wchar_t const *)
+- ?PrivateStaticClass@UCommandlet@@0VUClass@@A
+private: static class UClass UCommandlet::PrivateStaticClass
+- ?Result@UCommandlet@@UAEXAAUFCommandletOutput@@@Z
+public: virtual void __thiscall UCommandlet::Result(struct FCommandletOutput &)
+- ?StaticClass@UCommandlet@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UCommandlet::StaticClass(void)
+- ?__DefaultConstructor@UCommandlet@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UCommandlet::__DefaultConstructor(class FObjectInitializer const &)
+- ?eventMain@UCommandlet@@QAEHABVFString@@@Z
+public: int __thiscall UCommandlet::eventMain(class FString const &)
+- ?execMain@UCommandlet@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UCommandlet::execMain(struct FFrame &, void *const)
+
+### UEnum  (16)
+- ??0UEnum@@IAE@XZ
+protected: __thiscall UEnum::UEnum(void)
+- ??0UEnum@@QAE@ABV0@@Z
+public: __thiscall UEnum::UEnum(class UEnum const &)
+- ??0UEnum@@QAE@PAV0@@Z
+public: __thiscall UEnum::UEnum(class UEnum *)
+- ??1UEnum@@UAE@XZ
+public: virtual __thiscall UEnum::~UEnum(void)
+- ??2UEnum@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UEnum::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UEnum@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UEnum::operator new(unsigned int, enum EInternal *)
+- ??4UEnum@@QAEAAV0@ABV0@@Z
+public: class UEnum & __thiscall UEnum::operator=(class UEnum const &)
+- ??_7UEnum@@6B@
+const UEnum::`vftable'
+- ?GetOuterUStruct@UEnum@@QBEPAVUStruct@@XZ
+public: class UStruct * __thiscall UEnum::GetOuterUStruct(void) const
+- ?GetSuperEnum@UEnum@@QBEPAV1@XZ
+public: class UEnum * __thiscall UEnum::GetSuperEnum(void) const
+- ?IsNoExport@UEnum@@QAE_NXZ
+public: bool __thiscall UEnum::IsNoExport(void)
+- ?PrivateStaticClass@UEnum@@0VUClass@@A
+private: static class UClass UEnum::PrivateStaticClass
+- ?Serialize@UEnum@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UEnum::Serialize(class FArchive &)
+- ?SetNoExport@UEnum@@QAEX_N@Z
+public: void __thiscall UEnum::SetNoExport(bool)
+- ?StaticClass@UEnum@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UEnum::StaticClass(void)
+- ?__DefaultConstructor@UEnum@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UEnum::__DefaultConstructor(class FObjectInitializer const &)
+
+### UParamStack  (16)
+- ??0UParamStack@@IAE@XZ
+protected: __thiscall UParamStack::UParamStack(void)
+- ??0UParamStack@@QAE@ABV0@@Z
+public: __thiscall UParamStack::UParamStack(class UParamStack const &)
+- ??1UParamStack@@UAE@XZ
+public: virtual __thiscall UParamStack::~UParamStack(void)
+- ??2UParamStack@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UParamStack::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UParamStack@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UParamStack::operator new(unsigned int, enum EInternal *)
+- ??4UParamStack@@QAEAAV0@ABV0@@Z
+public: class UParamStack & __thiscall UParamStack::operator=(class UParamStack const &)
+- ??_7UParamStack@@6B@
+const UParamStack::`vftable'
+- ?PrivateStaticClass@UParamStack@@0VUClass@@A
+private: static class UClass UParamStack::PrivateStaticClass
+- ?SetParamStack@UParamStack@@QAEXPAVL2ParamStack@@@Z
+public: void __thiscall UParamStack::SetParamStack(class L2ParamStack *)
+- ?StaticClass@UParamStack@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UParamStack::StaticClass(void)
+- ?__DefaultConstructor@UParamStack@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UParamStack::__DefaultConstructor(class FObjectInitializer const &)
+- ?execGetFloat@UParamStack@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UParamStack::execGetFloat(struct FFrame &, void *const)
+- ?execGetInt@UParamStack@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UParamStack::execGetInt(struct FFrame &, void *const)
+- ?execGetString@UParamStack@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UParamStack::execGetString(struct FFrame &, void *const)
+- ?execPushInt@UParamStack@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UParamStack::execPushInt(struct FFrame &, void *const)
+- ?execPushString@UParamStack@@QAEXAAUFFrame@@QAX@Z
+public: void __thiscall UParamStack::execPushString(struct FFrame &, void *const)
+
+### FCrashDump  (15)
+- ??0FCrashDump@@AAE@XZ
+private: __thiscall FCrashDump::FCrashDump(void)
+- ??0FCrashDump@@QAE@ABV0@@Z
+public: __thiscall FCrashDump::FCrashDump(class FCrashDump const &)
+- ??1FCrashDump@@EAE@XZ
+private: virtual __thiscall FCrashDump::~FCrashDump(void)
+- ??4FCrashDump@@QAEAAV0@ABV0@@Z
+public: class FCrashDump & __thiscall FCrashDump::operator=(class FCrashDump const &)
+- ??_7FCrashDump@@6B@
+const FCrashDump::`vftable'
+- ?GetArguement@FCrashDump@@QAEAAUArguementInfo@1@XZ
+public: struct FCrashDump::ArguementInfo & __thiscall FCrashDump::GetArguement(void)
+- ?GetFile@FCrashDump@@QBEABUFileInfo@1@XZ
+public: struct FCrashDump::FileInfo const & __thiscall FCrashDump::GetFile(void) const
+- ?GetThread@FCrashDump@@QBEABUThreadInfo@1@XZ
+public: struct FCrashDump::ThreadInfo const & __thiscall FCrashDump::GetThread(void) const
+- ?Itself@FCrashDump@@SAAAV1@XZ
+public: static class FCrashDump & __cdecl FCrashDump::Itself(void)
+- ?Prepare@FCrashDump@@QAEXXZ
+public: void __thiscall FCrashDump::Prepare(void)
+- ?Process@FCrashDump@@CGKPAX@Z
+private: static unsigned long __stdcall FCrashDump::Process(void *)
+- ?Terminate@FCrashDump@@QAEXXZ
+public: void __thiscall FCrashDump::Terminate(void)
+- ?ThrowErrorAndTerminate@FCrashDump@@QAEXXZ
+public: void __thiscall FCrashDump::ThrowErrorAndTerminate(void)
+- ?WriteDump@FCrashDump@@AAEHXZ
+private: int __thiscall FCrashDump::WriteDump(void)
+- ?self@FCrashDump@@0V1@A
+private: static class FCrashDump FCrashDump::self
+
+### FFrame  (15)
+- ??0FFrame@@QAE@$$QAU0@@Z
+public: __thiscall FFrame::FFrame(struct FFrame &&)
+- ??0FFrame@@QAE@ABU0@@Z
+public: __thiscall FFrame::FFrame(struct FFrame const &)
+- ??0FFrame@@QAE@PAVUObject@@@Z
+public: __thiscall FFrame::FFrame(class UObject *)
+- ??0FFrame@@QAE@PAVUObject@@PAVUStruct@@HPAXPAU0@@Z
+public: __thiscall FFrame::FFrame(class UObject *, class UStruct *, int, void *, struct FFrame *)
+- ??1FFrame@@UAE@XZ
+public: virtual __thiscall FFrame::~FFrame(void)
+- ??4FFrame@@QAEAAU0@$$QAU0@@Z
+public: struct FFrame & __thiscall FFrame::operator=(struct FFrame &&)
+- ??4FFrame@@QAEAAU0@ABU0@@Z
+public: struct FFrame & __thiscall FFrame::operator=(struct FFrame const &)
+- ??_7FFrame@@6B@
+const FFrame::`vftable'
+- ?ReadFloat@FFrame@@QAEMXZ
+public: float __thiscall FFrame::ReadFloat(void)
+- ?ReadInt@FFrame@@QAEHXZ
+public: int __thiscall FFrame::ReadInt(void)
+- ?ReadName@FFrame@@QAE?AVFName@@XZ
+public: class FName __thiscall FFrame::ReadName(void)
+- ?ReadObject@FFrame@@QAEPAVUObject@@XZ
+public: class UObject * __thiscall FFrame::ReadObject(void)
+- ?ReadWord@FFrame@@QAEHXZ
+public: int __thiscall FFrame::ReadWord(void)
+- ?Serialize@FFrame@@UAEXPB_WW4EName@@@Z
+public: virtual void __thiscall FFrame::Serialize(wchar_t const *, enum EName)
+- ?Step@FFrame@@QAEXPAVUObject@@QAX@Z
+public: void __thiscall FFrame::Step(class UObject *, void *const)
+
+### FColor  (15)
+- ?Black@FColor@@2U1@B
+public: static struct FColor const FColor::Black
+- ?Blue@FColor@@2U1@B
+public: static struct FColor const FColor::Blue
+- ?Cyan@FColor@@2U1@B
+public: static struct FColor const FColor::Cyan
+- ?Emerald@FColor@@2U1@B
+public: static struct FColor const FColor::Emerald
+- ?Green@FColor@@2U1@B
+public: static struct FColor const FColor::Green
+- ?Magenta@FColor@@2U1@B
+public: static struct FColor const FColor::Magenta
+- ?NWhite@FColor@@2U1@B
+public: static struct FColor const FColor::NWhite
+- ?Orange@FColor@@2U1@B
+public: static struct FColor const FColor::Orange
+- ?Purple@FColor@@2U1@B
+public: static struct FColor const FColor::Purple
+- ?Red@FColor@@2U1@B
+public: static struct FColor const FColor::Red
+- ?Silver@FColor@@2U1@B
+public: static struct FColor const FColor::Silver
+- ?Transparent@FColor@@2U1@B
+public: static struct FColor const FColor::Transparent
+- ?Turquoise@FColor@@2U1@B
+public: static struct FColor const FColor::Turquoise
+- ?White@FColor@@2U1@B
+public: static struct FColor const FColor::White
+- ?Yellow@FColor@@2U1@B
+public: static struct FColor const FColor::Yellow
+
+### UClassProperty  (14)
+- ??0UClassProperty@@QAE@ABV0@@Z
+public: __thiscall UClassProperty::UClassProperty(class UClassProperty const &)
+- ??0UClassProperty@@QAE@W4ECppProperty@@HPB_WKPAVUClass@@@Z
+public: __thiscall UClassProperty::UClassProperty(enum ECppProperty, int, wchar_t const *, unsigned long, class UClass *)
+- ??0UClassProperty@@QAE@XZ
+public: __thiscall UClassProperty::UClassProperty(void)
+- ??1UClassProperty@@UAE@XZ
+public: virtual __thiscall UClassProperty::~UClassProperty(void)
+- ??2UClassProperty@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UClassProperty::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UClassProperty@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UClassProperty::operator new(unsigned int, enum EInternal *)
+- ??4UClassProperty@@QAEAAV0@ABV0@@Z
+public: class UClassProperty & __thiscall UClassProperty::operator=(class UClassProperty const &)
+- ??_7UClassProperty@@6B@
+const UClassProperty::`vftable'
+- ?GetID@UClassProperty@@UBEEXZ
+public: virtual unsigned char __thiscall UClassProperty::GetID(void) const
+- ?ImportText@UClassProperty@@UBEPB_WPB_WPAEHH@Z
+public: virtual wchar_t const * __thiscall UClassProperty::ImportText(wchar_t const *, unsigned char *, int, int) const
+- ?PrivateStaticClass@UClassProperty@@0VUClass@@A
+private: static class UClass UClassProperty::PrivateStaticClass
+- ?Serialize@UClassProperty@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UClassProperty::Serialize(class FArchive &)
+- ?StaticClass@UClassProperty@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UClassProperty::StaticClass(void)
+- ?__DefaultConstructor@UClassProperty@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UClassProperty::__DefaultConstructor(class FObjectInitializer const &)
+
+### UConst  (14)
+- ??0UConst@@IAE@XZ
+protected: __thiscall UConst::UConst(void)
+- ??0UConst@@QAE@ABV0@@Z
+public: __thiscall UConst::UConst(class UConst const &)
+- ??0UConst@@QAE@PAV0@PB_W@Z
+public: __thiscall UConst::UConst(class UConst *, wchar_t const *)
+- ??1UConst@@UAE@XZ
+public: virtual __thiscall UConst::~UConst(void)
+- ??2UConst@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UConst::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UConst@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UConst::operator new(unsigned int, enum EInternal *)
+- ??4UConst@@QAEAAV0@ABV0@@Z
+public: class UConst & __thiscall UConst::operator=(class UConst const &)
+- ??_7UConst@@6B@
+const UConst::`vftable'
+- ?GetOuterUStruct@UConst@@QBEPAVUStruct@@XZ
+public: class UStruct * __thiscall UConst::GetOuterUStruct(void) const
+- ?GetSuperConst@UConst@@QBEPAV1@XZ
+public: class UConst * __thiscall UConst::GetSuperConst(void) const
+- ?PrivateStaticClass@UConst@@0VUClass@@A
+private: static class UClass UConst::PrivateStaticClass
+- ?Serialize@UConst@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UConst::Serialize(class FArchive &)
+- ?StaticClass@UConst@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UConst::StaticClass(void)
+- ?__DefaultConstructor@UConst@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UConst::__DefaultConstructor(class FObjectInitializer const &)
+
+### UPackage  (14)
+- ??0UPackage@@QAE@ABV0@@Z
+public: __thiscall UPackage::UPackage(class UPackage const &)
+- ??0UPackage@@QAE@XZ
+public: __thiscall UPackage::UPackage(void)
+- ??1UPackage@@UAE@XZ
+public: virtual __thiscall UPackage::~UPackage(void)
+- ??2UPackage@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UPackage::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UPackage@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UPackage::operator new(unsigned int, enum EInternal *)
+- ??4UPackage@@QAEAAV0@ABV0@@Z
+public: class UPackage & __thiscall UPackage::operator=(class UPackage const &)
+- ??_7UPackage@@6B@
+const UPackage::`vftable'
+- ?CheckBindPackage@UPackage@@QAEHXZ
+public: int __thiscall UPackage::CheckBindPackage(void)
+- ?Destroy@UPackage@@UAEXXZ
+public: virtual void __thiscall UPackage::Destroy(void)
+- ?GetDllExport@UPackage@@QAEPAXPB_WH@Z
+public: void * __thiscall UPackage::GetDllExport(wchar_t const *, int)
+- ?PrivateStaticClass@UPackage@@0VUClass@@A
+private: static class UClass UPackage::PrivateStaticClass
+- ?Serialize@UPackage@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UPackage::Serialize(class FArchive &)
+- ?StaticClass@UPackage@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UPackage::StaticClass(void)
+- ?__DefaultConstructor@UPackage@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UPackage::__DefaultConstructor(class FObjectInitializer const &)
+
+### UTextBuffer  (14)
+- ??0UTextBuffer@@QAE@ABV0@@Z
+public: __thiscall UTextBuffer::UTextBuffer(class UTextBuffer const &)
+- ??0UTextBuffer@@QAE@PB_W@Z
+public: __thiscall UTextBuffer::UTextBuffer(wchar_t const *)
+- ??1UTextBuffer@@UAE@XZ
+public: virtual __thiscall UTextBuffer::~UTextBuffer(void)
+- ??2UTextBuffer@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UTextBuffer::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UTextBuffer@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UTextBuffer::operator new(unsigned int, enum EInternal *)
+- ??4UTextBuffer@@QAEAAV0@ABV0@@Z
+public: class UTextBuffer & __thiscall UTextBuffer::operator=(class UTextBuffer const &)
+- ??_7UTextBuffer@@6BFOutputDevice@@@
+const UTextBuffer::`vftable'{for `FOutputDevice'}
+- ??_7UTextBuffer@@6BUObject@@@
+const UTextBuffer::`vftable'{for `UObject'}
+- ??_FUTextBuffer@@QAEXXZ
+public: void __thiscall UTextBuffer::`default ctor closure'(void)
+- ?PrivateStaticClass@UTextBuffer@@0VUClass@@A
+private: static class UClass UTextBuffer::PrivateStaticClass
+- ?Serialize@UTextBuffer@@UAEXAAVFArchive@@@Z
+public: virtual void __thiscall UTextBuffer::Serialize(class FArchive &)
+- ?Serialize@UTextBuffer@@UAEXPB_WW4EName@@@Z
+public: virtual void __thiscall UTextBuffer::Serialize(wchar_t const *, enum EName)
+- ?StaticClass@UTextBuffer@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UTextBuffer::StaticClass(void)
+- ?__DefaultConstructor@UTextBuffer@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UTextBuffer::__DefaultConstructor(class FObjectInitializer const &)
+
+### FFileManagerGeneric  (13)
+- ??0FFileManagerGeneric@@QAE@$$QAV0@@Z
+public: __thiscall FFileManagerGeneric::FFileManagerGeneric(class FFileManagerGeneric &&)
+- ??0FFileManagerGeneric@@QAE@ABV0@@Z
+public: __thiscall FFileManagerGeneric::FFileManagerGeneric(class FFileManagerGeneric const &)
+- ??0FFileManagerGeneric@@QAE@XZ
+public: __thiscall FFileManagerGeneric::FFileManagerGeneric(void)
+- ??4FFileManagerGeneric@@QAEAAV0@$$QAV0@@Z
+public: class FFileManagerGeneric & __thiscall FFileManagerGeneric::operator=(class FFileManagerGeneric &&)
+- ??4FFileManagerGeneric@@QAEAAV0@ABV0@@Z
+public: class FFileManagerGeneric & __thiscall FFileManagerGeneric::operator=(class FFileManagerGeneric const &)
+- ??_7FFileManagerGeneric@@6B@
+const FFileManagerGeneric::`vftable'
+- ?Copy@FFileManagerGeneric@@UAEKPB_W0HHHKPAUFCopyProgress@@@Z
+public: virtual unsigned long __thiscall FFileManagerGeneric::Copy(wchar_t const *, wchar_t const *, int, int, int, unsigned long, struct FCopyProgress *)
+- ?DeleteDirectory@FFileManagerGeneric@@UAEHPB_WHH@Z
+public: virtual int __thiscall FFileManagerGeneric::DeleteDirectory(wchar_t const *, int, int)
+- ?FileSize@FFileManagerGeneric@@UAEHPB_W@Z
+public: virtual int __thiscall FFileManagerGeneric::FileSize(wchar_t const *)
+- ?IsDrive@FFileManagerGeneric@@AAEHPB_W@Z
+private: int __thiscall FFileManagerGeneric::IsDrive(wchar_t const *)
+- ?MakeDirectory@FFileManagerGeneric@@UAEHPB_WH@Z
+public: virtual int __thiscall FFileManagerGeneric::MakeDirectory(wchar_t const *, int)
+- ?Move@FFileManagerGeneric@@UAEHPB_W0HHH@Z
+public: virtual int __thiscall FFileManagerGeneric::Move(wchar_t const *, wchar_t const *, int, int, int)
+- ?__FUNC_NAME__@?2??IsDrive@FFileManagerGeneric@@AAEHPB_W@Z@4QB_WB
+wchar_t const *const `private: int __thiscall FFileManagerGeneric::IsDrive(wchar_t const *)'::`3'::__FUNC_NAME__
+
+### FVariance  (13)
+- ??0FVariance@@QAE@ABV0@@Z
+public: __thiscall FVariance::FVariance(class FVariance const &)
+- ??0FVariance@@QAE@ABVFString@@@Z
+public: __thiscall FVariance::FVariance(class FString const &)
+- ??0FVariance@@QAE@H@Z
+public: __thiscall FVariance::FVariance(int)
+- ??0FVariance@@QAE@M@Z
+public: __thiscall FVariance::FVariance(float)
+- ??0FVariance@@QAE@PB_W@Z
+public: __thiscall FVariance::FVariance(wchar_t const *)
+- ??0FVariance@@QAE@_J@Z
+public: __thiscall FVariance::FVariance(__int64)
+- ??1FVariance@@QAE@XZ
+public: __thiscall FVariance::~FVariance(void)
+- ??4FVariance@@QAE?BV0@ABV0@@Z
+public: class FVariance const __thiscall FVariance::operator=(class FVariance const &)
+- ?GetFLOAT@FVariance@@QBEMXZ
+public: float __thiscall FVariance::GetFLOAT(void) const
+- ?GetFStringPtr@FVariance@@QBEPBVFString@@XZ
+public: class FString const * __thiscall FVariance::GetFStringPtr(void) const
+- ?GetINT64@FVariance@@QBE_JXZ
+public: __int64 __thiscall FVariance::GetINT64(void) const
+- ?GetINT@FVariance@@QBEHXZ
+public: int __thiscall FVariance::GetINT(void) const
+- ?GetType@FVariance@@QBE?AW4EValueType@1@XZ
+public: enum FVariance::EValueType __thiscall FVariance::GetType(void) const
+
+### FParamMap  (12)
+- ??0FParamMap@@QAE@ABV0@@Z
+public: __thiscall FParamMap::FParamMap(class FParamMap const &)
+- ??0FParamMap@@QAE@XZ
+public: __thiscall FParamMap::FParamMap(void)
+- ??1FParamMap@@QAE@XZ
+public: __thiscall FParamMap::~FParamMap(void)
+- ??4FParamMap@@QAEAAV0@ABV0@@Z
+public: class FParamMap & __thiscall FParamMap::operator=(class FParamMap const &)
+- ?AddParam@FParamMap@@QAEXABVFName@@ABVFVariance@@@Z
+public: void __thiscall FParamMap::AddParam(class FName const &, class FVariance const &)
+- ?GetMap@FParamMap@@QBEABV?$TMap@VFName@@VFVariance@@@@XZ
+public: class TMap<class FName, class FVariance> const & __thiscall FParamMap::GetMap(void) const
+- ?GetMapPrivate@FParamMap@@ABEAAV?$TMap@VFName@@VFVariance@@@@XZ
+private: class TMap<class FName, class FVariance> & __thiscall FParamMap::GetMapPrivate(void) const
+- ?GetValue@FParamMap@@QBEHABVFName@@AAH@Z
+public: int __thiscall FParamMap::GetValue(class FName const &, int &) const
+- ?GetValue@FParamMap@@QBEHABVFName@@AAM@Z
+public: int __thiscall FParamMap::GetValue(class FName const &, float &) const
+- ?GetValue@FParamMap@@QBEHABVFName@@AAUFINT64@@@Z
+public: int __thiscall FParamMap::GetValue(class FName const &, struct FINT64 &) const
+- ?GetValue@FParamMap@@QBEHABVFName@@AAVFString@@@Z
+public: int __thiscall FParamMap::GetValue(class FName const &, class FString &) const
+- ?GetValue@FParamMap@@QBEHABVFName@@AA_J@Z
+public: int __thiscall FParamMap::GetValue(class FName const &, __int64 &) const
+
+### UObjectExporterT3D  (12)
+- ??0UObjectExporterT3D@@QAE@ABV0@@Z
+public: __thiscall UObjectExporterT3D::UObjectExporterT3D(class UObjectExporterT3D const &)
+- ??0UObjectExporterT3D@@QAE@XZ
+public: __thiscall UObjectExporterT3D::UObjectExporterT3D(void)
+- ??1UObjectExporterT3D@@UAE@XZ
+public: virtual __thiscall UObjectExporterT3D::~UObjectExporterT3D(void)
+- ??2UObjectExporterT3D@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UObjectExporterT3D::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UObjectExporterT3D@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UObjectExporterT3D::operator new(unsigned int, enum EInternal *)
+- ??4UObjectExporterT3D@@QAEAAV0@ABV0@@Z
+public: class UObjectExporterT3D & __thiscall UObjectExporterT3D::operator=(class UObjectExporterT3D const &)
+- ??_7UObjectExporterT3D@@6B@
+const UObjectExporterT3D::`vftable'
+- ?ExportText@UObjectExporterT3D@@UAEHPAVUObject@@PB_WAAVFOutputDevice@@PAVFFeedbackContext@@@Z
+public: virtual int __thiscall UObjectExporterT3D::ExportText(class UObject *, wchar_t const *, class FOutputDevice &, class FFeedbackContext *)
+- ?PrivateStaticClass@UObjectExporterT3D@@0VUClass@@A
+private: static class UClass UObjectExporterT3D::PrivateStaticClass
+- ?StaticClass@UObjectExporterT3D@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UObjectExporterT3D::StaticClass(void)
+- ?StaticConstructor@UObjectExporterT3D@@QAEXXZ
+public: void __thiscall UObjectExporterT3D::StaticConstructor(void)
+- ?__DefaultConstructor@UObjectExporterT3D@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UObjectExporterT3D::__DefaultConstructor(class FObjectInitializer const &)
+
+### USubsystem  (12)
+- ??0USubsystem@@IAE@XZ
+protected: __thiscall USubsystem::USubsystem(void)
+- ??0USubsystem@@QAE@ABV0@@Z
+public: __thiscall USubsystem::USubsystem(class USubsystem const &)
+- ??1USubsystem@@UAE@XZ
+public: virtual __thiscall USubsystem::~USubsystem(void)
+- ??2USubsystem@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl USubsystem::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2USubsystem@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl USubsystem::operator new(unsigned int, enum EInternal *)
+- ??4USubsystem@@QAEAAV0@ABV0@@Z
+public: class USubsystem & __thiscall USubsystem::operator=(class USubsystem const &)
+- ??_7USubsystem@@6BFExec@@@
+const USubsystem::`vftable'{for `FExec'}
+- ??_7USubsystem@@6BUObject@@@
+const USubsystem::`vftable'{for `UObject'}
+- ?PrivateStaticClass@USubsystem@@0VUClass@@A
+private: static class UClass USubsystem::PrivateStaticClass
+- ?StaticClass@USubsystem@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl USubsystem::StaticClass(void)
+- ?Tick@USubsystem@@UAEXM@Z
+public: virtual void __thiscall USubsystem::Tick(float)
+- ?__DefaultConstructor@USubsystem@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl USubsystem::__DefaultConstructor(class FObjectInitializer const &)
+
+### UTextBufferFactory  (12)
+- ??0UTextBufferFactory@@QAE@ABV0@@Z
+public: __thiscall UTextBufferFactory::UTextBufferFactory(class UTextBufferFactory const &)
+- ??0UTextBufferFactory@@QAE@XZ
+public: __thiscall UTextBufferFactory::UTextBufferFactory(void)
+- ??1UTextBufferFactory@@UAE@XZ
+public: virtual __thiscall UTextBufferFactory::~UTextBufferFactory(void)
+- ??2UTextBufferFactory@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl UTextBufferFactory::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2UTextBufferFactory@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl UTextBufferFactory::operator new(unsigned int, enum EInternal *)
+- ??4UTextBufferFactory@@QAEAAV0@ABV0@@Z
+public: class UTextBufferFactory & __thiscall UTextBufferFactory::operator=(class UTextBufferFactory const &)
+- ??_7UTextBufferFactory@@6B@
+const UTextBufferFactory::`vftable'
+- ?FactoryCreateText@UTextBufferFactory@@UAEPAVUObject@@PAVULevel@@PAVUClass@@PAV2@VFName@@K2PB_WAAPB_W4PAVFFeedbackContext@@@Z
+public: virtual class UObject * __thiscall UTextBufferFactory::FactoryCreateText(class ULevel *, class UClass *, class UObject *, class FName, unsigned long, class UObject *, wchar_t const *, wchar_t const *&, wchar_t const *, class FFeedbackContext *)
+- ?PrivateStaticClass@UTextBufferFactory@@0VUClass@@A
+private: static class UClass UTextBufferFactory::PrivateStaticClass
+- ?StaticClass@UTextBufferFactory@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl UTextBufferFactory::StaticClass(void)
+- ?StaticConstructor@UTextBufferFactory@@QAEXXZ
+public: void __thiscall UTextBufferFactory::StaticConstructor(void)
+- ?__DefaultConstructor@UTextBufferFactory@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl UTextBufferFactory::__DefaultConstructor(class FObjectInitializer const &)
+
+### FL2RSACodec  (10)
+- ??0FL2RSACodec@@QAE@ABV0@@Z
+public: __thiscall FL2RSACodec::FL2RSACodec(class FL2RSACodec const &)
+- ??0FL2RSACodec@@QAE@XZ
+public: __thiscall FL2RSACodec::FL2RSACodec(void)
+- ??1FL2RSACodec@@QAE@XZ
+public: __thiscall FL2RSACodec::~FL2RSACodec(void)
+- ??4FL2RSACodec@@QAEAAV0@ABV0@@Z
+public: class FL2RSACodec & __thiscall FL2RSACodec::operator=(class FL2RSACodec const &)
+- ??_7FL2RSACodec@@6B@
+const FL2RSACodec::`vftable'
+- ?Decode@FL2RSACodec@@UAEHAAVFArchive@@0@Z
+public: virtual int __thiscall FL2RSACodec::Decode(class FArchive &, class FArchive &)
+- ?Decode@FL2RSACodec@@UAEHAAVFArchive@@PAPAEAAH@Z
+public: virtual int __thiscall FL2RSACodec::Decode(class FArchive &, unsigned char **, int &)
+- ?Decode@FL2RSACodec@@UAEHPBD0PAEK1AAKHH@Z
+public: virtual int __thiscall FL2RSACodec::Decode(char const *, char const *, unsigned char *, unsigned long, unsigned char *, unsigned long &, int, int)
+- ?Encode@FL2RSACodec@@UAEHAAVFArchive@@0@Z
+public: virtual int __thiscall FL2RSACodec::Encode(class FArchive &, class FArchive &)
+- ?Encode@FL2RSACodec@@UAEHPBD0PAEK1AAKH@Z
+public: virtual int __thiscall FL2RSACodec::Encode(char const *, char const *, unsigned char *, unsigned long, unsigned char *, unsigned long &, int)
+
+### L2ParamStack  (10)
+- ??0L2ParamStack@@QAE@ABV0@@Z
+public: __thiscall L2ParamStack::L2ParamStack(class L2ParamStack const &)
+- ??0L2ParamStack@@QAE@XZ
+public: __thiscall L2ParamStack::L2ParamStack(void)
+- ??1L2ParamStack@@QAE@XZ
+public: __thiscall L2ParamStack::~L2ParamStack(void)
+- ??4L2ParamStack@@QAEAAV0@AAV0@@Z
+public: class L2ParamStack & __thiscall L2ParamStack::operator=(class L2ParamStack &)
+- ?Clear@L2ParamStack@@QAEXXZ
+public: void __thiscall L2ParamStack::Clear(void)
+- ?GetBufferSize@L2ParamStack@@QAEHXZ
+public: int __thiscall L2ParamStack::GetBufferSize(void)
+- ?PushBack@L2ParamStack@@QAEHPA_W@Z
+public: int __thiscall L2ParamStack::PushBack(wchar_t *)
+- ?PushBack@L2ParamStack@@QAEH_J@Z
+public: int __thiscall L2ParamStack::PushBack(__int64)
+- ?Restart@L2ParamStack@@QAEXXZ
+public: void __thiscall L2ParamStack::Restart(void)
+- ?Top@L2ParamStack@@QAE_JXZ
+public: __int64 __thiscall L2ParamStack::Top(void)
+
+### ULanguage  (10)
+- ??0ULanguage@@IAE@XZ
+protected: __thiscall ULanguage::ULanguage(void)
+- ??0ULanguage@@QAE@ABV0@@Z
+public: __thiscall ULanguage::ULanguage(class ULanguage const &)
+- ??1ULanguage@@UAE@XZ
+public: virtual __thiscall ULanguage::~ULanguage(void)
+- ??2ULanguage@@SAPAXIPAVUObject@@PB_WK@Z
+public: static void * __cdecl ULanguage::operator new(unsigned int, class UObject *, wchar_t const *, unsigned long)
+- ??2ULanguage@@SAPAXIPAW4EInternal@@@Z
+public: static void * __cdecl ULanguage::operator new(unsigned int, enum EInternal *)
+- ??4ULanguage@@QAEAAV0@ABV0@@Z
+public: class ULanguage & __thiscall ULanguage::operator=(class ULanguage const &)
+- ??_7ULanguage@@6B@
+const ULanguage::`vftable'
+- ?PrivateStaticClass@ULanguage@@0VUClass@@A
+private: static class UClass ULanguage::PrivateStaticClass
+- ?StaticClass@ULanguage@@SAPAVUClass@@XZ
+public: static class UClass * __cdecl ULanguage::StaticClass(void)
+- ?__DefaultConstructor@ULanguage@@SAXABVFObjectInitializer@@@Z
+public: static void __cdecl ULanguage::__DefaultConstructor(class FObjectInitializer const &)
+
+### FVector  (10)
+- ?BackwardVector@FVector@@2U1@B
+public: static struct FVector const FVector::BackwardVector
+- ?DownVector@FVector@@2U1@B
+public: static struct FVector const FVector::DownVector
+- ?ForwardVector@FVector@@2U1@B
+public: static struct FVector const FVector::ForwardVector
+- ?LeftVector@FVector@@2U1@B
+public: static struct FVector const FVector::LeftVector
+- ?OneVector@FVector@@2U1@B
+public: static struct FVector const FVector::OneVector
+- ?RightVector@FVector@@2U1@B
+public: static struct FVector const FVector::RightVector
+- ?Rotation@FVector@@QAE?AUFRotator@@XZ
+public: struct FRotator __thiscall FVector::Rotation(void)
+- ?SafeNormal@FVector@@QBE?AU1@XZ
+public: struct FVector __thiscall FVector::SafeNormal(void) const
+- ?UpVector@FVector@@2U1@B
+public: static struct FVector const FVector::UpVector
+- ?ZeroVector@FVector@@2U1@B
+public: static struct FVector const FVector::ZeroVector
+
+### FLinearColor  (10)
+- ?CopyWithNewOpacity@FLinearColor@@QBE?AU1@M@Z
+public: struct FLinearColor __thiscall FLinearColor::CopyWithNewOpacity(float) const
+- ?HSVToLinearRGB@FLinearColor@@QBE?AU1@XZ
+public: struct FLinearColor __thiscall FLinearColor::HSVToLinearRGB(void) const
+- ?LerpUsingHSV@FLinearColor@@SA?AU1@ABU1@0M@Z
+public: static struct FLinearColor __cdecl FLinearColor::LerpUsingHSV(struct FLinearColor const &, struct FLinearColor const &, float)
+- ?LinearRGBToHSV@FLinearColor@@QBE?AU1@XZ
+public: struct FLinearColor __thiscall FLinearColor::LinearRGBToHSV(void) const
+- ?MakeFromColorTemperature@FLinearColor@@SA?AU1@M@Z
+public: static struct FLinearColor __cdecl FLinearColor::MakeFromColorTemperature(float)
+- ?MakeFromHSV8@FLinearColor@@SA?AU1@EEE@Z
+public: static struct FLinearColor __cdecl FLinearColor::MakeFromHSV8(unsigned char, unsigned char, unsigned char)
+- ?MakeRandomColor@FLinearColor@@SA?AU1@XZ
+public: static struct FLinearColor __cdecl FLinearColor::MakeRandomColor(void)
+- ?Quantize@FLinearColor@@QBE?AUFColor@@XZ
+public: struct FColor __thiscall FLinearColor::Quantize(void) const
+- ?QuantizeRound@FLinearColor@@QBE?AUFColor@@XZ
+public: struct FColor __thiscall FLinearColor::QuantizeRound(void) const
+- ?ToFColor@FLinearColor@@QBE?AUFColor@@_N@Z
+public: struct FColor __thiscall FLinearColor::ToFColor(bool) const
+
+### FBlowFish  (9)
+- ??0FBlowFish@@QAE@XZ
+public: __thiscall FBlowFish::FBlowFish(void)
+- ??4FBlowFish@@QAEAAV0@$$QAV0@@Z
+public: class FBlowFish & __thiscall FBlowFish::operator=(class FBlowFish &&)
+- ??4FBlowFish@@QAEAAV0@ABV0@@Z
+public: class FBlowFish & __thiscall FBlowFish::operator=(class FBlowFish const &)
+- ?BlowfishDecrypt@FBlowFish@@QAEXPAEH@Z
+public: void __thiscall FBlowFish::BlowfishDecrypt(unsigned char *, int)
+- ?BlowfishEncrypt@FBlowFish@@QAEXPAEH@Z
+public: void __thiscall FBlowFish::BlowfishEncrypt(unsigned char *, int)
+- ?Blowfish_decipher@FBlowFish@@QAEXPAK0@Z
+public: void __thiscall FBlowFish::Blowfish_decipher(unsigned long *, unsigned long *)
+- ?Blowfish_encipher@FBlowFish@@QAEXPAK0@Z
+public: void __thiscall FBlowFish::Blowfish_encipher(unsigned long *, unsigned long *)
+- ?InitializeBlowfish@FBlowFish@@QAEFQAEF@Z
+public: short __thiscall FBlowFish::InitializeBlowfish(unsigned char *const, short)
+- ?ResetMemberVariable@FBlowFish@@QAEXXZ
+public: void __thiscall FBlowFish::ResetMemberVariable(void)
+
+### FMemStack  (9)
+- ??0FMemStack@@QAE@XZ
+public: __thiscall FMemStack::FMemStack(void)
+- ??1FMemStack@@QAE@XZ
+public: __thiscall FMemStack::~FMemStack(void)
+- ??4FMemStack@@QAEAAV0@$$QAV0@@Z
+public: class FMemStack & __thiscall FMemStack::operator=(class FMemStack &&)
+- ??4FMemStack@@QAEAAV0@ABV0@@Z
+public: class FMemStack & __thiscall FMemStack::operator=(class FMemStack const &)
+- ?Exit@FMemStack@@QAEXXZ
+public: void __thiscall FMemStack::Exit(void)
+- ?GetByteCount@FMemStack@@QAEHXZ
+public: int __thiscall FMemStack::GetByteCount(void)
+- ?GetThreadSafeMemStack@FMemStack@@AAEAAVFMemStackFrame@@XZ
+private: class FMemStackFrame & __thiscall FMemStack::GetThreadSafeMemStack(void)
+- ?Init@FMemStack@@QAEXH@Z
+public: void __thiscall FMemStack::Init(int)
+- ?PushBytes@FMemStack@@QAEPAEHH@Z
+public: unsigned char * __thiscall FMemStack::PushBytes(int, int)
+
+### FPackageFileSummary  (9)
+- ??0FPackageFileSummary@@QAE@$$QAU0@@Z
+public: __thiscall FPackageFileSummary::FPackageFileSummary(struct FPackageFileSummary &&)
+- ??0FPackageFileSummary@@QAE@ABU0@@Z
+public: __thiscall FPackageFileSummary::FPackageFileSummary(struct FPackageFileSummary const &)
+- ??0FPackageFileSummary@@QAE@XZ
+public: __thiscall FPackageFileSummary::FPackageFileSummary(void)
+- ??1FPackageFileSummary@@QAE@XZ
+public: __thiscall FPackageFileSummary::~FPackageFileSummary(void)
+- ??4FPackageFileSummary@@QAEAAU0@$$QAU0@@Z
+public: struct FPackageFileSummary & __thiscall FPackageFileSummary::operator=(struct FPackageFileSummary &&)
+- ??4FPackageFileSummary@@QAEAAU0@ABU0@@Z
+public: struct FPackageFileSummary & __thiscall FPackageFileSummary::operator=(struct FPackageFileSummary const &)
+- ?GetFileVersion@FPackageFileSummary@@QBEHXZ
+public: int __thiscall FPackageFileSummary::GetFileVersion(void) const
+- ?GetFileVersionLicensee@FPackageFileSummary@@QBEHXZ
+public: int __thiscall FPackageFileSummary::GetFileVersionLicensee(void) const
+- ?SetFileVersions@FPackageFileSummary@@QAEXHH@Z
+public: void __thiscall FPackageFileSummary::SetFileVersions(int, int)
+
+### L2ThreadBase  (9)
+- ??0L2ThreadBase@@QAE@ABV0@@Z
+public: __thiscall L2ThreadBase::L2ThreadBase(class L2ThreadBase const &)
+- ??0L2ThreadBase@@QAE@PB_W@Z
+public: __thiscall L2ThreadBase::L2ThreadBase(wchar_t const *)
+- ??1L2ThreadBase@@UAE@XZ
+public: virtual __thiscall L2ThreadBase::~L2ThreadBase(void)
+- ??4L2ThreadBase@@QAEAAV0@ABV0@@Z
+public: class L2ThreadBase & __thiscall L2ThreadBase::operator=(class L2ThreadBase const &)
+- ??_7L2ThreadBase@@6B@
+const L2ThreadBase::`vftable'
+- ?GetEventHandle@L2ThreadBase@@UAEPAXXZ
+public: virtual void * __thiscall L2ThreadBase::GetEventHandle(void)
+- ?GetHandle@L2ThreadBase@@UAEPAXXZ
+public: virtual void * __thiscall L2ThreadBase::GetHandle(void)
+- ?GetID@L2ThreadBase@@UAEKXZ
+public: virtual unsigned long __thiscall L2ThreadBase::GetID(void)
+- ?IsRunning@L2ThreadBase@@UAEHXZ
+public: virtual int __thiscall L2ThreadBase::IsRunning(void)
+
+### L2Exception  (8)
+- ??0L2Exception@@QAE@IPBU_EXCEPTION_POINTERS@@@Z
+public: __thiscall L2Exception::L2Exception(unsigned int, struct _EXCEPTION_POINTERS const *)
+- ??4L2Exception@@QAEAAV0@$$QAV0@@Z
+public: class L2Exception & __thiscall L2Exception::operator=(class L2Exception &&)
+- ??4L2Exception@@QAEAAV0@ABV0@@Z
+public: class L2Exception & __thiscall L2Exception::operator=(class L2Exception const &)
+- ?ConvertCodeToString@L2Exception@@QBEXPA_W@Z
+public: void __thiscall L2Exception::ConvertCodeToString(wchar_t *) const
+- ?GetExceptionAdress@L2Exception@@QBEPAXXZ
+public: void * __thiscall L2Exception::GetExceptionAdress(void) const
+- ?GetExceptionInfo@L2Exception@@QBEPBU_EXCEPTION_POINTERS@@XZ
+public: struct _EXCEPTION_POINTERS const * __thiscall L2Exception::GetExceptionInfo(void) const
+- ?GetMudulePath@L2Exception@@QBEXPA_W@Z
+public: void __thiscall L2Exception::GetMudulePath(wchar_t *) const
+- ?GetSegCs@L2Exception@@QBEKXZ
+public: unsigned long __thiscall L2Exception::GetSegCs(void) const
+
+### L2ThreadStats  (8)
+- ??0L2ThreadStats@@QAE@XZ
+public: __thiscall L2ThreadStats::L2ThreadStats(void)
+- ??4L2ThreadStats@@QAEAAV0@$$QAV0@@Z
+public: class L2ThreadStats & __thiscall L2ThreadStats::operator=(class L2ThreadStats &&)
+- ??4L2ThreadStats@@QAEAAV0@ABV0@@Z
+public: class L2ThreadStats & __thiscall L2ThreadStats::operator=(class L2ThreadStats const &)
+- ?Clear@L2ThreadStats@@QAEXXZ
+public: void __thiscall L2ThreadStats::Clear(void)
+- ?LockEnd@L2ThreadStats@@QAEXXZ
+public: void __thiscall L2ThreadStats::LockEnd(void)
+- ?LockStart@L2ThreadStats@@QAEXXZ
+public: void __thiscall L2ThreadStats::LockStart(void)
+- ?SleepEnd@L2ThreadStats@@QAEXXZ
+public: void __thiscall L2ThreadStats::SleepEnd(void)
+- ?SleepStart@L2ThreadStats@@QAEXXZ
+public: void __thiscall L2ThreadStats::SleepStart(void)
+
+### FCrc  (8)
+- ??4FCrc@@QAEAAU0@$$QAU0@@Z
+public: struct FCrc & __thiscall FCrc::operator=(struct FCrc &&)
+- ??4FCrc@@QAEAAU0@ABU0@@Z
+public: struct FCrc & __thiscall FCrc::operator=(struct FCrc const &)
+- ?CRCTable_DEPRECATED@FCrc@@2PAKA
+public: static unsigned long *FCrc::CRCTable_DEPRECATED
+- ?CRCTablesSB8@FCrc@@2PAY0BAA@KA
+public: static unsigned long (*FCrc::CRCTablesSB8)[256]
+- ?CRCTablesSB8_DEPRECATED@FCrc@@2PAY0BAA@KA
+public: static unsigned long (*FCrc::CRCTablesSB8_DEPRECATED)[256]
+- ?Init@FCrc@@SAXXZ
+public: static void __cdecl FCrc::Init(void)
+- ?MemCrc32@FCrc@@SAKPBXHK@Z
+public: static unsigned long __cdecl FCrc::MemCrc32(void const *, int, unsigned long)
+- ?MemCrc_DEPRECATED@FCrc@@SAKPBXHK@Z
+public: static unsigned long __cdecl FCrc::MemCrc_DEPRECATED(void const *, int, unsigned long)
+
+### FObjectInitializer  (7)
+- ??0FObjectInitializer@@QAE@PAVUObject@@0@Z
+public: __thiscall FObjectInitializer::FObjectInitializer(class UObject *, class UObject *)
+- ??0FObjectInitializer@@QAE@XZ
+public: __thiscall FObjectInitializer::FObjectInitializer(void)
+- ??1FObjectInitializer@@QAE@XZ
+public: __thiscall FObjectInitializer::~FObjectInitializer(void)
+- ??4FObjectInitializer@@QAEAAV0@ABV0@@Z
+public: class FObjectInitializer & __thiscall FObjectInitializer::operator=(class FObjectInitializer const &)
+- ?GetArchetype@FObjectInitializer@@QBEPAVUObject@@XZ
+public: class UObject * __thiscall FObjectInitializer::GetArchetype(void) const
+- ?GetClass@FObjectInitializer@@QBEPAVUClass@@XZ
+public: class UClass * __thiscall FObjectInitializer::GetClass(void) const
+- ?GetObj@FObjectInitializer@@QBEPAVUObject@@XZ
+public: class UObject * __thiscall FObjectInitializer::GetObj(void) const
+
+### FPackageInfo  (7)
+- ??0FPackageInfo@@QAE@$$QAV0@@Z
+public: __thiscall FPackageInfo::FPackageInfo(class FPackageInfo &&)
+- ??0FPackageInfo@@QAE@ABV0@@Z
+public: __thiscall FPackageInfo::FPackageInfo(class FPackageInfo const &)
+- ??0FPackageInfo@@QAE@PAVULinkerLoad@@@Z
+public: __thiscall FPackageInfo::FPackageInfo(class ULinkerLoad *)
+- ??1FPackageInfo@@QAE@XZ
+public: __thiscall FPackageInfo::~FPackageInfo(void)
+- ??4FPackageInfo@@QAEAAV0@$$QAV0@@Z
+public: class FPackageInfo & __thiscall FPackageInfo::operator=(class FPackageInfo &&)
+- ??4FPackageInfo@@QAEAAV0@ABV0@@Z
+public: class FPackageInfo & __thiscall FPackageInfo::operator=(class FPackageInfo const &)
+- ??_FFPackageInfo@@QAEXXZ
+public: void __thiscall FPackageInfo::`default ctor closure'(void)
+
+### L2GlobalVariables  (7)
+- ??0L2GlobalVariables@@AAE@XZ
+private: __thiscall L2GlobalVariables::L2GlobalVariables(void)
+- ??0L2GlobalVariables@@QAE@$$QAV0@@Z
+public: __thiscall L2GlobalVariables::L2GlobalVariables(class L2GlobalVariables &&)
+- ??0L2GlobalVariables@@QAE@ABV0@@Z
+public: __thiscall L2GlobalVariables::L2GlobalVariables(class L2GlobalVariables const &)
+- ??1L2GlobalVariables@@UAE@XZ
+public: virtual __thiscall L2GlobalVariables::~L2GlobalVariables(void)
+- ??4L2GlobalVariables@@QAEAAV0@$$QAV0@@Z
+public: class L2GlobalVariables & __thiscall L2GlobalVariables::operator=(class L2GlobalVariables &&)
+- ??4L2GlobalVariables@@QAEAAV0@ABV0@@Z
+public: class L2GlobalVariables & __thiscall L2GlobalVariables::operator=(class L2GlobalVariables const &)
+- ??_7L2GlobalVariables@@6B@
+const L2GlobalVariables::`vftable'
+
+### FBitWriterMark  (6)
+- ??0FBitWriterMark@@QAE@AAUFBitWriter@@@Z
+public: __thiscall FBitWriterMark::FBitWriterMark(struct FBitWriter &)
+- ??0FBitWriterMark@@QAE@XZ
+public: __thiscall FBitWriterMark::FBitWriterMark(void)
+- ??4FBitWriterMark@@QAEAAU0@$$QAU0@@Z
+public: struct FBitWriterMark & __thiscall FBitWriterMark::operator=(struct FBitWriterMark &&)
+- ??4FBitWriterMark@@QAEAAU0@ABU0@@Z
+public: struct FBitWriterMark & __thiscall FBitWriterMark::operator=(struct FBitWriterMark const &)
+- ?GetNumBits@FBitWriterMark@@QAEHXZ
+public: int __thiscall FBitWriterMark::GetNumBits(void)
+- ?Pop@FBitWriterMark@@QAEXAAUFBitWriter@@@Z
+public: void __thiscall FBitWriterMark::Pop(struct FBitWriter &)
+
+### FGlobalMath  (6)
+- ??0FGlobalMath@@QAE@XZ
+public: __thiscall FGlobalMath::FGlobalMath(void)
+- ?CosFloat@FGlobalMath@@QAEMM@Z
+public: float __thiscall FGlobalMath::CosFloat(float)
+- ?CosTab@FGlobalMath@@QAEMH@Z
+public: float __thiscall FGlobalMath::CosTab(int)
+- ?SinFloat@FGlobalMath@@QAEMM@Z
+public: float __thiscall FGlobalMath::SinFloat(float)
+- ?SinTab@FGlobalMath@@QAEMH@Z
+public: float __thiscall FGlobalMath::SinTab(int)
+- ?Sqrt@FGlobalMath@@QAEMH@Z
+public: float __thiscall FGlobalMath::Sqrt(int)
+
+### FInterpCurve  (6)
+- ??0FInterpCurve@@QAE@ABV0@@Z
+public: __thiscall FInterpCurve::FInterpCurve(class FInterpCurve const &)
+- ??0FInterpCurve@@QAE@XZ
+public: __thiscall FInterpCurve::FInterpCurve(void)
+- ??1FInterpCurve@@QAE@XZ
+public: __thiscall FInterpCurve::~FInterpCurve(void)
+- ??4FInterpCurve@@QAEXABV0@@Z
+public: void __thiscall FInterpCurve::operator=(class FInterpCurve const &)
+- ?AddPoint@FInterpCurve@@QAEXMM@Z
+public: void __thiscall FInterpCurve::AddPoint(float, float)
+- ?Eval@FInterpCurve@@QAEMM@Z
+public: float __thiscall FInterpCurve::Eval(float)
+
+### FRotatorf  (6)
+- ??0FRotatorf@@QAE@ABUFQuat@@@Z
+public: __thiscall FRotatorf::FRotatorf(struct FQuat const &)
+- ?Euler@FRotatorf@@QBE?AUFVector@@XZ
+public: struct FVector __thiscall FRotatorf::Euler(void) const
+- ?GetInverse@FRotatorf@@QBE?AU1@XZ
+public: struct FRotatorf __thiscall FRotatorf::GetInverse(void) const
+- ?MakeFromEuler@FRotatorf@@SA?AU1@ABUFVector@@@Z
+public: static struct FRotatorf __cdecl FRotatorf::MakeFromEuler(struct FVector const &)
+- ?Quaternion@FRotatorf@@QBE?AUFQuat@@XZ
+public: struct FQuat __thiscall FRotatorf::Quaternion(void) const
+- ?Vector@FRotatorf@@QBE?AUFVector@@XZ
+public: struct FVector __thiscall FRotatorf::Vector(void) const
+
+### FSingletonBase  (6)
+- ??0FSingletonBase@@IAE@XZ
+protected: __thiscall FSingletonBase::FSingletonBase(void)
+- ??0FSingletonBase@@QAE@ABV0@@Z
+public: __thiscall FSingletonBase::FSingletonBase(class FSingletonBase const &)
+- ??1FSingletonBase@@MAE@XZ
+protected: virtual __thiscall FSingletonBase::~FSingletonBase(void)
+- ??4FSingletonBase@@QAEAAV0@ABV0@@Z
+public: class FSingletonBase & __thiscall FSingletonBase::operator=(class FSingletonBase const &)
+- ??_7FSingletonBase@@6B@
+const FSingletonBase::`vftable'
+- ?PreExit@FSingletonBase@@MAEXXZ
+protected: virtual void __thiscall FSingletonBase::PreExit(void)
+
+### L2CrashDevLog  (6)
+- ??0L2CrashDevLog@@QAE@XZ
+public: __thiscall L2CrashDevLog::L2CrashDevLog(void)
+- ??4L2CrashDevLog@@QAEAAV0@$$QAV0@@Z
+public: class L2CrashDevLog & __thiscall L2CrashDevLog::operator=(class L2CrashDevLog &&)
+- ??4L2CrashDevLog@@QAEAAV0@ABV0@@Z
+public: class L2CrashDevLog & __thiscall L2CrashDevLog::operator=(class L2CrashDevLog const &)
+- ?GetCrashDevLog@L2CrashDevLog@@QAEXAAVFString@@@Z
+public: void __thiscall L2CrashDevLog::GetCrashDevLog(class FString &)
+- ?SetCrashDevLog@L2CrashDevLog@@QAEXPB_W@Z
+public: void __thiscall L2CrashDevLog::SetCrashDevLog(wchar_t const *)
+- ?SetSenderInfoStr@L2CrashDevLog@@QAEXPB_W@Z
+public: void __thiscall L2CrashDevLog::SetSenderInfoStr(wchar_t const *)
+
+### FUseSystemMallocForNew  (6)
+- ??2FUseSystemMallocForNew@@SAPAXI@Z
+public: static void * __cdecl FUseSystemMallocForNew::operator new(unsigned int)
+- ??3FUseSystemMallocForNew@@SAXPAX@Z
+public: static void __cdecl FUseSystemMallocForNew::operator delete(void *)
+- ??4FUseSystemMallocForNew@@QAEAAV0@$$QAV0@@Z
+public: class FUseSystemMallocForNew & __thiscall FUseSystemMallocForNew::operator=(class FUseSystemMallocForNew &&)
+- ??4FUseSystemMallocForNew@@QAEAAV0@ABV0@@Z
+public: class FUseSystemMallocForNew & __thiscall FUseSystemMallocForNew::operator=(class FUseSystemMallocForNew const &)
+- ??_UFUseSystemMallocForNew@@SAPAXI@Z
+public: static void * __cdecl FUseSystemMallocForNew::operator new[](unsigned int)
+- ??_VFUseSystemMallocForNew@@SAXPAX@Z
+public: static void __cdecl FUseSystemMallocForNew::operator delete[](void *)
+
+### FGenericPlatformMath  (6)
+- ?Atan2@FGenericPlatformMath@@SAMMM@Z
+public: static float __cdecl FGenericPlatformMath::Atan2(float, float)
+- ?Fmod@FGenericPlatformMath@@SAMMM@Z
+public: static float __cdecl FGenericPlatformMath::Fmod(float, float)
+- ?FmodReportError@FGenericPlatformMath@@CAXMM@Z
+private: static void __cdecl FGenericPlatformMath::FmodReportError(float, float)
+- ?GetRandSeed@FGenericPlatformMath@@SAHXZ
+public: static int __cdecl FGenericPlatformMath::GetRandSeed(void)
+- ?SRand@FGenericPlatformMath@@SAMXZ
+public: static float __cdecl FGenericPlatformMath::SRand(void)
+- ?SRandInit@FGenericPlatformMath@@SAXH@Z
+public: static void __cdecl FGenericPlatformMath::SRandInit(int)
+
+### FCriticalSection  (5)
+- ??0FCriticalSection@@QAE@XZ
+public: __thiscall FCriticalSection::FCriticalSection(void)
+- ??1FCriticalSection@@QAE@XZ
+public: __thiscall FCriticalSection::~FCriticalSection(void)
+- ??4FCriticalSection@@QAEAAV0@ABV0@@Z
+public: class FCriticalSection & __thiscall FCriticalSection::operator=(class FCriticalSection const &)
+- ?Lock@FCriticalSection@@QAEXXZ
+public: void __thiscall FCriticalSection::Lock(void)
+- ?Unlock@FCriticalSection@@QAEXXZ
+public: void __thiscall FCriticalSection::Unlock(void)
+
+### FDependency  (5)
+- ??0FDependency@@QAE@PAVUClass@@H@Z
+public: __thiscall FDependency::FDependency(class UClass *, int)
+- ??0FDependency@@QAE@XZ
+public: __thiscall FDependency::FDependency(void)
+- ??4FDependency@@QAEAAV0@$$QAV0@@Z
+public: class FDependency & __thiscall FDependency::operator=(class FDependency &&)
+- ??4FDependency@@QAEAAV0@ABV0@@Z
+public: class FDependency & __thiscall FDependency::operator=(class FDependency const &)
+- ?IsUpToDate@FDependency@@QAEHXZ
+public: int __thiscall FDependency::IsUpToDate(void)
+
+### FMemMark  (5)
+- ??0FMemMark@@QAE@AAVFMemStack@@@Z
+public: __thiscall FMemMark::FMemMark(class FMemStack &)
+- ??0FMemMark@@QAE@XZ
+public: __thiscall FMemMark::FMemMark(void)
+- ??4FMemMark@@QAEAAV0@$$QAV0@@Z
+public: class FMemMark & __thiscall FMemMark::operator=(class FMemMark &&)
+- ??4FMemMark@@QAEAAV0@ABV0@@Z
+public: class FMemMark & __thiscall FMemMark::operator=(class FMemMark const &)
+- ?Pop@FMemMark@@QAEXXZ
+public: void __thiscall FMemMark::Pop(void)
+
+### FRotator  (5)
+- ??0FRotator@@QAE@ABUFQuat@@@Z
+public: __thiscall FRotator::FRotator(struct FQuat const &)
+- ?GetWindingAndRemainder@FRotator@@QBEXAAU1@0@Z
+public: void __thiscall FRotator::GetWindingAndRemainder(struct FRotator &, struct FRotator &) const
+- ?Quaternion65535@FRotator@@QBE?AUFQuat@@XZ
+public: struct FQuat __thiscall FRotator::Quaternion65535(void) const
+- ?Quaternion@FRotator@@QBE?AUFQuat@@XZ
+public: struct FQuat __thiscall FRotator::Quaternion(void) const
+- ?ZeroRotator@FRotator@@2U1@B
+public: static struct FRotator const FRotator::ZeroRotator
+
+### FQuat  (4)
+- ?Euler@FQuat@@QBE?AUFVector@@XZ
+public: struct FVector __thiscall FQuat::Euler(void) const
+- ?Identity@FQuat@@2U1@B
+public: static struct FQuat const FQuat::Identity
+- ?MakeFromEuler@FQuat@@SA?AU1@ABUFVector@@@Z
+public: static struct FQuat __cdecl FQuat::MakeFromEuler(struct FVector const &)
+- ?Rotator@FQuat@@QBE?AUFRotatorf@@XZ
+public: struct FRotatorf __thiscall FQuat::Rotator(void) const

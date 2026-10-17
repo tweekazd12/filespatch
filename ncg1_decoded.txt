@@ -1,0 +1,3 @@
+ncg1 = .bss (uninitialized data)
+Raw file size: 0 bytes. Nothing to decode: the section only reserves
+virtual address space, zero-filled by the loader at runtime.

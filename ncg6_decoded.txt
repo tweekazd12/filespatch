@@ -1,0 +1,12 @@
+ncg6 = .reloc (base relocation table), DLL image base 0x10000000
+
+block 0: PageRVA=0x000b0000  SizeOfBlock=10  entries=1
+    type 3 (HIGHLOW) offset 0xfb3  -> fixup RVA 0x0b0fb3  (VA 0x100b0fb3)
+block 1: PageRVA=0x005f7000  SizeOfBlock=18  entries=5
+    type 3 (HIGHLOW) offset 0x000  -> fixup RVA 0x5f7000  (VA 0x105f7000)
+    type 3 (HIGHLOW) offset 0x004  -> fixup RVA 0x5f7004  (VA 0x105f7004)
+    type 3 (HIGHLOW) offset 0x008  -> fixup RVA 0x5f7008  (VA 0x105f7008)
+    type 3 (HIGHLOW) offset 0x00c  -> fixup RVA 0x5f700c  (VA 0x105f700c)
+    type 3 (HIGHLOW) offset 0x020  -> fixup RVA 0x5f7020  (VA 0x105f7020)
+
+total: 2 block(s), 6 fixup(s)

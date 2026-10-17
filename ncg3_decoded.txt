@@ -1,0 +1,12 @@
+ncg3 = pointer table + embedded import-name strings (DLL base 0x10000000)
+
+Region A (function/pointer slots): in-image VAs, fixed up by ncg6 .reloc
+  [   0] 0x105f7018 -> RVA 0x5f7018
+  [   1] 0x105f7018 -> RVA 0x5f7018
+  [   2] 0x105f701c -> RVA 0x5f701c
+  [   3] 0x105f7020 -> RVA 0x5f7020
+  [   8] 0x10035fdd -> RVA 0x035fdd
+
+Region B (ASCII blob, DLL + API names):
+  @0x0120  USER32.DLL
+  @0x012d  MessageBoxW
