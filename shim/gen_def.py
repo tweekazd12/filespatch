@@ -73,6 +73,26 @@ def read_with_pefile(path):
     return exports
 
 
+def read_from_report(path):
+    """Parse the triage `report.txt` export listing.
+
+    Lines look like:   `    ord 147 rva 0x1bfa0 ??0UExporter@@QAE@ABV0@@Z`
+    Only the ordinal and the trailing name are used (the RVA is ignored).
+    """
+    line_re = re.compile(r"^\s*ord\s+(\d+)\s+rva\s+0x[0-9a-fA-F]+\s+(\S+)\s*$")
+    exports = []
+    with open(path, "r", encoding="utf-8", errors="replace") as fh:
+        for raw in fh:
+            m = line_re.match(raw)
+            if m:
+                exports.append(Export(int(m.group(1)), m.group(2)))
+    if not exports:
+        raise SystemExit(
+            "error: no 'ord N rva 0x.. NAME' lines found in %s" % path
+        )
+    return exports
+
+
 def read_from_dumpbin(path):
     """Best-effort parser for `dumpbin /exports` text output.
 
@@ -184,6 +204,9 @@ def main(argv=None):
     ap.add_argument("input", help="original DLL, or dumpbin text with --from-dumpbin")
     ap.add_argument("--from-dumpbin", action="store_true",
                     help="treat INPUT as `dumpbin /exports` text, not a DLL")
+    ap.add_argument("--from-report", action="store_true",
+                    help="treat INPUT as a triage report.txt export listing "
+                         "(lines: 'ord N rva 0x.. NAME')")
     ap.add_argument("--orig-name", default=None,
                     help="module the forwarders point at (default: <stem>_orig)")
     ap.add_argument("--library", default=None, help="emit a LIBRARY line")
@@ -193,16 +216,23 @@ def main(argv=None):
     ap.add_argument("-o", "--output", default=None, help="output .def path")
     args = ap.parse_args(argv)
 
+    if args.from_dumpbin and args.from_report:
+        raise SystemExit("error: --from-dumpbin and --from-report are exclusive")
+
     if args.orig_name:
         orig_name = args.orig_name
+    elif args.from_dumpbin or args.from_report:
+        # The input is a text file, not the DLL; can't derive a stem.
+        raise SystemExit(
+            "error: --orig-name is required with --from-dumpbin/--from-report"
+        )
     else:
         stem = os.path.splitext(os.path.basename(args.input))[0]
-        if args.from_dumpbin:
-            # The input name is a text file, not the DLL; can't derive a stem.
-            raise SystemExit("error: --orig-name is required with --from-dumpbin")
         orig_name = stem + "_orig"
 
-    if args.from_dumpbin:
+    if args.from_report:
+        exports = read_from_report(args.input)
+    elif args.from_dumpbin:
         exports = read_from_dumpbin(args.input)
     else:
         try:

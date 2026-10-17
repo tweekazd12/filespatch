@@ -17,3 +17,7 @@ out*/
 # Python
 __pycache__/
 *.pyc
+
+# but DO track the checked-in generated artifacts
+!shim/generated/
+!shim/generated/*

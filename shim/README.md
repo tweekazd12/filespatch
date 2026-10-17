@@ -113,6 +113,13 @@ dumpbin /exports Core.dll > exports.txt
 python3 gen_def.py --from-dumpbin exports.txt --orig-name Core_orig -o Core.def
 ```
 
+Already have a triage `report.txt` (lines `ord N rva 0x.. NAME`)? Build the
+`.def` straight from it, no DLL or `pefile` needed:
+
+```sh
+python3 gen_def.py report.txt --from-report --orig-name Core_orig -o Core.def
+```
+
 ## Caveats & toolchain differences
 
 - **Ordinal-only (NONAME) exports.** Symbols the original exports with *no
